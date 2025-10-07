@@ -4,23 +4,20 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Animator))]
 public class PlayerAnimation : MonoBehaviour
 {
-    [SerializeField] private InputActionReference look;
-    [SerializeField] private Rigidbody2D rb;
-    private Vector3 mousePos;
     private Animator animator;
+    private SpriteRenderer sr;
     private Vector2 baseScale;
     private bool isWalking = false;
 
-    private void Start()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
         baseScale = transform.localScale;
     }
-
-    private void FixedUpdate()    
+    public void Animate(Rigidbody2D rb, Vector2 mousePos)
     {
-        SetMousePosition();
-        CheckRotation();
+        CheckRotation(mousePos);
         if (rb.linearVelocity.magnitude > 0)
         {
             SwitchAnimation(true);
@@ -47,18 +44,10 @@ public class PlayerAnimation : MonoBehaviour
     /// <summary>
     /// Поворачивает игрока в зависимости от того в какой стороне от него находится курсор
     /// </summary>
-    private void CheckRotation()
+    private void CheckRotation(Vector2 mousePos)
     {
         //sr.flipX = mousePos.x < transform.position.x;
         Vector2 flip = new Vector2(mousePos.x < transform.position.x ? -baseScale.x : baseScale.x, baseScale.y);
-        transform.localScale = flip;
-    }
-
-    /// <summary>
-    /// Получает данные о расположении курсора в пространстве
-    /// </summary>
-    private void SetMousePosition()
-    {
-        mousePos = Camera.main.ScreenToWorldPoint(look.action.ReadValue<Vector2>());
+        transform.localScale = flip; 
     }
 }

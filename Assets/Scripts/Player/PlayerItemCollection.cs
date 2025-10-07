@@ -33,15 +33,8 @@ public class PlayerItemCollection : MonoBehaviour, IObservable
     {
         if (collision.TryGetComponent<ICollectable>(out ICollectable collectable))
         {
-            ItemPickupContext context = collectable.Collect();
-            if (context != null)
-            {          
-                Notify(context);
-            }  
-            else
-            {
-                Debug.LogWarning("Инвентарь забит");
-            }  
+            ItemPickupContext context = collectable.Collect();       
+            Notify(context);
         }
     }
 }

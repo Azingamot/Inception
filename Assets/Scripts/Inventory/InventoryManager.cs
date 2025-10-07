@@ -22,6 +22,7 @@ public class InventoryManager : MonoBehaviour, IObserver
         if (instance == null)
         {
             instance = this;
+            GameObject.FindAnyObjectByType<PlayerItemCollection>().AddObserver(this);
         }
         else
         {
@@ -113,8 +114,7 @@ public class InventoryManager : MonoBehaviour, IObserver
     /// Добавляет предмет в инвентарь
     /// </summary>
     /// <param name="item">Предмет</param>
-    /// <returns>Был ли добавлен предмет</returns>
-    public bool AddItem(Item item)
+    public void AddItem(Item item)
     {
         foreach (InventorySlot slot in inventorySlots)
         {
@@ -123,15 +123,27 @@ public class InventoryManager : MonoBehaviour, IObserver
             {
                 SpawnNewItem(item, slot);
                 ChangeSelectedSlot(selectedSlot);
-                return true;
+                break;
             }
             else if (itemSlot.ItemInSlot == item && itemSlot.Count < item.MaxStack)
             {
                 itemSlot.Count++;
                 itemSlot.RefreshCount();
                 ChangeSelectedSlot(selectedSlot);
-                return true;
+                break;
             }
+        }
+    }
+
+    public bool HaveSpaceForItem(Item item)
+    {
+        foreach (InventorySlot slot in inventorySlots)
+        {
+            InventoryItem itemSlot = slot.GetComponentInChildren<InventoryItem>();
+            if (itemSlot == null)
+                return true;
+            else if (itemSlot.ItemInSlot == item && itemSlot.Count < item.MaxStack)
+                return true;
         }
         return false;
     }
@@ -153,7 +165,11 @@ public class InventoryManager : MonoBehaviour, IObserver
         if (context is ItemPickupContext)
         {
             ItemPickupContext pickupContext = (ItemPickupContext)context;
-            AddItem(pickupContext.InventoryItem);
+            if (HaveSpaceForItem(pickupContext.InventoryItem))
+            {
+                AddItem(pickupContext.InventoryItem);
+                Destroy(pickupContext.ItemInstance);
+            }
         }
     }
 }

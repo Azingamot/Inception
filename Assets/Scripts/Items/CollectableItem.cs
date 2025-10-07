@@ -15,12 +15,7 @@ public class CollectableItem : MonoBehaviour, ICollectable
     /// </summary>
     public ItemPickupContext Collect()
     {
-        if (InventoryManager.instance.AddItem(Item))
-        {
-            Destroy(gameObject, 0);
-            return new ItemPickupContext(collectableItem, itemsCount);
-        }
-        return null;
+        return new ItemPickupContext(gameObject, collectableItem, itemsCount);
     }
     
     /// <summary>

@@ -2,12 +2,9 @@ using UnityEditor.Animations;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Axe", menuName = "Scriptable Objects/Axe")]
-public class Axe : Item
+public class Axe : DamageItem
 {
-    public float Damage = 5;
     public float SwingSpeed = 1.5f;
-    public DamageType[] DamageTypes;
-    public AnimatorController Animator;
 
     public Axe()
     {

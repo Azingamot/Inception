@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxStack: 1
   ItemSprite: {fileID: 5127326418951840272, guid: 24513f7109aca6a478c3e1662f513768, type: 3}
+  Animator: {fileID: 9100000, guid: ba1363307658ff24085d38c60f7a6486, type: 2}
   Damage: 5
   SwingSpeed: 1.5
   DamageTypes: 01000000
-  Animator: {fileID: 0}

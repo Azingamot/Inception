@@ -6,6 +6,7 @@ public class SwordUsage : UsableItem
 
     public override void Use()
     {
+        playerItemInHand.TriggerAnimation("Slash");
         Debug.Log($"Sword of type {item.name} was used");
     }
 }

@@ -29,9 +29,11 @@ public class SelectionChangeHandler : MonoBehaviour
 
     private void ChangeItemInHand(Item item)
     {
-        if (playerItemInHand != null)
+        if (playerItemInHand != null && item != null)
         {
-            playerItemInHand.ChangeItemSprite(item != null ? item.ItemSprite : null);
+            playerItemInHand.ChangeItemSprite(item.ItemSprite);
+            playerItemInHand.SetItemAnimatorController(item.Animator);
+            if (item.ItemUsage != null) item.ItemUsage.Initialize(playerItemInHand);
         }   
     }
 }
