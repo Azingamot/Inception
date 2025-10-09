@@ -12,8 +12,6 @@ public class DamageDealer : MonoBehaviour
             if (selected is DamageItem)
             {
                 item = (DamageItem)selected;
-                Debug.Log(item);
-                Debug.Log(item.Damage);
                 component.ReceiveDamage(item.Damage, item);
             }
         }

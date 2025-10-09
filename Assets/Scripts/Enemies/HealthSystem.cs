@@ -10,23 +10,27 @@ public class HealthSystem : MonoBehaviour, IDamageable
     [Header("Health")]
     [SerializeField] private DamageType requiredType;
     [SerializeField] private float maxHp;
+    [SerializeField] private float invisibilityTime = 0.1f;
     [Header("Events")]
-    [SerializeField] private UnityEvent onDeath;
+    [SerializeField] private UnityEvent<Transform, SpriteRenderer> onInitialize;
+    [SerializeField] private UnityEvent<float> onHit;
+    [SerializeField] private UnityEvent<float> beforeDeath;
+    [SerializeField] private UnityEvent<float> onDeath;
     [Header("Effects")]
-    [SerializeField] private Transform renderersRoot;
-    [SerializeField] private SpriteRenderer mainRenderer;
-    [SerializeField] private Material hitMaterial;
-    [SerializeField] private float blinkTime;
+    [SerializeField] private Transform mainTransform;
+    [SerializeField] private float timeToDie;
+    [SerializeField] private float timeToFinish;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
     private float hp;
     public float MaxHealth { get => maxHp; set => maxHp = value; }
     public float Health { get => hp; set => hp = Mathf.Clamp(value, 0, maxHp); }
-    private Material baseMaterial;
-    private Coroutine afterHitCoroutine;
+    private bool canBeDamaged = true;
 
     private void Start()
     {
+        onInitialize?.Invoke(mainTransform, spriteRenderer);
         hp = maxHp;
-        baseMaterial = mainRenderer.material;
     }
 
     public void ReceiveDamage(float amount)
@@ -44,6 +48,7 @@ public class HealthSystem : MonoBehaviour, IDamageable
 
     public void ReceiveDamage(DamageItem item)
     {
+        if (!canBeDamaged) return;
         ChangeHealth(item.Damage);
     }
 
@@ -51,41 +56,35 @@ public class HealthSystem : MonoBehaviour, IDamageable
     {
         Health -= amount;
         if (Health == 0)
-            onDeath?.Invoke();
+        {
+            canBeDamaged = false;
+            StopAllCoroutines();
+            beforeDeath?.Invoke(timeToDie);
+            StartCoroutine(DieInTime());
+        }
         else
-            healthIndicator.UpdateFill(hp, maxHp);
+        {
+            onHit?.Invoke(timeToFinish);
+            StartCoroutine(Invisibility());
+        }
         healthIndicator.UpdateFill(hp, maxHp);
-        DamageEffects();
+    }
+
+    private IEnumerator Invisibility()
+    {
+        canBeDamaged = false;
+        yield return new WaitForSeconds(invisibilityTime);
+        canBeDamaged = true;
+    }
+
+    private IEnumerator DieInTime()
+    {
+        yield return new WaitForSeconds(timeToDie);
+        onDeath?.Invoke(timeToFinish);
     }
 
     private bool CheckType(DamageType[] types)
     {
         return types.Contains(requiredType); 
-    }
-
-    private void DamageEffects()
-    {
-        CameraEffects.Instance.ApplyShake();
-        if (afterHitCoroutine != null)
-            StopCoroutine(afterHitCoroutine);
-        afterHitCoroutine = StartCoroutine(AfterHitBlink());
-    }
-
-    private IEnumerator AfterHitBlink()
-    {
-        ChangeMaterial(hitMaterial);
-        yield return new WaitForSeconds(blinkTime);
-        ChangeMaterial(baseMaterial);
-    }
-
-    private void ChangeMaterial(Material material)
-    {
-        mainRenderer.material = material;
-        for (int i = 0; i < renderersRoot.transform.childCount; i++)
-        {
-            renderersRoot.transform.GetChild(i).TryGetComponent<SpriteRenderer>(out SpriteRenderer childRenderer);
-            if (childRenderer != null)
-                childRenderer.material = material;
-        }
     }
 }

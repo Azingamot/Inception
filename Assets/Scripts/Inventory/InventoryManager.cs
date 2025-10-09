@@ -71,6 +71,8 @@ public class InventoryManager : MonoBehaviour, IObserver
 
         if (selectedSlot >= 0 && selectedSlot != newValue)
         {
+            Item previous = GetSelectedItem();
+            if (previous != null && previous.ItemUsage != null) previous.ItemUsage.Stop();
             inventorySlots[selectedSlot].SelectionChange(false);
         }
         inventorySlots[newValue].SelectionChange(true);
@@ -114,20 +116,20 @@ public class InventoryManager : MonoBehaviour, IObserver
     /// Добавляет предмет в инвентарь
     /// </summary>
     /// <param name="item">Предмет</param>
-    public void AddItem(Item item)
+    public void AddItem(Item item, int count = 1)
     {
         foreach (InventorySlot slot in inventorySlots)
         {
             InventoryItem itemSlot = slot.GetComponentInChildren<InventoryItem>();
             if (itemSlot == null)
             {
-                SpawnNewItem(item, slot);
+                SpawnNewItem(item, slot, count);
                 ChangeSelectedSlot(selectedSlot);
                 break;
             }
-            else if (itemSlot.ItemInSlot == item && itemSlot.Count < item.MaxStack)
+            else if (itemSlot.ItemInSlot == item && (itemSlot.Count + count) < item.MaxStack)
             {
-                itemSlot.Count++;
+                itemSlot.Count += count;
                 itemSlot.RefreshCount();
                 ChangeSelectedSlot(selectedSlot);
                 break;
@@ -135,17 +137,51 @@ public class InventoryManager : MonoBehaviour, IObserver
         }
     }
 
-    public bool HaveSpaceForItem(Item item)
+    public void DecreaseItem(Item item, int count)
+    {
+        foreach (InventorySlot slot in inventorySlots)
+        {
+            InventoryItem itemSlot = slot.GetComponentInChildren<InventoryItem>();
+
+            if (itemSlot.ItemInSlot == item)
+            {
+                itemSlot.Count -= count;
+                itemSlot.RefreshCount();
+                if (itemSlot.Count <= 0)
+                {
+                    RemoveItem(itemSlot, slot);
+                }  
+                break;
+            }
+        }
+    }
+
+    public void RemoveItem(InventoryItem inventoryItem, InventorySlot slot)
+    {
+        if (inventoryItem.ItemInSlot.ItemUsage != null)
+            inventoryItem.ItemInSlot.ItemUsage.Stop();
+        Destroy(inventoryItem.gameObject);
+        if (CheckIfSelected(slot))
+            SelectionChangeHandler.instance.UpdateSelectionAfterRemove(inventorySlots[selectedSlot]);
+    }
+
+    public bool HaveSpaceForItem(Item item, int count = 1)
     {
         foreach (InventorySlot slot in inventorySlots)
         {
             InventoryItem itemSlot = slot.GetComponentInChildren<InventoryItem>();
             if (itemSlot == null)
                 return true;
-            else if (itemSlot.ItemInSlot == item && itemSlot.Count < item.MaxStack)
+            else if (itemSlot.ItemInSlot == item && (itemSlot.Count + count) < item.MaxStack)
                 return true;
         }
         return false;
+    }
+
+    private bool CheckIfSelected(InventorySlot slot)
+    {
+        return inventorySlots[selectedSlot] == slot;
+
     }
 
     /// <summary>
@@ -153,11 +189,11 @@ public class InventoryManager : MonoBehaviour, IObserver
     /// </summary>
     /// <param name="item">Предмет</param>
     /// <param name="slot">Слот</param>
-    private void SpawnNewItem(Item item, InventorySlot slot)
+    private void SpawnNewItem(Item item, InventorySlot slot, int count = 1)
     {
         GameObject newItem = Instantiate(inventoryItemPrefab, slot.transform);
         InventoryItem inventoryItem = newItem.GetComponent<InventoryItem>();
-        inventoryItem.InitializeItem(item);
+        inventoryItem.InitializeItem(item, count);
     }
 
     public void OnUpdate(object context)
@@ -165,11 +201,27 @@ public class InventoryManager : MonoBehaviour, IObserver
         if (context is ItemPickupContext)
         {
             ItemPickupContext pickupContext = (ItemPickupContext)context;
-            if (HaveSpaceForItem(pickupContext.InventoryItem))
+            if (HaveSpaceForItem(pickupContext.InventoryItem, pickupContext.ItemsCount))
             {
-                AddItem(pickupContext.InventoryItem);
+                AddItem(pickupContext.InventoryItem, pickupContext.ItemsCount);
                 Destroy(pickupContext.ItemInstance);
             }
         }
+    }
+
+    public void InventorySlotTouched(InventorySlot touchedSlot)
+    {
+        int slotIndex = -1;
+
+        for (int i = 0; i < 8; i++)
+        {
+            if (inventorySlots[i].Equals(touchedSlot))
+            {
+                slotIndex = i;
+            }
+        }
+
+        if (slotIndex != -1)
+            ChangeSelectedSlot(slotIndex);
     }
 }

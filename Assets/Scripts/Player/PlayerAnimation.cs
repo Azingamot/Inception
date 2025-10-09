@@ -1,18 +1,19 @@
-using UnityEngine;
+п»їusing UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Animator))]
 public class PlayerAnimation : MonoBehaviour
 {
+    [SerializeField] private ParticleSystem walkParticles;
+    [SerializeField] private float timeToSpawn = 0.5f;
     private Animator animator;
-    private SpriteRenderer sr;
     private Vector2 baseScale;
     private bool isWalking = false;
+    private float timer = 0;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        sr = GetComponent<SpriteRenderer>();
         baseScale = transform.localScale;
     }
     public void Animate(Rigidbody2D rb, Vector2 mousePos)
@@ -20,6 +21,7 @@ public class PlayerAnimation : MonoBehaviour
         CheckRotation(mousePos);
         if (rb.linearVelocity.magnitude > 0)
         {
+            SpawnParticles();
             SwitchAnimation(true);
         }
         else
@@ -29,7 +31,7 @@ public class PlayerAnimation : MonoBehaviour
     }
 
     /// <summary>
-    /// Изменяет анимацию игрока с Idle на Walking и наоборот
+    /// РР·РјРµРЅСЏРµС‚ Р°РЅРёРјР°С†РёСЋ РёРіСЂРѕРєР° СЃ Idle РЅР° Walking Рё РЅР°РѕР±РѕСЂРѕС‚
     /// </summary>
     /// <param name="walking"></param>
     private void SwitchAnimation(bool walking)
@@ -42,7 +44,20 @@ public class PlayerAnimation : MonoBehaviour
     }
 
     /// <summary>
-    /// Поворачивает игрока в зависимости от того в какой стороне от него находится курсор
+    /// РџСЂРѕРёРіСЂС‹РІР°РµС‚ С‡Р°СЃС‚РёС†С‹ С…РѕРґСЊР±С‹
+    /// </summary>
+    private void SpawnParticles()
+    {
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            walkParticles.Play(false);
+            timer = timeToSpawn;
+        }
+    }
+
+    /// <summary>
+    /// РџРѕРІРѕСЂР°С‡РёРІР°РµС‚ РёРіСЂРѕРєР° РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ С‚РѕРіРѕ РІ РєР°РєРѕР№ СЃС‚РѕСЂРѕРЅРµ РѕС‚ РЅРµРіРѕ РЅР°С…РѕРґРёС‚СЃСЏ РєСѓСЂСЃРѕСЂ
     /// </summary>
     private void CheckRotation(Vector2 mousePos)
     {

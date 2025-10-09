@@ -42,11 +42,11 @@ Material:
     m_Ints: []
     m_Floats:
     - _Animated: 1
-    - _OutlineThickness: 4
+    - _OutlineThickness: 6.77
     - _Speed: 0.5
     m_Colors:
     - _OutlineColor: {r: 2.0000002, g: 2.0000002, b: 2.0000002, a: 1}
-    - _SecondOutline: {r: 0, g: 8, b: 7.278038, a: 1}
+    - _SecondOutline: {r: 4.461354, g: 3.137187, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &3070269476259288592

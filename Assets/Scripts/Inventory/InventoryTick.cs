@@ -11,7 +11,7 @@ public class InventoryTick : MonoBehaviour
     private void Update()
     {
         Item itemInHand = inventoryManager.GetSelectedItem();    
-        if (itemInHand != null)
+        if (itemInHand != null && itemInHand.ItemUsage != null)
         {
             itemInHand.ItemUsage.InHandTick();
         }

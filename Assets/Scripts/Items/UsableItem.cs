@@ -21,4 +21,9 @@ public abstract class UsableItem
     {
 
     }
+
+    public virtual void Stop()
+    {
+
+    }
 }

@@ -1,8 +1,8 @@
-using UnityEngine;
+п»їusing UnityEngine;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// Класс для управления движением игрока
+/// РљР»Р°СЃСЃ РґР»СЏ СѓРїСЂР°РІР»РµРЅРёСЏ РґРІРёР¶РµРЅРёРµРј РёРіСЂРѕРєР°
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private float speed;
 
     /// <summary>
-    /// Двигает игрока в пространстве
+    /// Р”РІРёРіР°РµС‚ РёРіСЂРѕРєР° РІ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµ
     /// </summary>
     public void Move(Vector2 direction, Rigidbody2D rb)
     {

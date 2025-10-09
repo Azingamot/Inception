@@ -19,10 +19,11 @@ public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     [HideInInspector] public Item ItemInSlot;
     [HideInInspector] public int Count = 1;
 
-    public void InitializeItem(Item newItem)
+    public void InitializeItem(Item newItem, int count = 1)
     {
         ItemInSlot = newItem;   
         image.sprite = ItemInSlot.ItemSprite;
+        Count = count;
         RefreshCount();
     }
 

@@ -1,9 +1,9 @@
-using UnityEngine;
+п»їusing UnityEngine;
 using System.Collections.Generic;
 
 
 /// <summary>
-/// Наблюдаемый объект для реализации паттерна "наблюдатель"
+/// РќР°Р±Р»СЋРґР°РµРјС‹Р№ РѕР±СЉРµРєС‚ РґР»СЏ СЂРµР°Р»РёР·Р°С†РёРё РїР°С‚С‚РµСЂРЅР° "РЅР°Р±Р»СЋРґР°С‚РµР»СЊ"
 /// </summary>
 public interface IObservable
 {

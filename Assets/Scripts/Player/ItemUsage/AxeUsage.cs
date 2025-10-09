@@ -17,4 +17,16 @@ public class AxeUsage : UsableItem, IDamageDealer
         playerItemInHand.SetRotation(MousePosition.GetData());
         playerItemInHand.TriggerAnimation("Slash");
     }
+
+    public override void Stop()
+    {
+        playerItemInHand.StopAnimation();
+        CheckIfAround.instance.Disable();
+    }
+
+    public override void Initialize(PlayerItemInHand playerItemInHand)
+    {
+        base.Initialize(playerItemInHand);
+        CheckIfAround.instance.Enable(); 
+    }
 }

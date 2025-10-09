@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerItemInHand : MonoBehaviour
@@ -32,7 +31,7 @@ public class PlayerItemInHand : MonoBehaviour
         itemSprite.sprite = newSprite;
     }
 
-    public void SetItemAnimatorController(AnimatorController controller)
+    public void SetItemAnimatorController(RuntimeAnimatorController controller)
     {
         itemAnimator.runtimeAnimatorController = controller;
     }
@@ -43,8 +42,10 @@ public class PlayerItemInHand : MonoBehaviour
     }
     public void SetRotation(Vector3 mousePos)
     {
-        if (baseRotation != null) 
+        if (baseRotation != null)
             StopCoroutine(baseRotation);
+
+        transform.rotation = Quaternion.identity;
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(mousePos);
         string directionName = GetDirectionName(mouseWorldPos);
         ApplyDirection(directionName);
@@ -82,7 +83,18 @@ public class PlayerItemInHand : MonoBehaviour
 
     public void ResetRotation()
     {
+        if (baseRotation != null)
+            StopCoroutine(baseRotation);
+
         baseRotation = StartCoroutine(RotateToBase());
+    }
+
+    public void StopAnimation()
+    {
+        StopAllCoroutines();
+        itemAnimator.StopPlayback();
+        itemAnimator.runtimeAnimatorController = null;
+        ResetRotation();
     }
 
     private IEnumerator RotateToBase()

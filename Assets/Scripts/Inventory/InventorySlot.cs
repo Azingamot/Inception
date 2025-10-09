@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour, IDropHandler
+public class InventorySlot : MonoBehaviour, IDropHandler, IPointerDownHandler
 {
     [SerializeField] private Image outline;
     private Vector3 baseScale;
@@ -34,5 +34,10 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             InventoryItem item = eventData.pointerDrag.GetComponent<InventoryItem>();
             item.ParentAfterDrag = transform;
         }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        InventoryManager.instance.InventorySlotTouched(this);
     }
 }
