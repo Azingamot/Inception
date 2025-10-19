@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class InventoryTick : MonoBehaviour
 {
-    private InventoryManager inventoryManager;
+    private InventoryController inventoryController;
+
     private void Start()
     {
-        inventoryManager = InventoryManager.instance;
+       inventoryController = InventoryController.Instance;
     }
-
     private void Update()
     {
-        Item itemInHand = inventoryManager.GetSelectedItem();    
+        Item itemInHand = inventoryController.GetSelectedItem();    
         if (itemInHand != null && itemInHand.ItemUsage != null)
         {
             itemInHand.ItemUsage.InHandTick();

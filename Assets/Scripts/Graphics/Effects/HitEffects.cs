@@ -18,6 +18,12 @@ public class HitEffects: MonoBehaviour
     private Coroutine afterHitCoroutine, shrinkCoroutine;
     private Vector3 baseScale;
 
+    private void Start()
+    {
+        mainTransform = transform;
+        TryGetComponent<SpriteRenderer>(out mainRenderer);
+    }
+
     public void Initialize(Transform mainTransform, SpriteRenderer mainRenderer)
     {
         this.mainTransform = mainTransform;
@@ -46,7 +52,6 @@ public class HitEffects: MonoBehaviour
     
     public void DeathEvent(float timeToFinish = 0.5f)
     {
-        Debug.Log("I DIED");
         IterateThroughEffects(effectsOnDeath, timeToFinish);
     }
 

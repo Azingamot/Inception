@@ -11,11 +11,11 @@ public class TileUsage : UsableItem
     {
         if (item is TileItem)
         {
-            if (!TilePlacement.instance.CheckGround(mouseInWorld))
+            if (GroundCheck() && RadiusCheck())
             {
                 TileItem tileItem = item as TileItem;
                 TilePlacement.instance.PlaceTile(tileItem.TileToPlace, mouseInWorld);
-                InventoryManager.instance.DecreaseItem(this.item, 1);
+                InventoryController.Instance.RemoveItem(1);
             }
         }
     }
@@ -26,14 +26,31 @@ public class TileUsage : UsableItem
 
         mouseInWorld = Camera.main.ScreenToWorldPoint(MousePosition.GetData());
 
-        if (!TilePlacement.instance.CheckGround(mouseInWorld) && PlayerPosition.CheckIfInRadius(mouseInWorld, 3))
+        bool groundCheck = GroundCheck();
+        bool radiusCheck = RadiusCheck();
+
+        if (groundCheck && radiusCheck)
         {
             ShowSelectedTile.instance.ActivateHighlight(Vector3Int.CeilToInt(mouseInWorld), Color.white);
         }
-        else
+        else if (groundCheck)
         {
             ShowSelectedTile.instance.ActivateHighlight(Vector3Int.CeilToInt(mouseInWorld), Color.red);
         }
+        else
+        {
+            ShowSelectedTile.instance.DeactivateHighlight();
+        }
+    }
+
+    private bool GroundCheck()
+    {
+        return !TilePlacement.instance.CheckGround(mouseInWorld);
+    }
+
+    private bool RadiusCheck()
+    {
+        return PlayerPosition.CheckIfInRadius(mouseInWorld, 3);
     }
 
     public override void Initialize(PlayerItemInHand playerItemInHand)
@@ -44,7 +61,7 @@ public class TileUsage : UsableItem
 
     public override void Stop()
     {
-        ShowSelectedTile.instance.DeactivateHighlight();
         stopped = true;
+        ShowSelectedTile.instance.DeactivateHighlight();
     }
 }

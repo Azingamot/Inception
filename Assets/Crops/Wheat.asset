@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31d537854a176b247a2276a052df038a, type: 3}
+  m_Name: Wheat
+  m_EditorClassIdentifier: 
+  cropStates:
+  - StateSprite: {fileID: -4818313753074155868, guid: 248b675d1ec83384db18a70cef02d08f, type: 3}
+    TimeToChange: 0
+  - StateSprite: {fileID: -1504871244760539903, guid: 248b675d1ec83384db18a70cef02d08f, type: 3}
+    TimeToChange: 50
+  - StateSprite: {fileID: 4936661642335583362, guid: 248b675d1ec83384db18a70cef02d08f, type: 3}
+    TimeToChange: 100
+  lootTable: {fileID: 11400000, guid: 6b447850be8497b43af024aa402d7c65, type: 2}

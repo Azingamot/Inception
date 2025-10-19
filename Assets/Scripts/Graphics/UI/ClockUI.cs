@@ -13,11 +13,11 @@ public class ClockUI : MonoBehaviour
     private int currentDay;
 
 
-    public void OnClockTick(int minutes, int hours, int days, DayTime dayTime)
+    public void OnClockTick(ClockContext clockContext)
     {
-        if (currentDayTime != dayTime)
+        if (currentDayTime != clockContext.DayTime)
         {
-            currentDayTime = dayTime;
+            currentDayTime = clockContext.DayTime;
             switch (currentDayTime)
             {
                 case DayTime.Day:
@@ -30,14 +30,14 @@ public class ClockUI : MonoBehaviour
                     break;
             }
         }
-        if (currentDay != days)
+        if (currentDay != clockContext.Days)
         {
-            currentDay = days;
+            currentDay = clockContext.Days;
             SetDayText(currentDay);
         }
 
-        SetClockText(minutes, hours);
-        ControllFillAmount(hours);
+        SetClockText(clockContext.Minutes, clockContext.Hours);
+        ControllFillAmount(clockContext.Hours);
     }
 
     private void ControllFillAmount(int hours)

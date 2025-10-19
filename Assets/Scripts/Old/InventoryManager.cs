@@ -76,7 +76,7 @@ public class InventoryManager : MonoBehaviour, IObserver
             inventorySlots[selectedSlot].SelectionChange(false);
         }
         inventorySlots[newValue].SelectionChange(true);
-        SelectionChangeHandler.instance.ChangeSelection(inventorySlots[newValue]);
+        //SelectionChangeHandler.instance.ChangeSelection(inventorySlots[newValue]);
         selectedSlot = newValue;
     }
 
@@ -161,8 +161,8 @@ public class InventoryManager : MonoBehaviour, IObserver
         if (inventoryItem.ItemInSlot.ItemUsage != null)
             inventoryItem.ItemInSlot.ItemUsage.Stop();
         Destroy(inventoryItem.gameObject);
-        if (CheckIfSelected(slot))
-            SelectionChangeHandler.instance.UpdateSelectionAfterRemove(inventorySlots[selectedSlot]);
+        //if (CheckIfSelected(slot))
+            //SelectionChangeHandler.instance.UpdateSelectionAfterRemove(inventorySlots[selectedSlot]);
     }
 
     public bool HaveSpaceForItem(Item item, int count = 1)

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7538318081202802260}
   - component: {fileID: 2080151065367898493}
   - component: {fileID: 8186335518259530062}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Count
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 4902393255432653771}
   - component: {fileID: 5858528981390079345}
   - component: {fileID: 1799486872129754305}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 4036545398877768564}
   - component: {fileID: 1700337316842580552}
   - component: {fileID: 656187432008237104}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collectable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,6 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c510c59ec1fa65c4fa8c0ee19610aea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initializeOnStart: 0
   collectableItem: {fileID: 11400000, guid: 60867abcc29680542a99c0ae4863a2c1, type: 2}
   itemsCount: 1
   countText: {fileID: 8186335518259530062}

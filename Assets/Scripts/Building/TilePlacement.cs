@@ -41,15 +41,12 @@ public class TilePlacement : MonoBehaviour
     {
         Vector3Int below = new Vector3Int(intPos.x, intPos.y - 1);
 
-        Debug.DrawLine(intPos, below, Color.yellow, 1000);
-
         if (!CheckGround(below))
             waterMap.SetTile(below, waterAnim);
     }
 
     public bool CheckGround(Vector3 position)
     {
-        TileBase tile = groundMap.GetTile(Vector3Int.FloorToInt(position));
-        return tile != null;
+        return TileValidation.CheckTileOnPlace(groundMap, position);
     }
 }

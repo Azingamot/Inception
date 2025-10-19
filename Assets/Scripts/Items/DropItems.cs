@@ -19,6 +19,12 @@ public class DropItems : MonoBehaviour
         }
     }
 
+    public void Drop(LootTable loot)
+    {
+        lootTable = loot;
+        Drop();
+    }
+
     private void SpawnDrop(Item item, int count = 1)
     {
         CollectableItem itemToCollect = Instantiate<CollectableItem>(dropPrefab, transform.position, Quaternion.identity);
@@ -26,8 +32,8 @@ public class DropItems : MonoBehaviour
         itemToCollect.LaunchUp(launchPower);
     }
 
-    public void DestroyItself()
+    public void DestroyItself(float time = 0)
     {
-        Destroy(gameObject, 0);
+        Destroy(gameObject, time);
     }
 }

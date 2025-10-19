@@ -8,7 +8,7 @@ public class DamageDealer : MonoBehaviour
     {
         if (collision.TryGetComponent<IDamageable>(out IDamageable component))
         {
-            Item selected = InventoryManager.instance.GetSelectedItem();
+            Item selected = InventoryController.Instance.GetSelectedItem();
             if (selected is DamageItem)
             {
                 item = (DamageItem)selected;

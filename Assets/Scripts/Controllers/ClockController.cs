@@ -1,9 +1,11 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ClockController : MonoBehaviour
 {
-    [SerializeField] private ClockUI clockUI;
+    [SerializeField] private UnityEvent<ClockContext> onClockTick;
+    [SerializeField] private float clockSpeed = 0.5f;
     public static int Minutes = 0;
     public static int Hours = 6;
     public static int Days = 1;
@@ -11,7 +13,6 @@ public class ClockController : MonoBehaviour
 
     private void Awake()
     {
-        clockUI.OnClockTick(Minutes, Hours, Days, DayTime);
         StartCoroutine(CountMinutes());
     }
 
@@ -26,7 +27,7 @@ public class ClockController : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(clockSpeed);
             CountNext();
         }
     }
@@ -34,7 +35,7 @@ public class ClockController : MonoBehaviour
     private void CountNext()
     {
         Minutes += 1;
-        clockUI.OnClockTick(Minutes, Hours, Days, DayTime);
+        onClockTick.Invoke(new ClockContext(Minutes, Hours, Days, DayTime));
     }
 
     private void ControlDayTime()

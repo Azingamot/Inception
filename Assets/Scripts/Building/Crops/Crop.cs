@@ -1,0 +1,97 @@
+using System.Collections;
+using UnityEngine;
+using UnityEngine.Events;
+
+public class Crop : MonoBehaviour, IObserver, IInteractable
+{
+    [SerializeField] private CropData data;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private InteractionUI interactionUI;
+    [SerializeField] private UnityEvent onStateChanged;
+    [SerializeField] private UnityEvent<LootTable> onGather;
+    private float currentTime;
+    private int currentStateIndex;
+    private bool canGrow = true;
+    private bool canInteract = true;
+
+    public Transform Transform => transform;
+
+    private void Awake()
+    {
+        currentStateIndex = 0;
+    }
+
+    public void OnUpdate(object context)
+    {
+        if (context is CropGrowContext contextCrop)
+        {
+            currentTime += contextCrop.timeToAdd;
+            CheckStateChange();
+        }
+    }
+
+    private void CheckStateChange()
+    {
+        if (canGrow && currentTime > data.cropStates[currentStateIndex + 1].TimeToChange)
+        {
+            currentStateIndex++;
+
+            CropStateChange(data.cropStates[currentStateIndex]);
+            
+            if (currentStateIndex == (data.cropStates.Count - 1))
+            {
+                canGrow = false;
+                EndOfGrowth();
+            }
+        }
+    }
+
+    private void CropStateChange(CropState state)
+    {
+        spriteRenderer.sprite = state.StateSprite;
+        onStateChanged.Invoke();
+    }
+
+    private void EndOfGrowth()
+    {
+        Unsubscribe();
+    }
+
+    private void Subscribe()
+    {
+        CropsGrowController.Instance.AddObserver(this);
+    }
+
+    private void Unsubscribe()
+    {
+        CropsGrowController.Instance.RemoveObserver(this);
+    }
+
+    private void OnEnable()
+    {
+        Subscribe();
+    }
+
+    private void OnDisable()
+    {
+        Unsubscribe();
+    }
+
+    public void OnInteract(GameObject interactor)
+    {
+        if (!canInteract) return;
+        if (canGrow)
+        {
+            ShowTimeToGrow();
+            return;
+        }
+
+        onGather.Invoke(data.lootTable);
+        canInteract = false;
+    }
+
+    private void ShowTimeToGrow()
+    {
+        interactionUI.TemporaryShow($"{currentTime}/{data.cropStates[data.cropStates.Count - 1].TimeToChange}");
+    }
+}

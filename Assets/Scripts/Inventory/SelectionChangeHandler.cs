@@ -15,16 +15,15 @@ public class SelectionChangeHandler : MonoBehaviour
             Destroy(this, 0);
     }
 
-    public void ChangeSelection(InventorySlot slot)
+    public void ChangeSelection(InventorySlotData data)
     {
-        InventoryItem inventoryItem = slot.GetComponentInChildren<InventoryItem>();
-        Item itemInSlot = inventoryItem != null ? inventoryItem.ItemInSlot : null;
+        Item itemInSlot = data != null ? data.ItemInSlot : null;
 
         selectionChangeUI.UpdateSelectionText(itemInSlot);
         ChangeItemInHand(itemInSlot);
     }
 
-    public void UpdateSelectionAfterRemove(InventorySlot slot)
+    public void UpdateSelectionAfterRemove(InventorySlotData slot)
     {
         selectionChangeUI.UpdateSelectionText(null);
         ChangeItemInHand(null);

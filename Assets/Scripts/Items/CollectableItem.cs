@@ -8,6 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer),typeof(Collider2D), typeof(Rigidbody2D))]
 public class CollectableItem : MonoBehaviour, ICollectable
 {
+    [SerializeField] private bool initializeOnStart = false;
     [SerializeField] private Item collectableItem;
     [SerializeField] private int itemsCount;
     [SerializeField] private TMP_Text countText;
@@ -16,6 +17,12 @@ public class CollectableItem : MonoBehaviour, ICollectable
     private Collider2D ownCollider;
     private Rigidbody2D rb;
     private float timeToWait = 1.25f;
+
+    private void Start()
+    {
+        if (initializeOnStart)
+            Initialize(collectableItem, itemsCount);
+    }
 
     private IEnumerator WaitForCollection()
     {
@@ -52,6 +59,13 @@ public class CollectableItem : MonoBehaviour, ICollectable
             rb.AddForce(Random.insideUnitCircle * power * 1.5f, ForceMode2D.Impulse);
             StartCoroutine(GravityControl());
         }
+    }
+
+    public void FollowObject(Transform followTransform)
+    {
+        if (rb == null) return;
+        Vector2 direction = (followTransform.position - transform.position).normalized;
+        rb.linearVelocity = direction * 3f;
     }
 
     private IEnumerator GravityControl()

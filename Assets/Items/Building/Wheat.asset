@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxStack: 100
   ItemSprite: {fileID: 318125781767780542, guid: 0d297bd247b249f4dbe953491cf29c9b, type: 3}
-  TileToPlace: {fileID: 0}
-  BuildType: 0
+  Animator: {fileID: 0}
   ObjectToPlace: {fileID: 3914135477802078255, guid: dcb0df6bc88590b4ca21092a32525c36, type: 3}
+  PreviewSprite: {fileID: -4818313753074155868, guid: 248b675d1ec83384db18a70cef02d08f, type: 3}
+  Size: {x: 1, y: 1}

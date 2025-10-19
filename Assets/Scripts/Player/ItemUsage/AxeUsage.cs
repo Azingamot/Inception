@@ -20,7 +20,7 @@ public class AxeUsage : UsableItem, IDamageDealer
 
     public override void Stop()
     {
-        playerItemInHand.StopAnimation();
+        if (playerItemInHand != null) playerItemInHand.StopAnimation();
         CheckIfAround.instance.Disable();
     }
 
