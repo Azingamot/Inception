@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class UIControl : MonoBehaviour
+public class InventoryUIControl : MonoBehaviour
 {
     [SerializeField] private InputActionReference inventoryAction;
     [SerializeField] private GameObject inventoryUI, inventoryBackground;
-    public static UIControl Instance { get; private set; }
+    public static InventoryUIControl Instance { get; private set; }
 
     [HideInInspector] public bool InventoryActive = false;
 
@@ -43,5 +43,7 @@ public class UIControl : MonoBehaviour
         inventoryBackground.SetActive(InventoryActive);
         inventoryUI.SetActive(InventoryActive);
     }
+
+
     
 }

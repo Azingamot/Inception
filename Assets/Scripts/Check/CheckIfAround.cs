@@ -22,6 +22,7 @@ public class CheckIfAround : MonoBehaviour
     {
         seek = false;
         ShowSelectedTile.instance.DeactivateHighlight();
+        RemovePointer();
     }
 
     public void FixedUpdate()
@@ -35,7 +36,7 @@ public class CheckIfAround : MonoBehaviour
 
     private void SetPositionToHealthSystem(HealthSystem system)
     {
-        if (system != null)
+        if (system != null && seek)
         {
             SetPointer(system.transform.position);
         }

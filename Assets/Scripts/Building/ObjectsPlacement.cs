@@ -17,8 +17,8 @@ public class ObjectsPlacement : MonoBehaviour
         if (EnsurePlacement(item.Size, center))
         {
             Vector2 worldPosition = PlacementPosition(center);
-            Instantiate(item.ObjectToPlace, worldPosition, Quaternion.identity);
-            ObjectsPositions.AddObject(new ObjectPosition(worldPosition, item.ObjectToPlace));
+            GameObject newObject = Instantiate(item.ObjectToPlace, worldPosition, Quaternion.identity);
+            ObjectsPositions.AddObject(new ObjectPosition(worldPosition, newObject));
             return true;
         }
         return false;

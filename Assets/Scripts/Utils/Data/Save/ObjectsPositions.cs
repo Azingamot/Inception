@@ -4,16 +4,24 @@ using UnityEngine;
 
 public static class ObjectsPositions
 {
-    public static HashSet<ObjectPosition> Objects { get; private set; } = new();
+    private static HashSet<ObjectPosition> _positions = new HashSet<ObjectPosition>();
+    public static HashSet<ObjectPosition> Objects { 
+        get 
+        { 
+            _positions.RemoveWhere(u => u.SavedObject == null);
+            return _positions; 
+        } 
+        private set { _positions = value; } 
+    }
 
     public static void AddObject(ObjectPosition position)
     {
-        Objects.Add(position);
+        _positions.Add(position);
     }
 
     public static void RemoveObject(ObjectPosition position)
     {
-        Objects.Remove(position);
+        _positions.Remove(position);
     }
 
     public static HashSet<Vector2> ReceivePositions()

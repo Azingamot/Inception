@@ -579,7 +579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b06cad31ec018a648939817915e30b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootTable: {fileID: 11400000, guid: 6b447850be8497b43af024aa402d7c65, type: 2}
+  lootTable: {fileID: 11400000, guid: c0a94d5d944e9974e830ce64b601eb67, type: 2}
   dropPrefab: {fileID: 4036545398877768564, guid: bc51c8abda91d4145961025a5779eb6c, type: 3}
   launchPower: 2.5
 --- !u!198 &3092260175944669637

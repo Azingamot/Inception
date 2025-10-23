@@ -13,15 +13,12 @@ MonoBehaviour:
   m_Name: Tree
   m_EditorClassIdentifier: 
   lootElements:
-  - DropItem: {fileID: 11400000, guid: 432c078e3222ed84b97390949a8f7567, type: 2}
-    DropChance: 100
-    DropCount: 1
-  - DropItem: {fileID: 11400000, guid: 432c078e3222ed84b97390949a8f7567, type: 2}
-    DropChance: 100
-    DropCount: 1
-  - DropItem: {fileID: 11400000, guid: 432c078e3222ed84b97390949a8f7567, type: 2}
-    DropChance: 100
-    DropCount: 1
-  - DropItem: {fileID: 11400000, guid: 432c078e3222ed84b97390949a8f7567, type: 2}
+  - DropItem: {fileID: 11400000, guid: b2594c9a59b2ec747a8efd9f06cc8730, type: 2}
+    DropChance: 50
+    DropCount: 3
+  - DropItem: {fileID: 11400000, guid: b2594c9a59b2ec747a8efd9f06cc8730, type: 2}
+    DropChance: 80
+    DropCount: 2
+  - DropItem: {fileID: 11400000, guid: b2594c9a59b2ec747a8efd9f06cc8730, type: 2}
     DropChance: 100
     DropCount: 1

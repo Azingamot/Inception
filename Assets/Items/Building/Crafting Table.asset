@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c834614a59076e4b8390620865ade1d, type: 3}
+  m_Name: Crafting Table
+  m_EditorClassIdentifier: 
+  MaxStack: 1
+  ItemSprite: {fileID: -499378182527283626, guid: c10bf314e656c91448ef3c8c63beba3a, type: 3}
+  Animator: {fileID: 0}
+  ObjectToPlace: {fileID: 5857761197587532976, guid: 08d447c32a5f85d47a9aea2a8bb3f6a0, type: 3}
+  PreviewSprite: {fileID: 7536810191865729410, guid: 08af1e4d65c3efa44b1d5c415f988755, type: 3}
+  Size: {x: 2, y: 1}

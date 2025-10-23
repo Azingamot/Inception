@@ -34,7 +34,7 @@ public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (!UIControl.Instance.InventoryActive) return;
+        if (!InventoryUIControl.Instance.InventoryActive) return;
         image.raycastTarget = false;
         ParentAfterDrag = transform.parent;
         transform.SetParent(transform.root);
@@ -42,13 +42,13 @@ public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (!UIControl.Instance.InventoryActive) return;
+        if (!InventoryUIControl.Instance.InventoryActive) return;
         transform.position = mousePos.action.ReadValue<Vector2>();
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (!UIControl.Instance.InventoryActive) return;
+        if (!InventoryUIControl.Instance.InventoryActive) return;
         image.raycastTarget = true;
         transform.SetParent(ParentAfterDrag);
         InventoryManager.instance.ChangeSelectedSlot(InventoryManager.instance.SelectedSlot);

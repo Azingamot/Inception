@@ -37,6 +37,27 @@ MonoBehaviour:
     - {x: 1, y: -1, z: 0}
     - {x: 1, y: 1, z: 0}
     m_RuleTransform: 0
+  - m_Id: 20
+    m_Sprites:
+    - {fileID: -6652277832207214932, guid: b1a914dd45e99a6439790d60c4a615aa, type: 3}
+    m_GameObject: {fileID: 0}
+    m_MinAnimationSpeed: 1
+    m_MaxAnimationSpeed: 1
+    m_PerlinScale: 0.5
+    m_Output: 0
+    m_ColliderType: 1
+    m_RandomTransform: 0
+    m_Neighbors: 0100000001000000010000000100000002000000020000000200000002000000
+    m_NeighborPositions:
+    - {x: -1, y: 0, z: 0}
+    - {x: 0, y: 1, z: 0}
+    - {x: 0, y: -1, z: 0}
+    - {x: 1, y: 0, z: 0}
+    - {x: 1, y: -1, z: 0}
+    - {x: -1, y: -1, z: 0}
+    - {x: -1, y: 1, z: 0}
+    - {x: 1, y: 1, z: 0}
+    m_RuleTransform: 0
   - m_Id: 28
     m_Sprites:
     - {fileID: -1870896774056241089, guid: b1a914dd45e99a6439790d60c4a615aa, type: 3}
@@ -797,7 +818,7 @@ MonoBehaviour:
     m_Output: 0
     m_ColliderType: 1
     m_RandomTransform: 0
-    m_Neighbors: 0100000001000000010000000100000002000000020000000200000001000000
+    m_Neighbors: 0100000001000000010000000100000002000000020000000100000002000000
     m_NeighborPositions:
     - {x: 0, y: 1, z: 0}
     - {x: 1, y: 0, z: 0}
@@ -805,12 +826,12 @@ MonoBehaviour:
     - {x: 0, y: -1, z: 0}
     - {x: -1, y: 1, z: 0}
     - {x: 1, y: 1, z: 0}
-    - {x: 1, y: -1, z: 0}
     - {x: -1, y: -1, z: 0}
+    - {x: 1, y: -1, z: 0}
     m_RuleTransform: 0
-  - m_Id: 20
+  - m_Id: 48
     m_Sprites:
-    - {fileID: -6652277832207214932, guid: b1a914dd45e99a6439790d60c4a615aa, type: 3}
+    - {fileID: 8685005563216762181, guid: b1a914dd45e99a6439790d60c4a615aa, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
@@ -818,16 +839,14 @@ MonoBehaviour:
     m_Output: 0
     m_ColliderType: 1
     m_RandomTransform: 0
-    m_Neighbors: 0100000001000000010000000100000002000000020000000200000002000000
+    m_Neighbors: 010000000100000001000000010000000200000002000000
     m_NeighborPositions:
-    - {x: -1, y: 0, z: 0}
     - {x: 0, y: 1, z: 0}
-    - {x: 0, y: -1, z: 0}
     - {x: 1, y: 0, z: 0}
-    - {x: 1, y: -1, z: 0}
-    - {x: -1, y: -1, z: 0}
-    - {x: -1, y: 1, z: 0}
+    - {x: -1, y: 0, z: 0}
+    - {x: 0, y: -1, z: 0}
     - {x: 1, y: 1, z: 0}
+    - {x: -1, y: 1, z: 0}
     m_RuleTransform: 0
   - m_Id: 23
     m_Sprites:

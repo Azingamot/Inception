@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f24fad5d1ee6bb1489a6c64053188fa3, type: 3}
+  m_Name: Ground
+  m_EditorClassIdentifier: 
+  lootElements:
+  - DropItem: {fileID: 11400000, guid: 432c078e3222ed84b97390949a8f7567, type: 2}
+    DropChance: 100
+    DropCount: 1
+  - DropItem: {fileID: 11400000, guid: 432c078e3222ed84b97390949a8f7567, type: 2}
+    DropChance: 100
+    DropCount: 1
+  - DropItem: {fileID: 11400000, guid: 432c078e3222ed84b97390949a8f7567, type: 2}
+    DropChance: 100
+    DropCount: 1
+  - DropItem: {fileID: 11400000, guid: 432c078e3222ed84b97390949a8f7567, type: 2}
+    DropChance: 100
+    DropCount: 1

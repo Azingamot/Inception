@@ -69,16 +69,24 @@ public class InventoryController : MonoBehaviour
     {
         if (newIndex < 0 || newIndex >= ui.TotalSlotsCount) return;
 
+        Debug.Log($"Previous: {previousItem} Selected: {GetSelectedItem()}");
+
+        int prevIndex = SelectedSlotIndex;
+        selectedSlotIndex = newIndex;
+
         if (selectedSlotIndex >= 0)
         {
             var item = GetSelectedItem();
-            if (previousItem != item) item?.ItemUsage?.Stop();
+            if (previousItem != null && !previousItem.Compare(item))
+            {
+                Debug.Log(previousItem.name);
+                previousItem?.ItemUsage?.Stop();
+            }
             previousItem = item;
-            ui.SetSlotSelected(selectedSlotIndex, false);
+            ui.SetSlotSelected(prevIndex, false);
         }
 
-        ui.SetSlotSelected(newIndex, true);
-        selectedSlotIndex = newIndex;
+        ui.SetSlotSelected(selectedSlotIndex, true);
         SelectionChangeHandler.instance.ChangeSelection(data.Slots[selectedSlotIndex]);
     }
 
