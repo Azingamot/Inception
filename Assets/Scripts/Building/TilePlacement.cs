@@ -5,6 +5,7 @@ public class TilePlacement : MonoBehaviour
 {
     [SerializeField] private Tilemap groundMap;
     [SerializeField] private Tilemap waterMap;
+    [SerializeField] private Tilemap aboveMap;
     [SerializeField] private TileBase waterTile;
     [SerializeField] private TileBase waterAnim;
     public static TilePlacement instance;
@@ -21,13 +22,19 @@ public class TilePlacement : MonoBehaviour
         }
     }
 
-    public void PlaceTile(TileBase tile, Vector3 position)
+    public void PlaceGroundTile(TileBase tile, Vector3 position)
     {
         Vector3Int intPos = Vector3Int.FloorToInt(position);
         groundMap.SetTile(intPos, tile);
         waterMap.SetTile(intPos, null);
 
         AddAnimatedWater(intPos);
+    }
+
+    public void PlaceAbovegroundTile(TileBase tile, Vector3 position)
+    {
+        Vector3Int intPos = Vector3Int.FloorToInt(position);
+        aboveMap.SetTile(intPos, tile);
     }
 
     public void RemoveTile(Vector3 position)

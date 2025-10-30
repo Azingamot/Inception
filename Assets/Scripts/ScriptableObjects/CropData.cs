@@ -6,4 +6,6 @@ public class CropData : ScriptableObject
 {
     public List<CropState> cropStates;
     public LootTable lootTable;
+    public GameObject completionObject;
+    public Color particlesColor = Color.white;
 }

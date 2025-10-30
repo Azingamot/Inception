@@ -69,8 +69,6 @@ public class InventoryController : MonoBehaviour
     {
         if (newIndex < 0 || newIndex >= ui.TotalSlotsCount) return;
 
-        Debug.Log($"Previous: {previousItem} Selected: {GetSelectedItem()}");
-
         int prevIndex = SelectedSlotIndex;
         selectedSlotIndex = newIndex;
 

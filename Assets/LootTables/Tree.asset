@@ -22,3 +22,9 @@ MonoBehaviour:
   - DropItem: {fileID: 11400000, guid: b2594c9a59b2ec747a8efd9f06cc8730, type: 2}
     DropChance: 100
     DropCount: 1
+  - DropItem: {fileID: 11400000, guid: 2deefec31691e1249b894b0c7d32be83, type: 2}
+    DropChance: 100
+    DropCount: 1
+  - DropItem: {fileID: 11400000, guid: 2deefec31691e1249b894b0c7d32be83, type: 2}
+    DropChance: 60
+    DropCount: 1

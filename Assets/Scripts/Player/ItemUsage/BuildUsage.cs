@@ -11,7 +11,10 @@ public class BuildUsage : UsableItem
     public override void Use()
     {
         if (TryPlaceObject(buildingItem, mouseInWorld))
+        {
             InventoryController.Instance.RemoveItem(1);
+            playerItemInHand.TriggerAnimation("Use");
+        } 
     }
 
     public override void InHandTick()
@@ -33,7 +36,7 @@ public class BuildUsage : UsableItem
 
     private bool CheckPlacement()
     {
-        return ObjectsPlacement.Instance.EnsurePlacement(buildingItem.Size, mouseInWorld);
+        return ObjectsPlacement.Instance.CanPlaceObject(buildingItem, mouseInWorld);
     }
 
     public override void Initialize(PlayerItemInHand playerItemInHand)

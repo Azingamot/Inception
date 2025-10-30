@@ -18,7 +18,7 @@ public class HitEffects: MonoBehaviour
     private Coroutine afterHitCoroutine, shrinkCoroutine;
     private Vector3 baseScale;
 
-    private void Start()
+    private void Awake()
     {
         mainTransform = transform;
         TryGetComponent<SpriteRenderer>(out mainRenderer);

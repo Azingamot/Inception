@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class InventoryData
@@ -11,11 +12,16 @@ public class InventoryData
         this.Slots.Add(data);
     }
 
+    public InventorySlotData GetSlotWithItem(Item item, int count = 1)
+    {
+        return Slots.Where(u => u.ItemInSlot != null && u.ItemInSlot.Compare(item) && u.Count >= count).FirstOrDefault();
+    }
+
     public bool AddItem(Item item, int count = 1)
     {
         foreach (var slot in Slots)
         {
-            if (slot.ItemInSlot == item && slot.Count < item.MaxStack)
+            if (slot.ItemInSlot != null && slot.ItemInSlot.Compare(item) && slot.Count < item.MaxStack)
             {
                 int available = item.MaxStack - slot.Count;
                 int toAdd = Mathf.Min(count, available);

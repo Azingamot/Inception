@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f24fad5d1ee6bb1489a6c64053188fa3, type: 3}
+  m_Name: Cotton
+  m_EditorClassIdentifier: 
+  lootElements:
+  - DropItem: {fileID: 11400000, guid: 8e5d312782e404c498468b9bc8359873, type: 2}
+    DropChance: 100
+    DropCount: 1
+  - DropItem: {fileID: 11400000, guid: 8e5d312782e404c498468b9bc8359873, type: 2}
+    DropChance: 100
+    DropCount: 1
+  - DropItem: {fileID: 11400000, guid: 796f4f78c89450447b8de10441df0d13, type: 2}
+    DropChance: 100
+    DropCount: 1
+  - DropItem: {fileID: 11400000, guid: 8e5d312782e404c498468b9bc8359873, type: 2}
+    DropChance: 50
+    DropCount: 1
+  - DropItem: {fileID: 11400000, guid: 796f4f78c89450447b8de10441df0d13, type: 2}
+    DropChance: 50
+    DropCount: 1

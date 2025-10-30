@@ -11,5 +11,5 @@ public class BuildingItem : Item
     public BuildingItem()
     {
         ItemUsage = new BuildUsage(this);
-    }
+    } 
 }

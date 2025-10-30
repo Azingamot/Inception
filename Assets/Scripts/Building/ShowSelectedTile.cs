@@ -35,6 +35,9 @@ public class ShowSelectedTile : MonoBehaviour
     public void DeactivateHighlight()
     {
         if (highLighter.activeInHierarchy)
+        {
             highLighter.SetActive(false);
+            highlightRenderer.color = baseColor;
+        }
     }
 }

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca0be79d820a9545a1509198c28f063, type: 3}
   m_Name: Ground
   m_EditorClassIdentifier: 
+  UID: 849754de-2257-4efc-9773-a434e8734c40
   MaxStack: 64
   ItemSprite: {fileID: 1132787517078733118, guid: ed9f5cdb0100973488b591b25bfb3384, type: 3}
+  Animator: {fileID: 9100000, guid: 05c7d34d96d0f044d8c44bf382232884, type: 2}
   TileToPlace: {fileID: 11400000, guid: 1d2ed6f333db73b4f8f0b73ae356e141, type: 2}

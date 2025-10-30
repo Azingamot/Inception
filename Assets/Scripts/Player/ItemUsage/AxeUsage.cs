@@ -14,8 +14,14 @@ public class AxeUsage : UsableItem, IDamageDealer
 
     public override void Use()
     {
+        if (ItemsCooldown.Instance.IsOnCooldown()) 
+            return;
+
         playerItemInHand.SetRotation(MousePosition.GetData());
         playerItemInHand.TriggerAnimation("Slash");
+
+        if (item is Axe axe) 
+            ItemsCooldown.Instance.SetOnCooldown(axe.SwingSpeed);
     }
 
     public override void Stop()

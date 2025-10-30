@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c834614a59076e4b8390620865ade1d, type: 3}
   m_Name: Crafting Table
   m_EditorClassIdentifier: 
+  UID: 93b93dec-e0a4-4983-ab3e-abeca9e69625
   MaxStack: 1
   ItemSprite: {fileID: -499378182527283626, guid: c10bf314e656c91448ef3c8c63beba3a, type: 3}
-  Animator: {fileID: 0}
+  Animator: {fileID: 9100000, guid: 05c7d34d96d0f044d8c44bf382232884, type: 2}
   ObjectToPlace: {fileID: 5857761197587532976, guid: 08d447c32a5f85d47a9aea2a8bb3f6a0, type: 3}
   PreviewSprite: {fileID: 7536810191865729410, guid: 08af1e4d65c3efa44b1d5c415f988755, type: 3}
   Size: {x: 2, y: 1}

@@ -81,6 +81,7 @@ public class CollectableItem : MonoBehaviour, ICollectable
 
         rb.linearVelocity = Vector2.zero;
         rb.gravityScale = 0;
+        ownCollider.enabled = true;
     }
 
     private void SetCollider()

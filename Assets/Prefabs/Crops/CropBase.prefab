@@ -5021,7 +5021,7 @@ GameObject:
   - component: {fileID: 4592413336275501364}
   - component: {fileID: -6651705516055010373}
   m_Layer: 0
-  m_Name: Wheat
+  m_Name: CropBase
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5036,7 +5036,7 @@ Transform:
   m_GameObject: {fileID: 3914135477802078255}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.426, y: 3.49, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5057,6 +5057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a68c97567771744d8c26eedf3a4904c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initializeOnStart: 0
   data: {fileID: 11400000, guid: e99292949de1d6343aaf5c422114108c, type: 2}
   spriteRenderer: {fileID: 4405801002287011099}
   interactionUI: {fileID: 5849182879060243816}
@@ -5202,7 +5203,7 @@ Transform:
   m_GameObject: {fileID: 5172584808345968582}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.03, y: 0.081, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5252,7 +5253,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4818313753074155868, guid: 248b675d1ec83384db18a70cef02d08f, type: 3}
+  m_Sprite: {fileID: 5645847550748024870, guid: 088032dddb15a494b93e81659e6a6764, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

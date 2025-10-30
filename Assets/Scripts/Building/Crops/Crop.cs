@@ -4,6 +4,7 @@ using UnityEngine.Events;
 
 public class Crop : MonoBehaviour, IObserver, IInteractable
 {
+    [SerializeField] private bool initializeOnStart = false;
     [SerializeField] private CropData data;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private InteractionUI interactionUI;
@@ -18,7 +19,20 @@ public class Crop : MonoBehaviour, IObserver, IInteractable
 
     private void Awake()
     {
-        currentStateIndex = 0;
+        if (initializeOnStart)
+            Initialize(data);
+    }
+
+    public void Initialize(CropData cropData)
+    {
+        data = cropData;
+        ParticleSystem particles = GetComponentInChildren<ParticleSystem>();
+        if (particles != null)
+        {
+            ParticleSystem.MainModule main = particles.main;
+            main.startColor = cropData.particlesColor;
+        }
+        CropStateChange(data.cropStates[0]);
     }
 
     public void OnUpdate(object context)
@@ -55,6 +69,11 @@ public class Crop : MonoBehaviour, IObserver, IInteractable
     private void EndOfGrowth()
     {
         Unsubscribe();
+        if (data.completionObject != null)
+        {
+            onGather.Invoke(data.lootTable);
+            Instantiate(data.completionObject, Transform.position, Quaternion.identity);
+        }
     }
 
     private void Subscribe()

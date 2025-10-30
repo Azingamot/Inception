@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Wheat
   m_EditorClassIdentifier: 
   cropStates:
-  - StateSprite: {fileID: -4818313753074155868, guid: 248b675d1ec83384db18a70cef02d08f, type: 3}
+  - StateSprite: {fileID: 5645847550748024870, guid: 088032dddb15a494b93e81659e6a6764, type: 3}
     TimeToChange: 0
-  - StateSprite: {fileID: -1504871244760539903, guid: 248b675d1ec83384db18a70cef02d08f, type: 3}
+  - StateSprite: {fileID: 1397495151626467375, guid: 088032dddb15a494b93e81659e6a6764, type: 3}
     TimeToChange: 50
-  - StateSprite: {fileID: 4936661642335583362, guid: 248b675d1ec83384db18a70cef02d08f, type: 3}
+  - StateSprite: {fileID: -234072206, guid: 088032dddb15a494b93e81659e6a6764, type: 3}
     TimeToChange: 100
   lootTable: {fileID: 11400000, guid: c00b1d5c25d83154e8cc48873304b539, type: 2}
+  completionObject: {fileID: 0}
+  particlesColor: {r: 1, g: 0.85161436, b: 0.4292453, a: 1}

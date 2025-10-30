@@ -14,7 +14,8 @@ public class TileUsage : UsableItem
             if (GroundCheck() && RadiusCheck())
             {
                 TileItem tileItem = item as TileItem;
-                TilePlacement.instance.PlaceTile(tileItem.TileToPlace, mouseInWorld);
+                TilePlacement.instance.PlaceGroundTile(tileItem.TileToPlace, mouseInWorld);
+                playerItemInHand.TriggerAnimation("Use");
                 InventoryController.Instance.RemoveItem(1);
             }
         }
