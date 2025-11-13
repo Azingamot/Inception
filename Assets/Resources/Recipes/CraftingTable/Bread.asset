@@ -15,5 +15,5 @@ MonoBehaviour:
   Result: {fileID: 11400000, guid: 841cbd09fa2d1614ea74cab7f84fe359, type: 2}
   Count: 1
   Elements:
-  - DropItem: {fileID: 11400000, guid: 71809a7ad8dc4ce4f86edac8043fe2f8, type: 2}
+  - Item: {fileID: 11400000, guid: 71809a7ad8dc4ce4f86edac8043fe2f8, type: 2}
     Count: 3

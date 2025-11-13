@@ -11,7 +11,7 @@ public static class ObjectsPositions
             _positions.RemoveWhere(u => u.SavedObject == null);
             return _positions; 
         } 
-        private set { _positions = value; } 
+        set { _positions = value; } 
     }
 
     public static void AddObject(ObjectPosition position)

@@ -6,26 +6,35 @@ public class ObjectsPlacement : MonoBehaviour
     [SerializeField] private Tilemap groundMap, aboveMap;
     public static ObjectsPlacement Instance;
 
-    private void Awake()
+    public void Initialize()
     {
         if (Instance == null)
             Instance = this;
     }
 
-    public bool PlaceObject(BuildingItem item, Vector2 center)
+    public bool TryPlaceObject(BuildingItem item, Vector2 center)
     {
         if (CanPlaceObject(item,center))
         {
             Vector2 worldPosition = PlacementPosition(center);
-            GameObject newObject = Instantiate(item.ObjectToPlace, worldPosition, Quaternion.identity);
-            if (item is CropItem cropItem && newObject.TryGetComponent<Crop>(out Crop crop))
-            {
-                crop.Initialize(cropItem.CropData);
-            }
-            ObjectsPositions.AddObject(new ObjectPosition(worldPosition, newObject));
+            
+            PlaceObject(item, worldPosition);
+
             return true;
         }
         return false;
+    }
+
+    public void PlaceObject(BuildingItem item, Vector2 worldPosition)
+    {
+        GameObject newObject = Instantiate(item.ObjectToPlace, worldPosition, Quaternion.identity);
+
+        ObjectPosition objectPosition = new ObjectPosition(worldPosition, newObject, new ObjectReference(item.UID));
+
+        if (item is CropItem cropItem && newObject.TryGetComponent<Crop>(out Crop crop))
+            crop.Initialize(cropItem.CropData);
+
+        ObjectsPositions.AddObject(objectPosition);
     }
 
     public bool CanPlaceObject(BuildingItem item, Vector2 center)

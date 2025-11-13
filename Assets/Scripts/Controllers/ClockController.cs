@@ -10,11 +10,8 @@ public class ClockController : MonoBehaviour
     public static int Hours = 6;
     public static int Days = 1;
     public static DayTime DayTime = DayTime.Day;
-
-    private void Awake()
-    {
-        StartCoroutine(CountMinutes());
-    }
+    private Coroutine clocksCoroutine;
+    private bool isInitialized = false;
 
     private void FixedUpdate()
     { 
@@ -66,5 +63,40 @@ public class ClockController : MonoBehaviour
             Hours += 1;
             Minutes = 0;
         }
+    }
+
+    public ClockContext Save()
+    {
+        return new ClockContext(Minutes, Hours, Days, DayTime);
+    }
+
+    public void Initialize(ClockContext clockContext)
+    {
+        Days = clockContext.Days;
+        Hours = clockContext.Hours;
+        Minutes = clockContext.Minutes;
+        DayTime = clockContext.DayTime;
+
+        isInitialized = true;
+
+        if (clocksCoroutine != null)
+            StopCoroutine(clocksCoroutine);
+
+        clocksCoroutine = StartCoroutine(CountMinutes());
+    }
+
+    private void OnEnable()
+    {
+        if (!isInitialized)
+            return;
+        if (clocksCoroutine != null) 
+            StopCoroutine(clocksCoroutine);
+        clocksCoroutine = StartCoroutine(CountMinutes());
+    }
+
+    private void OnDisable()
+    {
+        if (clocksCoroutine != null)
+            StopCoroutine(clocksCoroutine);
     }
 }

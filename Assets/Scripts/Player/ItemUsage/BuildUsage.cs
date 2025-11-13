@@ -31,7 +31,7 @@ public class BuildUsage : UsableItem
     
     private bool TryPlaceObject(BuildingItem item, Vector3 pos)
     {
-        return ObjectsPlacement.Instance.PlaceObject(item, pos);
+        return ObjectsPlacement.Instance.TryPlaceObject(item, pos);
     }
 
     private bool CheckPlacement()
@@ -49,6 +49,7 @@ public class BuildUsage : UsableItem
 
     public override void Stop()
     {
+        base.Stop();
         stopped = true;
         ShowBuildingPlacement.instance.DeactivateHighlight();
     }

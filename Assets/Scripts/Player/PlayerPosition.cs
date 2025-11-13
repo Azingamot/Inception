@@ -14,6 +14,11 @@ public class PlayerPosition : MonoBehaviour
         return Vector2.Distance(GetData(), pos) < radius;
     }
 
+    public static Vector2 GetPosition()
+    {
+        return player.position;
+    }
+
     public static Vector2 GetData()
     {
         if (player != null)

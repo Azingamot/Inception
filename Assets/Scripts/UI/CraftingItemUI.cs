@@ -22,6 +22,11 @@ public class CraftingItemUI : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (descriptionUI.SelectedRecipe == recipe && descriptionUI.gameObject.activeInHierarchy)
+        {
+            descriptionUI.gameObject.SetActive(false);
+            return;
+        }
         if (!descriptionUI.gameObject.activeInHierarchy)
             descriptionUI.gameObject.SetActive(true);
         descriptionUI?.SetData(recipe);

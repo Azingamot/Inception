@@ -13,7 +13,7 @@ public class PlayerItemUse : MonoBehaviour
     public void UseItem()
     {
         Item selected = inventoryController.GetSelectedItem();
-        if (selected != null && selected.ItemUsage != null)
+        if (selected != null && selected.ItemUsage != null && !UIHelper.IsPointerOverUI())
             selected.ItemUsage.Use();
     }
 }

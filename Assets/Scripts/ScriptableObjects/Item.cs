@@ -1,9 +1,15 @@
 using System;
+using System.Runtime.Serialization;
+using UnityEditor;
 using UnityEngine;
 
 public abstract class Item : ScriptableObject
 {
     public string UID;
+
+    [TextArea(3,10)]
+    public string Description;
+
     public int MaxStack;
     public Sprite ItemSprite;
     public UsableItem ItemUsage;
@@ -15,6 +21,7 @@ public abstract class Item : ScriptableObject
         if (string.IsNullOrEmpty(UID))
         {
             UID = Guid.NewGuid().ToString();
+            EditorUtility.SetDirty(this);
         }
     }
 #endif

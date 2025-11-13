@@ -1,32 +1,12 @@
 using UnityEngine;
 
-public class AxeUsage : UsableItem, IDamageDealer
+public class AxeUsage : WeaponUsage
 {
-    private DamageItem damageItem;
-
-    public AxeUsage(DamageItem item) : base(item)
-    {
-        damageItem = item;
-    }
-
-    public float DamageAmount { get => damageItem.Damage; }
-    public DamageType[] TypesOfDamage { get => damageItem.DamageTypes; }
-
-    public override void Use()
-    {
-        if (ItemsCooldown.Instance.IsOnCooldown()) 
-            return;
-
-        playerItemInHand.SetRotation(MousePosition.GetData());
-        playerItemInHand.TriggerAnimation("Slash");
-
-        if (item is Axe axe) 
-            ItemsCooldown.Instance.SetOnCooldown(axe.SwingSpeed);
-    }
+    public AxeUsage(DamageItem item) : base(item) { }
 
     public override void Stop()
     {
-        if (playerItemInHand != null) playerItemInHand.StopAnimation();
+        base.Stop();
         CheckIfAround.instance.Disable();
     }
 

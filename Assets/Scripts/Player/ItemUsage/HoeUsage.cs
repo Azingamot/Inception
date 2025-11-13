@@ -62,6 +62,7 @@ public class HoeUsage : UsableItem
 
     public override void Stop()
     {
+        base.Stop();
         stopped = true;
         ShowSelectedTile.instance.DeactivateHighlight();
     }

@@ -20,6 +20,17 @@ public class Notification : MonoBehaviour
         itemImage.sprite = itemPickupContext.InventoryItem.ItemSprite;
     }
 
+    public void Initialize(string text, Sprite sprite)
+    {
+        itemText.text = text;
+        itemImage.sprite = sprite;
+    }
+
+    public void Initialize(string text)
+    {
+        itemText.text = text;
+    }
+
     public void SelfDestroy()
     {
         Destroy(gameObject);

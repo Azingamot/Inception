@@ -9,23 +9,28 @@ public class CraftingUI : MonoBehaviour
     [SerializeField] private CraftingItemUI itemUI;
     [SerializeField] private LayoutGroup itemsLayout;
     [SerializeField] private CraftItem craftItem;
-   
-    public void Open(List<CraftRecipe> recipes)
+    [SerializeField] private DropItems dropItems;
+    public bool IsOpened = false;
+
+    private void Start()
     {
-        if (!craftUI.activeInHierarchy)
-        {
-            itemDescription.gameObject.SetActive(false);
-            SetItems(recipes);
-            craftUI.SetActive(true);
-        }
+        itemDescription.gameObject.SetActive(false);
+    }
+
+    public void Open(List<CraftRecipe> recipes, bool firstOpen = false)
+    {
+        if (!InventoryUIControl.Instance.InventoryActive)
+            return;
+
+        SetItems(recipes);
+        craftUI.SetActive(true);
+        IsOpened = true;
     }
     
     public void Close()
     {
-        if (craftUI.activeInHierarchy)
-        {
-            craftUI.SetActive(false);
-        }
+        craftUI.SetActive(false);
+        IsOpened = false;
     }
 
     public void SetItems(List<CraftRecipe> recipes)
@@ -41,7 +46,10 @@ public class CraftingUI : MonoBehaviour
 
     public void CreateButtonClick()
     {
-        craftItem.CreateItem(itemDescription.SelectedRecipe);
+        if (!craftItem.CreateItem(itemDescription.SelectedRecipe, dropItems, PlayerPosition.GetData()))
+        {
+            TextNotificationUI.Instance.Notify("Not enough resources");
+        }
     }
 
     private void Clear()

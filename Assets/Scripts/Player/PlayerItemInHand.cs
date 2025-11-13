@@ -40,6 +40,7 @@ public class PlayerItemInHand : MonoBehaviour
     {
         itemAnimator.SetTrigger(trigger);
     }
+
     public void SetRotation(Vector3 mousePos)
     {
         if (baseRotation != null)
@@ -85,7 +86,6 @@ public class PlayerItemInHand : MonoBehaviour
     {
         if (baseRotation != null)
             StopCoroutine(baseRotation);
-
         baseRotation = StartCoroutine(RotateToBase());
     }
 
@@ -99,16 +99,13 @@ public class PlayerItemInHand : MonoBehaviour
 
     private IEnumerator RotateToBase()
     {
-        while (true)
+        float elapsedTime = 0;
+        while (Quaternion.Angle(transform.rotation, Quaternion.identity) > 0)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, returnSpeed * Time.deltaTime);
-
-            if (Quaternion.Angle(transform.rotation, Quaternion.identity) < 0.1f)
-            {
-                transform.rotation = Quaternion.identity;
-                break;
-            }
-            yield return null;
+            elapsedTime += Time.deltaTime;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, returnSpeed * elapsedTime);
+            yield return new WaitForFixedUpdate();
         }
+        transform.rotation = Quaternion.identity;
     }
 }
