@@ -12,7 +12,6 @@ public class ClockUI : MonoBehaviour
     private DayTime currentDayTime;
     private int currentDay;
 
-
     public void OnClockTick(ClockContext clockContext)
     {
         if (currentDayTime != clockContext.DayTime)
@@ -37,11 +36,12 @@ public class ClockUI : MonoBehaviour
         }
 
         SetClockText(clockContext.Minutes, clockContext.Hours);
-        ControllFillAmount(clockContext.Hours);
+        ControlFillAmount(clockContext.Hours);
     }
 
-    private void ControllFillAmount(int hours)
+    private void ControlFillAmount(int hours)
     {
+        Debug.Log(currentDayTime);
         switch (currentDayTime)
         {
             case DayTime.Day:
@@ -62,10 +62,9 @@ public class ClockUI : MonoBehaviour
 
     private void SetSunFill(int hours)
     {
-        if (hours > 6)
-            hours -= 6;
+        hours -= ClockController.NIGHT_END_HOURS;
 
-        float fill = (float)hours / 14f;
+        float fill = (float)hours / (ClockController.NIGHT_START_HOURS - ClockController.NIGHT_END_HOURS);
 
         sunImage.fillAmount = Mathf.Clamp01(fill);
         moonImage.fillAmount = Mathf.Clamp01(1 - (fill));
@@ -73,14 +72,12 @@ public class ClockUI : MonoBehaviour
 
     private void SetMoonFill(int hours)
     {
-        if (hours >= 20)
-            hours = hours - 20;
-        else if (hours <= 6)
-        {
-            hours += 4;
-        }
+        if (hours < 24)
+            hours -= ClockController.NIGHT_START_HOURS;
+        else
+            hours += 24 - ClockController.NIGHT_START_HOURS;
 
-        float fill = (float)hours / 10f;
+        float fill = (float)hours / ClockController.NIGHT_LENGTH;
 
         moonImage.fillAmount = Mathf.Clamp01(fill);
         sunImage.fillAmount = Mathf.Clamp01(1 - (fill));

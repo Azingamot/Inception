@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ab2901fc10ea246a464f136d2a274c, type: 3}
+  m_Name: Cotton Rope
+  m_EditorClassIdentifier: 
+  UID: 3098ecaf-2702-40a0-8f38-98ffba8097f5
+  Description: Strong rope for making tools.
+  MaxStack: 100
+  ItemSprite: {fileID: -9034882327752046148, guid: 5593f8392d24fe547a2355ec06e2c646, type: 3}
+  Animator: {fileID: 0}

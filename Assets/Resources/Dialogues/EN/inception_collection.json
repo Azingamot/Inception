@@ -1,0 +1,34 @@
+{
+    "DialogueLines": [
+        {
+            "Title": "Inception",
+            "Content": "So we meet again.",
+            "Emotion": 0
+        },
+        {
+            "Title": "Inception",
+            "Content": "I hope you've harvested the wheat.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "Good, that's enough.",
+            "Emotion": 0
+        },
+        {
+            "Title": "Inception",
+            "Content": "But don't relax, I have enough ideas for what I can ask of you.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "And yes, take these seeds. They will help you.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "And be careful at night, okay?",
+            "Emotion": 4
+        }
+    ]
+}

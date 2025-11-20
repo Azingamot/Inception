@@ -1,0 +1,39 @@
+{
+    "DialogueLines": [
+        {
+            "Title": "Inception",
+            "Content": "Wait a bit, do you even know what you're doing?",
+            "Emotion": 3
+        },
+        {
+            "Title": "Inception",
+            "Content": "Or rather, where do you do it?",
+            "Emotion": 3
+        },
+        {
+            "Title": "Inception",
+            "Content": "This world does not belong to you, I am the Inception of everything that you see.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "However, if you don't want to leave this place, then we can make a deal.",
+            "Emotion": 0
+        },
+        {
+            "Title": "Inception",
+            "Content": "It won't be a problem for you to create a farm, will it?",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "Then you'll grow quite a bit of wheat. About 30 pieces.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "I expect results from you by the next day. Don't let me down.",
+            "Emotion": 4
+        }
+    ]
+}

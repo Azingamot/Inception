@@ -4,17 +4,19 @@ using UnityEngine.Events;
 
 public class ClockController : MonoBehaviour
 {
+    public const int NIGHT_START_HOURS = 21;
+    public const int NIGHT_END_HOURS = 6;
+    public static int NIGHT_LENGTH => (24 - NIGHT_START_HOURS) + NIGHT_END_HOURS;
+
     [SerializeField] private UnityEvent<ClockContext> onClockTick;
+    [SerializeField] private UnityEvent<ClockContext> onTimeChanged;
     [SerializeField] private float clockSpeed = 0.5f;
     public static int Minutes = 0;
     public static int Hours = 6;
     public static int Days = 1;
     public static DayTime DayTime = DayTime.Day;
-
-    private void Awake()
-    {
-        StartCoroutine(CountMinutes());
-    }
+    private Coroutine clocksCoroutine;
+    private bool isInitialized = false;
 
     private void FixedUpdate()
     { 
@@ -35,18 +37,20 @@ public class ClockController : MonoBehaviour
     private void CountNext()
     {
         Minutes += 1;
-        onClockTick.Invoke(new ClockContext(Minutes, Hours, Days, DayTime));
+        onClockTick.Invoke(GetClockContext());
     }
 
     private void ControlDayTime()
     {
-        if (DayTime == DayTime.Day && (Hours <= 6 || Hours >= 20))
+        if (DayTime == DayTime.Day && (Hours >= NIGHT_START_HOURS || Hours <= NIGHT_END_HOURS))
         {
             DayTime = DayTime.Night;
+            onTimeChanged.Invoke(GetClockContext());
         }
-        else if (DayTime == DayTime.Night && (Hours > 6 && Hours < 20))
+        else if (DayTime == DayTime.Night && (Hours > NIGHT_END_HOURS && Hours < NIGHT_START_HOURS))
         {
             DayTime = DayTime.Day;
+            onTimeChanged.Invoke(GetClockContext());
         }
     }
 
@@ -66,5 +70,45 @@ public class ClockController : MonoBehaviour
             Hours += 1;
             Minutes = 0;
         }
+    }
+
+    public ClockContext Save()
+    {
+        return GetClockContext();
+    }
+
+    public void Initialize(ClockContext clockContext)
+    {
+        Days = clockContext.Days;
+        Hours = clockContext.Hours;
+        Minutes = clockContext.Minutes;
+        DayTime = clockContext.DayTime;
+
+        isInitialized = true;
+
+        if (clocksCoroutine != null)
+            StopCoroutine(clocksCoroutine);
+
+        clocksCoroutine = StartCoroutine(CountMinutes());
+    }
+
+    private void OnEnable()
+    {
+        if (!isInitialized)
+            return;
+        if (clocksCoroutine != null) 
+            StopCoroutine(clocksCoroutine);
+        clocksCoroutine = StartCoroutine(CountMinutes());
+    }
+
+    private void OnDisable()
+    {
+        if (clocksCoroutine != null)
+            StopCoroutine(clocksCoroutine);
+    }
+
+    private ClockContext GetClockContext()
+    {
+        return new ClockContext(Minutes, Hours, Days, DayTime);
     }
 }

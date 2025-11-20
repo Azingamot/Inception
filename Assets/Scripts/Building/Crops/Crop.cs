@@ -14,6 +14,7 @@ public class Crop : MonoBehaviour, IObserver, IInteractable
     private int currentStateIndex;
     private bool canGrow = true;
     private bool canInteract = true;
+    private int randomValue;
 
     public Transform Transform => transform;
 
@@ -23,16 +24,17 @@ public class Crop : MonoBehaviour, IObserver, IInteractable
             Initialize(data);
     }
 
-    public void Initialize(CropData cropData)
+    public void Initialize(CropData cropData, CropState currentState = null)
     {
         data = cropData;
+        randomValue = Random.Range(0, 20);
         ParticleSystem particles = GetComponentInChildren<ParticleSystem>();
         if (particles != null)
         {
             ParticleSystem.MainModule main = particles.main;
             main.startColor = cropData.particlesColor;
         }
-        CropStateChange(data.cropStates[0]);
+        CropStateChange(currentState ?? data.cropStates[0]);
     }
 
     public void OnUpdate(object context)
@@ -46,7 +48,7 @@ public class Crop : MonoBehaviour, IObserver, IInteractable
 
     private void CheckStateChange()
     {
-        if (canGrow && currentTime > data.cropStates[currentStateIndex + 1].TimeToChange)
+        if (canGrow && currentTime > data.cropStates[currentStateIndex + 1].TimeToChange + randomValue)
         {
             currentStateIndex++;
 
@@ -111,6 +113,6 @@ public class Crop : MonoBehaviour, IObserver, IInteractable
 
     private void ShowTimeToGrow()
     {
-        interactionUI.TemporaryShow($"{currentTime}/{data.cropStates[data.cropStates.Count - 1].TimeToChange}");
+        interactionUI.TemporaryShow($"{currentTime}/{data.cropStates[data.cropStates.Count - 1].TimeToChange + randomValue}");
     }
 }

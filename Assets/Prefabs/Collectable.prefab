@@ -345,6 +345,9 @@ MonoBehaviour:
   collectableItem: {fileID: 11400000, guid: 60867abcc29680542a99c0ae4863a2c1, type: 2}
   itemsCount: 1
   countText: {fileID: 8186335518259530062}
+  collectableMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!61 &1700337316842580552
 BoxCollider2D:
   m_ObjectHideFlags: 0

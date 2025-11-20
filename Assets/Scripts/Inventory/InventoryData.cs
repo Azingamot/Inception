@@ -19,6 +19,25 @@ public class InventoryData
 
     public bool AddItem(Item item, int count = 1)
     {
+        count = CheckIfAlreadyExisting(item, count);
+        if (count <= 0)
+            return true;
+
+        foreach (var slot in Slots)
+        {
+            if (slot.ItemInSlot == null)
+            {
+                SetNewItemToSlot(slot, item, count);
+                count = 0;
+                break;
+            }
+        }
+
+        return count <= 0;
+    }
+
+    private int CheckIfAlreadyExisting(Item item, int count)
+    {
         foreach (var slot in Slots)
         {
             if (slot.ItemInSlot != null && slot.ItemInSlot.Compare(item) && slot.Count < item.MaxStack)
@@ -27,17 +46,20 @@ public class InventoryData
                 int toAdd = Mathf.Min(count, available);
                 slot.Count += toAdd;
                 count -= toAdd;
-                if (count <= 0) return true;
-            }
-            else if (slot.ItemInSlot == null)
-            {
-                slot.SetItem(item, count);
-                count = 0;
-                break;
+                return count;
             }
         }
+        return count;
+    }
 
-        return count <= 0;
+    private bool SetNewItemToSlot(InventorySlotData slot, Item item, int count)
+    {
+        if (slot.ItemInSlot == null)
+        {
+            slot.SetItem(item, count);
+            return true;
+        }
+        return false;
     }
 
     public bool HaveSpaceForItem(Item item, int count = 1)
@@ -62,12 +84,22 @@ public class InventoryData
     public void RemoveItem(int slotIndex, int count)
     {
         var slot = Slots[slotIndex];
-        if (slot.ItemInSlot != null)
+        RemoveItemFromSlot(slot, count);
+    }
+
+    public void RemoveItem(InventorySlotData slotData, int count)
+    {
+       RemoveItemFromSlot(slotData, count);
+    }
+
+    private void RemoveItemFromSlot(InventorySlotData slotData, int count)
+    {
+        if (slotData.ItemInSlot != null)
         {
-            slot.Count -= count;
-            if (slot.Count <= 0)
+            slotData.Count -= count;
+            if (slotData.Count <= 0)
             {
-                slot.Clear();
+                slotData.Clear();
             }
         }
     }

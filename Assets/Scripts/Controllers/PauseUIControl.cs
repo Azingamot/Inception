@@ -6,7 +6,6 @@ public class PauseUIControl : MonoBehaviour
     [SerializeField] private InputActionReference pauseAction;
     [SerializeField] private PauseMenu pauseMenu;
 
-
     private void OnEnable()
     {
         pauseAction.action.started += SwitchPause;
@@ -16,7 +15,6 @@ public class PauseUIControl : MonoBehaviour
     {
         pauseAction.action.started -= SwitchPause;
     }
-
 
     public void SwitchPause(InputAction.CallbackContext context)
     {

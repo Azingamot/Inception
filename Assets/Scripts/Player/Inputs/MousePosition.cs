@@ -13,6 +13,6 @@ public class MousePosition : MonoBehaviour
 
     public static Vector2 GetData()
     {
-        return mouseInput.action.ReadValue<Vector2>();
+        return mouseInput != null ? mouseInput.action.ReadValue<Vector2>() : Vector2.zero;
     }
 }

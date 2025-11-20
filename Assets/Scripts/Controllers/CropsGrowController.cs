@@ -9,7 +9,7 @@ public class CropsGrowController : MonoBehaviour, IObservable
 
     public List<IObserver> Observers => observers;
 
-    void Awake()
+    public void Initialize()
     {
         if (Instance == null)
             Instance = this;

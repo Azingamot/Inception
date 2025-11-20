@@ -9,6 +9,15 @@ public static class TileValidation
         return tile != null;
     }
 
+    public static Vector2? GetTileCenterOnPlace(Tilemap map, Vector2 position)
+    {
+        TileBase tile = map.GetTile(Vector3Int.FloorToInt(position));
+        if (tile != null)
+            return PointToCell(map, position);
+        else
+            return null;
+    }
+
     public static bool CanPlaceObject(Tilemap tilemap, Vector3 worldPosition, Vector2Int objectSize, System.Collections.Generic.HashSet<Vector2> occupiedPositions = null)
     {
         Vector3Int minTile = tilemap.WorldToCell(worldPosition);

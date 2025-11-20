@@ -9,7 +9,9 @@ public class CraftingMaterialUI : MonoBehaviour
    
     public void Initialize(RecipeElement recipeElement)
     {
-        materialImage.sprite = recipeElement.DropItem.ItemSprite;
+        if (recipeElement == null)
+            Debug.LogError("Инициализирован пустой объект");
+        materialImage.sprite = recipeElement.Item.ItemSprite;
         materialCount.text = recipeElement.Count.ToString();
     }
 }

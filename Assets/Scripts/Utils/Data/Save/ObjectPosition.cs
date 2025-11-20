@@ -1,14 +1,17 @@
+using System;
 using UnityEngine;
 
 [System.Serializable]
 public class ObjectPosition
 {
     public Vector2 Position;
-    public GameObject SavedObject;
+    [NonSerialized] public GameObject SavedObject;
+    public ObjectReference ObjectReference;
 
-    public ObjectPosition(Vector2 position, GameObject savedObject)
+    public ObjectPosition(Vector2 position, GameObject savedObject, ObjectReference objectReference)
     {
         Position = position;
         SavedObject = savedObject;
+        ObjectReference = objectReference;
     }
 }

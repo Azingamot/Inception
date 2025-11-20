@@ -1,0 +1,196 @@
+{
+    "NameStrings": [
+        {
+            "Name": "Damage",
+            "Value": "Урона"
+        },
+        {
+            "Name": "Cooldown",
+            "Value": "Восстановление"
+        },
+        {
+            "Name": "Saturation",
+            "Value": "Насыщения"
+        },
+        {
+            "Name": "Description",
+            "Value": "Описание"
+        },
+        {
+            "Name": "Materials",
+            "Value": "Материалы"
+        },
+        {
+            "Name": "Create",
+            "Value": "Создать"
+        },
+        {
+            "Name": "Settings",
+            "Value": "Настройки"
+        },
+        {
+            "Name": "SFX",
+            "Value": "SFX"
+        },
+        {
+            "Name": "Music",
+            "Value": "Mузыка"
+        },
+        {
+            "Name": "Full screen",
+            "Value": "Полный экран"
+        },
+        {
+            "Name": "Language",
+            "Value": "Язык"
+        },
+        {
+            "Name": "Quests",
+            "Value": "Задания"
+        },
+        {
+            "Name": "Save",
+            "Value": "Сохранить"
+        },
+        {
+            "Name": "Save & Quit",
+            "Value": "Выйти"
+        },
+        {
+            "Name": "Resolution",
+            "Value": "Разрешение"
+        },
+        {
+            "Name": "Resume",
+            "Value": "Вернуться"
+        },
+        {
+            "Name": "Cotton Item",
+            "Value": "Хлопок"
+        },
+        {
+            "Name": "Cotton Item_description",
+            "Value": ""
+        },
+        {
+            "Name": "Cotton Rope",
+            "Value": "Хлопковая веревка"
+        },
+        {
+            "Name": "Cotton Rope_description",
+            "Value": "Прочная веревка для создания инструментов"
+        },
+        {
+            "Name": "Wheat Item",
+            "Value": "Пшеница"
+        },
+        {
+            "Name": "Wheat Item_description",
+            "Value": ""
+        },
+        {
+            "Name": "Wood Item",
+            "Value": "Дерево"
+        },
+        {
+            "Name": "Wood Item_description",
+            "Value": ""
+        },
+        {
+            "Name": "Crafting Table",
+            "Value": "Верстак"
+        },
+        {
+            "Name": "Crafting Table_description",
+            "Value": "Основной объект для создания большинства предметов"
+        },
+        {
+            "Name": "Ground",
+            "Value": "Земля"
+        },
+        {
+            "Name": "Ground_description",
+            "Value": "Стандартный тайл для расширения острова"
+        },
+        {
+            "Name": "Bush",
+            "Value": "Bush"
+        },
+        {
+            "Name": "Bush_description",
+            "Value": ""
+        },
+        {
+            "Name": "Tree",
+            "Value": "Tree"
+        },
+        {
+            "Name": "Tree_description",
+            "Value": ""
+        },
+        {
+            "Name": "Acorn",
+            "Value": "Желудь"
+        },
+        {
+            "Name": "Acorn_description",
+            "Value": "Используется для выращивания деревьев"
+        },
+        {
+            "Name": "Cotton Seeds",
+            "Value": "Семена хлопчатника"
+        },
+        {
+            "Name": "Cotton Seeds_description",
+            "Value": "Используется для выращивания хлопчатника"
+        },
+        {
+            "Name": "Wheat Seeds",
+            "Value": "Семена пшеницы"
+        },
+        {
+            "Name": "Wheat Seeds_description",
+            "Value": "Используется для выращивания пшеницы"
+        },
+        {
+            "Name": "Bread",
+            "Value": "Хлеб"
+        },
+        {
+            "Name": "Bread_description",
+            "Value": "Вкусно!"
+        },
+        {
+            "Name": "Stone Axe",
+            "Value": "Каменный топор"
+        },
+        {
+            "Name": "Stone Axe_description",
+            "Value": "Основной инструментя для рубки деревьев"
+        },
+        {
+            "Name": "Wooden Hoe",
+            "Value": "Деревянная мотыга"
+        },
+        {
+            "Name": "Wooden Hoe_description",
+            "Value": "Простейшая мотыга, которая вызывает сильную усталость при использовании"
+        },
+        {
+            "Name": "Hero Sword",
+            "Value": "Меч героя"
+        },
+        {
+            "Name": "Hero Sword_description",
+            "Value": "Принадлежал настоящему герою"
+        },
+        {
+            "Name": "Wooden Sword",
+            "Value": "Деревянный меч"
+        },
+        {
+            "Name": "Wooden Sword_description",
+            "Value": "Простейшее оружие"
+        }
+    ]
+}

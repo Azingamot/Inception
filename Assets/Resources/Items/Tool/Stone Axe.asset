@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcbecc2b23bce3e499d4c75692d6952d, type: 3}
+  m_Name: Stone Axe
+  m_EditorClassIdentifier: 
+  UID: c4f33929-1486-4d37-95e8-7611138fae27
+  Description: Basic instrument to chop trees. Can be used as a weapon.
+  MaxStack: 1
+  ItemSprite: {fileID: 5127326418951840272, guid: 24513f7109aca6a478c3e1662f513768, type: 3}
+  Animator: {fileID: 9100000, guid: ba1363307658ff24085d38c60f7a6486, type: 2}
+  Rarity: 0
+  Damage: 20
+  ReloadTime: 2
+  DamageTypes: 0100000000000000

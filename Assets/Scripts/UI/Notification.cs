@@ -16,8 +16,20 @@ public class Notification : MonoBehaviour
 
     public void Initialize(ItemPickupContext itemPickupContext)
     {
-        itemText.text = $"{itemPickupContext.InventoryItem.name} ({itemPickupContext.ItemsCount})";
+        itemText.text = $"{itemPickupContext.InventoryItem.Name} ({itemPickupContext.ItemsCount})";
+        itemText.color = Rarities.ItemColor(itemPickupContext.InventoryItem);
         itemImage.sprite = itemPickupContext.InventoryItem.ItemSprite;
+    }
+
+    public void Initialize(string text, Sprite sprite)
+    {
+        itemText.text = text;
+        itemImage.sprite = sprite;
+    }
+
+    public void Initialize(string text)
+    {
+        itemText.text = text;
     }
 
     public void SelfDestroy()

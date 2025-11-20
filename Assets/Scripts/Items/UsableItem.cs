@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public abstract class UsableItem
 {
@@ -24,6 +25,6 @@ public abstract class UsableItem
 
     public virtual void Stop()
     {
-
+        if (playerItemInHand != null) playerItemInHand.StopAnimation();
     }
 }

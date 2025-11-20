@@ -4,22 +4,23 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorySlotUI : MonoBehaviour, IDragHandler, IDropHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
+public class InventorySlotUI : MonoBehaviour, IDragHandler, IDropHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Image icon;
     [SerializeField] private TMP_Text countText;
     [SerializeField] private Image selectionIndicator;
-
     [SerializeField] private InventorySlotData slotData;
     [SerializeField] private InventoryController controller;
     private int slotIndex;
+	private ItemDescription itemDescription;
 
-    public void Setup(InventorySlotData data, int index, InventoryController ctrl)
+	public void Setup(InventorySlotData data, int index, InventoryController ctrl, ItemDescription itemDescription = null)
     {
         slotData = data;
         slotIndex = index;
         controller = ctrl;
-        Refresh();
+		if (itemDescription != null) this.itemDescription = itemDescription;
+		Refresh();
     }
 
     public void Refresh()
@@ -41,8 +42,6 @@ public class InventorySlotUI : MonoBehaviour, IDragHandler, IDropHandler, IBegin
     {
         selectionIndicator.enabled = isSelected;
     }
-
-    // --- Drag'n'Drop ---
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -70,6 +69,7 @@ public class InventorySlotUI : MonoBehaviour, IDragHandler, IDropHandler, IBegin
         if (draggedFrom != null && draggedFrom != this)
         {
             controller.SwapItems(draggedFrom.slotIndex, slotIndex);
+            ShowDescription(eventData);
         }
     }
 
@@ -79,5 +79,21 @@ public class InventorySlotUI : MonoBehaviour, IDragHandler, IDropHandler, IBegin
         {
             controller.ChangeSelectedSlot(slotIndex);
         }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        ShowDescription(eventData);
+    }
+
+    private void ShowDescription(PointerEventData eventData)
+    {
+        eventData.position = transform.position;
+        itemDescription.ShowDescription(eventData, slotData);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        itemDescription.HideDescription();
     }
 }

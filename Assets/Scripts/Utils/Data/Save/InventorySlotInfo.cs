@@ -1,12 +1,15 @@
 ﻿[System.Serializable]
 public class InventorySlotInfo
 {
-    public InventorySlotData data;
+    public string itemUID;
+    public int count;
     public int slotIndex;
 
-    public InventorySlotInfo(InventorySlotData data, int slotIndex)
+    public InventorySlotInfo(int slotIndex, Item item, int count)
     {
-        this.data = data;
         this.slotIndex = slotIndex;
+        if (item != null)
+            itemUID = item.UID;
+        this.count = count;
     }
 }

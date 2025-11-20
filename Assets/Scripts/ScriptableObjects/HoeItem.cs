@@ -11,4 +11,9 @@ public class HoeItem : Item
     {
         ItemUsage = new HoeUsage(this);
     }
+
+	public override string FormatDescription()
+	{
+		return $"{Cooldown} {NamesHelper.ReceiveName("Cooldown")}\n" + base.FormatDescription();
+	}
 }

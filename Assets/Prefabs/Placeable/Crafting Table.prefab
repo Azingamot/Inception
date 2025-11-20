@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 5865324978524929438}
   - component: {fileID: 2987794093783041688}
   - component: {fileID: 1694850006196799500}
-  m_Layer: 0
+  - component: {fileID: 2648762297482905523}
+  m_Layer: 3
   m_Name: Crafting Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +93,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7742707296672bb4f85037ee822e0703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathToRecipes: Recipes/CraftingTable
+  RecipesFolder: CraftingTable
+--- !u!114 &2648762297482905523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5857761197587532976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b06cad31ec018a648939817915e30b44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootTable: {fileID: 0}
+  dropPrefab: {fileID: 4036545398877768564, guid: bc51c8abda91d4145961025a5779eb6c, type: 3}
+  launchPower: 2.5
 --- !u!1 &5862215037822937499
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4827051916991392246}
   - component: {fileID: 2226432867018690155}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TableSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3385517857237242828}
   - component: {fileID: 1023610253108199041}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

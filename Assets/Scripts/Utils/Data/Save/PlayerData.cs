@@ -1,10 +1,11 @@
 using UnityEngine;
 
 [System.Serializable]
-public static class PlayerData
+public struct PlayerData
 {
-    public static int MaxHealth { get; set; }
-    public static int Health { get; set; }
-    public static int MaxSaturation { get; set; }
-    public static int Saturation { get; set; }
+    public int MaxHealth;
+    public int Health;
+    public int MaxSaturation;
+    public int Saturation;
+    public Vector3 PlayerPosition;
 }

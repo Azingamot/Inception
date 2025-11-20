@@ -12,10 +12,7 @@ public class DropItems : MonoBehaviour
         {
             int chance = Random.Range(0, 100);
             if (chance <= loot.DropChance)
-            {
-                Debug.Log($"Drop {loot.DropItem} Count {loot.DropCount}");
                 SpawnDrop(loot.DropItem, loot.DropCount);
-            }
         }
     }
 
@@ -25,9 +22,19 @@ public class DropItems : MonoBehaviour
         Drop();
     }
 
-    private void SpawnDrop(Item item, int count = 1)
+    public void SpawnDrop(Item item, int count = 1)
     {
-        CollectableItem itemToCollect = Instantiate<CollectableItem>(dropPrefab, transform.position, Quaternion.identity);
+       SpawnDropOnPosition(transform.position, item, count);
+    }
+
+    public void SpawnDrop(Vector2 pos, Item item, int count = 1)
+    {
+        SpawnDropOnPosition(pos, item, count);
+    }
+
+    private void SpawnDropOnPosition(Vector2 pos, Item item, int count)
+    {
+        CollectableItem itemToCollect = Instantiate<CollectableItem>(dropPrefab, pos, Quaternion.identity);
         itemToCollect.Initialize(item, count);
         itemToCollect.LaunchUp(launchPower);
     }

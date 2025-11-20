@@ -14,11 +14,19 @@ public class CraftingItemDescriptionUI : MonoBehaviour
 
     public void SetData(CraftRecipe recipe)
     {
-        itemName.text = recipe.Result.name;
-        itemDescription.text = recipe.Result.GetType().ToString();
+        itemName.text = recipe.Result.Name;
+        itemName.color = Rarities.ItemColor(recipe.Result);
+
+        SetDescription(recipe.Result);
+
         materials = recipe.Elements;
         SelectedRecipe = recipe;
         InitializeMaterials(materials);
+    }
+
+    private void SetDescription(Item item)
+    {
+        itemDescription.text = string.IsNullOrEmpty(item.FormatDescription()) ? "No description": item.FormatDescription();
     }
 
     private void InitializeMaterials(List<RecipeElement> elements)

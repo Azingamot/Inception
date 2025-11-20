@@ -1,0 +1,196 @@
+{
+    "NameStrings": [
+        {
+            "Name": "Damage",
+            "Value": "Damage"
+        },
+        {
+            "Name": "Cooldown",
+            "Value": "Cooldown"
+        },
+        {
+            "Name": "Saturation",
+            "Value": "Saturation"
+        },
+        {
+            "Name": "Description",
+            "Value": "Description"
+        },
+        {
+            "Name": "Materials",
+            "Value": "Materials"
+        },
+        {
+            "Name": "Create",
+            "Value": "Create"
+        },
+        {
+            "Name": "Settings",
+            "Value": "Settings"
+        },
+        {
+            "Name": "SFX",
+            "Value": "SFX"
+        },
+        {
+            "Name": "Music",
+            "Value": "Music"
+        },
+        {
+            "Name": "Full screen",
+            "Value": "Full screen"
+        },
+        {
+            "Name": "Language",
+            "Value": "Language"
+        },
+        {
+            "Name": "Quests",
+            "Value": "Quests"
+        },
+        {
+            "Name": "Save",
+            "Value": "Save"
+        },
+        {
+            "Name": "Save & Quit",
+            "Value": "Save & Quit"
+        },
+        {
+            "Name": "Resume",
+            "Value": "Resume"
+        },
+        {
+            "Name": "Resolution",
+            "Value": "Resolution"
+        },
+        {
+            "Name": "Cotton Item",
+            "Value": "Cotton"
+        },
+        {
+            "Name": "Cotton Item_description",
+            "Value": ""
+        },
+        {
+            "Name": "Cotton Rope",
+            "Value": "Cotton Rope"
+        },
+        {
+            "Name": "Cotton Rope_description",
+            "Value": "Strong rope for making tools"
+        },
+        {
+            "Name": "Wheat Item",
+            "Value": "Wheat"
+        },
+        {
+            "Name": "Wheat Item_description",
+            "Value": ""
+        },
+        {
+            "Name": "Wood Item",
+            "Value": "Wood"
+        },
+        {
+            "Name": "Wood Item_description",
+            "Value": ""
+        },
+        {
+            "Name": "Crafting Table",
+            "Value": "Crafting Table"
+        },
+        {
+            "Name": "Crafting Table_description",
+            "Value": "The main object for creating most items"
+        },
+        {
+            "Name": "Ground",
+            "Value": "Ground"
+        },
+        {
+            "Name": "Ground_description",
+            "Value": "Default tile for island extensions"
+        },
+        {
+            "Name": "Bush",
+            "Value": "Bush"
+        },
+        {
+            "Name": "Bush_description",
+            "Value": ""
+        },
+        {
+            "Name": "Tree",
+            "Value": "Tree"
+        },
+        {
+            "Name": "Tree_description",
+            "Value": ""
+        },
+        {
+            "Name": "Acorn",
+            "Value": "Acorn"
+        },
+        {
+            "Name": "Acorn_description",
+            "Value": "Used to grow trees"
+        },
+        {
+            "Name": "Cotton Seeds",
+            "Value": "Cotton Seeds"
+        },
+        {
+            "Name": "Cotton Seeds_description",
+            "Value": "Used to grow cotton plant"
+        },
+        {
+            "Name": "Wheat Seeds",
+            "Value": "Wheat Seeds"
+        },
+        {
+            "Name": "Wheat Seeds_description",
+            "Value": "Used to grow wheat"
+        },
+        {
+            "Name": "Bread",
+            "Value": "Bread"
+        },
+        {
+            "Name": "Bread_description",
+            "Value": "Tasty!"
+        },
+        {
+            "Name": "Stone Axe",
+            "Value": "Stone Axe"
+        },
+        {
+            "Name": "Stone Axe_description",
+            "Value": "The main tool to chop down trees"
+        },
+        {
+            "Name": "Wooden Hoe",
+            "Value": "Wooden Hoe"
+        },
+        {
+            "Name": "Wooden Hoe_description",
+            "Value": "The simplest hoe that causes severe fatigue after use."
+        },
+        {
+            "Name": "Hero Sword",
+            "Value": "Hero Sword"
+        },
+        {
+            "Name": "Hero Sword_description",
+            "Value": "Belongs to a true hero"
+        },
+        {
+            "Name": "Wooden Sword",
+            "Value": "Wooden Sword"
+        },
+        {
+            "Name": "Wooden Sword_description",
+            "Value": "The simplest weapon"
+        }
+    ]
+}

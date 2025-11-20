@@ -19,7 +19,7 @@ public class DayLightCycle : MonoBehaviour
     {
         foreach (DaylightState state in states)
         {
-            if (!currentState.Equals(state) && context.Hours > state.minHours && context.Hours < state.maxHours)
+            if (!currentState.Equals(state) && context.Hours >= state.minHours && context.Hours <= state.maxHours)
             {
                 currentState = state;
                 ChangeState(state);
@@ -38,7 +38,7 @@ public class DayLightCycle : MonoBehaviour
         while (sunlight.color != color)
         {
             elapsedTime += Time.deltaTime;
-            sunlight.color = Color.Lerp(sunlight.color, color, elapsedTime * 0.2f);
+            sunlight.color = Color.Lerp(sunlight.color, color, elapsedTime * 0.1f);
             yield return new WaitForFixedUpdate();
         }
     }

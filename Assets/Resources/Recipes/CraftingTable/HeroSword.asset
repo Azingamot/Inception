@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8498657c453a5c44fbd337deec46d96a, type: 3}
+  m_Name: HeroSword
+  m_EditorClassIdentifier: 
+  Result: {fileID: 11400000, guid: 2cf4d9888d9df5341a65e256a2bce143, type: 2}
+  Count: 1
+  Elements:
+  - Item: {fileID: 11400000, guid: c5ac4fcc5979fee4d8d75fef00bc6811, type: 2}
+    Count: 1
+  - Item: {fileID: 11400000, guid: 4e8f20aa581a43047ba9c2c5bc36c5a1, type: 2}
+    Count: 1

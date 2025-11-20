@@ -5,6 +5,12 @@ public class InventorySlotData
 {
     public Item ItemInSlot;
     public int Count;
+    public int Index;
+
+    public InventorySlotData(int index)
+    {
+        Index = index;
+    }
 
     public void SetItem(Item item, int count)
     {
