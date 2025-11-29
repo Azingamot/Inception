@@ -355,8 +355,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6844393875078291283}
   - component: {fileID: 664143189784906481}
+  - component: {fileID: 4550331294667707786}
   - component: {fileID: 7242898664789763634}
-  - component: {fileID: 4604640247421860519}
   - component: {fileID: 7024670188271898170}
   - component: {fileID: 7811754011923840266}
   - component: {fileID: 3254301912824879384}
@@ -398,7 +398,7 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortAtRoot: 0
---- !u!114 &7242898664789763634
+--- !u!114 &4550331294667707786
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -407,26 +407,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7559147586186425282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f75ab3b3d2a7baf4ba2496f1108f842f, type: 3}
+  m_Script: {fileID: 11500000, guid: 13c16424263ab214b83ba2c83e72a2c2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HealthIndicator
-  healthBarObject: {fileID: 7455805385725499468}
-  healthBarImage: {fileID: 8212361266670884326}
---- !u!114 &4604640247421860519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7559147586186425282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 586709aadfec3ad41a205e7db88c0b1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
-  healthIndicator: {fileID: 7242898664789763634}
-  requiredType: 1
-  maxHp: 30
+  m_EditorClassIdentifier: 
+  maxHp: 20
   invisibilityTime: 0.1
   onInitialize:
     m_PersistentCalls:
@@ -491,7 +475,7 @@ MonoBehaviour:
       - m_Target: {fileID: 3254301912824879384}
         m_TargetAssemblyTypeName: DropItems, Assembly-CSharp
         m_MethodName: DestroyItself
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -500,10 +484,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  mainTransform: {fileID: 2461212410756808034}
-  timeToDie: 0.5
+  timeToDie: 0.3
   timeToFinish: 0.3
+  requiredType: 0
+  healthIndicator: {fileID: 7242898664789763634}
+  mainTransform: {fileID: 2461212410756808034}
   spriteRenderer: {fileID: 6212671615575885088}
+--- !u!114 &7242898664789763634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7559147586186425282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f75ab3b3d2a7baf4ba2496f1108f842f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthIndicator
+  healthBarObject: {fileID: 7455805385725499468}
+  healthBarImage: {fileID: 8212361266670884326}
 --- !u!114 &7024670188271898170
 MonoBehaviour:
   m_ObjectHideFlags: 0

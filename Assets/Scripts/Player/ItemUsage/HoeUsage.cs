@@ -11,7 +11,7 @@ public class HoeUsage : UsableItem
     {
         if (item is HoeItem hoe)
         {
-            if (GroundCheck() && RadiusCheck() && !ItemsCooldown.Instance.IsOnCooldown())
+            if (PlacementCheck() && RadiusCheck() && !ItemsCooldown.Instance.IsOnCooldown())
             {
                 TilePlacement.instance.PlaceAbovegroundTile(hoe.WeededEarth, mouseInWorld);
                 playerItemInHand.TriggerAnimation("Use");
@@ -26,7 +26,7 @@ public class HoeUsage : UsableItem
 
         mouseInWorld = Camera.main.ScreenToWorldPoint(MousePosition.GetData());
 
-        bool groundCheck = GroundCheck();
+        bool groundCheck = PlacementCheck();
         bool radiusCheck = RadiusCheck();
         bool cooldownCheck = !ItemsCooldown.Instance.IsOnCooldown();
 
@@ -44,9 +44,9 @@ public class HoeUsage : UsableItem
         }
     }
 
-    private bool GroundCheck()
+    private bool PlacementCheck()
     {
-        return TilePlacement.instance.CheckGround(mouseInWorld);
+        return TilePlacement.instance.ValidateTile(mouseInWorld);
     }
 
     private bool RadiusCheck()

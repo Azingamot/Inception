@@ -72,7 +72,7 @@ public class ClockUI : MonoBehaviour
 
     private void SetMoonFill(int hours)
     {
-        if (hours < 24)
+        if (hours >= ClockController.NIGHT_START_HOURS)
             hours -= ClockController.NIGHT_START_HOURS;
         else
             hours += 24 - ClockController.NIGHT_START_HOURS;

@@ -8,14 +8,13 @@ public class CraftingItemUI : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] private Image itemImage;
     [SerializeField] private TMP_Text itemText;
-    [SerializeField] private CraftingMaterialUI materialUI;
     private CraftRecipe recipe;
     private CraftingItemDescriptionUI descriptionUI;
 
     public void Initialize(CraftRecipe craftRecipe, CraftingItemDescriptionUI descriptionUI)
     {
         itemImage.sprite = craftRecipe.Result.ItemSprite;
-        itemText.text = craftRecipe.Result.Name + " x" + craftRecipe.Count;
+        itemText.text = "x" + craftRecipe.Count;
         itemText.color = Rarities.ItemColor(craftRecipe.Result);
         this.descriptionUI = descriptionUI;
         this.recipe = craftRecipe;

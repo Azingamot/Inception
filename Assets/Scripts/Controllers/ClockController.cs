@@ -9,6 +9,7 @@ public class ClockController : MonoBehaviour
     public static int NIGHT_LENGTH => (24 - NIGHT_START_HOURS) + NIGHT_END_HOURS;
 
     [SerializeField] private UnityEvent<ClockContext> onClockTick;
+    [SerializeField] private UnityEvent<ClockContext> onClockHour;
     [SerializeField] private UnityEvent<ClockContext> onTimeChanged;
     [SerializeField] private float clockSpeed = 0.5f;
     public static int Minutes = 0;
@@ -68,6 +69,7 @@ public class ClockController : MonoBehaviour
         if (Minutes >= 59)
         {
             Hours += 1;
+            onClockHour.Invoke(GetClockContext());
             Minutes = 0;
         }
     }
@@ -107,7 +109,7 @@ public class ClockController : MonoBehaviour
             StopCoroutine(clocksCoroutine);
     }
 
-    private ClockContext GetClockContext()
+    public static ClockContext GetClockContext()
     {
         return new ClockContext(Minutes, Hours, Days, DayTime);
     }

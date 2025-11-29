@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using UnityEngine;
-using static Unity.VisualScripting.Icons;
 
 public static class NamesHelper
 {
@@ -19,7 +18,9 @@ public static class NamesHelper
         if (storage == null)
             storage = LoadStorage();
 
-        return storage.Get(key);
+        string value = storage.Get(key);
+
+        return string.IsNullOrEmpty(value) ? key : value;
     }
 
     public static StringsStorage LoadStorage()
@@ -43,5 +44,29 @@ public static class NamesHelper
                 fs.Write(storageBytes);
             }
         }  
+    }
+
+    public static void WriteToFile(List<NameString> nameStrings)
+    {
+        foreach (string language in TranslationHandler.LanguagesPathMap.Keys)
+        {
+            string path = Path.Combine("Assets", "Resources", TranslationHandler.ConvertToPath(persistentPath, "strings", language));
+
+            string storageJson;
+
+            using (StreamReader sr = new StreamReader(path + ".json"))
+            {
+                string jsonString;
+                jsonString = sr.ReadToEnd();
+                StringsStorage storage = JsonUtility.FromJson<StringsStorage>(jsonString);
+                storage.NameStrings.AddRange(nameStrings);
+                storageJson = JsonUtility.ToJson(storage, true);
+            }
+
+            using (StreamWriter sw = new StreamWriter(path + ".json"))
+            {
+                sw.Write(storageJson);
+            }
+        }
     }
 }

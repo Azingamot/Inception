@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 public class TileItem : Item
 {
     public TileBase TileToPlace;
+    public TileType TileType;
 
     public TileItem()
     {

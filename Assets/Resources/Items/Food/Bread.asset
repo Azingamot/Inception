@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Bread
   m_EditorClassIdentifier: 
   UID: 6590b1c2-4e27-4213-8045-258ee9c24a65
-  Description: Tasty!
   MaxStack: 100
   ItemSprite: {fileID: -1660761858345613354, guid: 6244ad0f47039f742af0268b79cb6030, type: 3}
-  Animator: {fileID: 0}
-  Saturation: 3
+  Animator: {fileID: 9100000, guid: 05c7d34d96d0f044d8c44bf382232884, type: 2}
+  Rarity: 0
+  Saturation: 30

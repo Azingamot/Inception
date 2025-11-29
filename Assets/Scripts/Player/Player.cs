@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerItemInHand playerItemInHand;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerItemUse playerItemUse;
+    [SerializeField] private PlayerHealth playerHealth;
 
     [Header("Inputs")]
     [SerializeField] private InputActionReference move;
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
     private Vector2 direction;
     private Rigidbody2D rb;
     private Vector3 mousePos;
+    private bool isActive = true;
 
     void Start()
     {
@@ -27,11 +29,15 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
+        DialogueSystem.Instance.OnDialogueStart.AddListener(Disable);
+        DialogueSystem.Instance.OnDialogueEnd.AddListener(Enable);
         useInput.action.started += UseItem;
     }
 
     private void OnDisable()
     {
+        DialogueSystem.Instance.OnDialogueStart.RemoveListener(Disable);
+        DialogueSystem.Instance.OnDialogueEnd.RemoveListener(Enable);
         useInput.action.started -= UseItem;
     }
 
@@ -40,13 +46,24 @@ public class Player : MonoBehaviour
     {
         MovementInput();
         SetMousePosition();
-        playerMovement.Move(direction, rb);
+        if (isActive) playerMovement.Move(direction, rb);
         playerAnimation.Animate(rb, mousePos);
+    }
+
+    private void Disable()
+    {
+        isActive = false;
+    }
+
+    private void Enable()
+    {
+        isActive = true;
     }
 
     private void UseItem(InputAction.CallbackContext context)
     {
-        playerItemUse.UseItem();
+        if (isActive)
+            playerItemUse.UseItem();
     }
 
     /// <summary>
@@ -70,5 +87,17 @@ public class Player : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position,mousePos);
+    }
+
+    public PlayerHealth ReceiveHealth()
+    {
+        return playerHealth;
+    }
+
+    public void Load(PlayerData playerData)
+    {
+        transform.position = playerData.PlayerPosition;
+        playerHealth.Health = playerData.Health;
+        playerHealth.MaxHealth = playerData.MaxHealth;
     }
 }

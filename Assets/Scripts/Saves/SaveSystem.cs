@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.IO;
 using System.Threading.Tasks;
+using System.Linq;
 
 public static class SaveSystem
 {
@@ -19,6 +20,31 @@ public static class SaveSystem
         return saveFile;
     }
 
+    public static SaveData ReceiveSaveData(string path)
+    {
+        if (File.Exists(path))
+        {
+            return JsonUtility.FromJson<SaveData>(SaveFileContent(path));
+        }
+        return null;
+    }
+
+    public static SaveData ReceiveSaveData(int index)
+    {
+        string path = SaveFileName(index);
+        if (File.Exists(path))
+        {
+            return JsonUtility.FromJson<SaveData>(SaveFileContent(path));
+        }
+        return null;
+    }
+
+    public static async Task SetSaveFileName(SaveData saveData, int index, string name)
+    {
+        saveData.Name = name;
+        await File.WriteAllTextAsync(SaveFileName(index), JsonUtility.ToJson(saveData, false), encoding: System.Text.Encoding.UTF8);
+    }
+
     public static string DebugSaveFileName()
     {
         string debugDirectoryPath = Application.persistentDataPath + debugPath;
@@ -33,28 +59,15 @@ public static class SaveSystem
     public static async Task Save()
     {
         HandleSaveData();
-        SaveFilePath();
 
         await File.WriteAllTextAsync(SaveFileName(), JsonUtility.ToJson(saveData, false), encoding: System.Text.Encoding.UTF8);
         await File.WriteAllTextAsync(DebugSaveFileName(), JsonUtility.ToJson(saveData, true), encoding: System.Text.Encoding.UTF8);
     }
 
-    public static void DeleteSaveFile(string path)
-    {
-        if (File.Exists(path))
-        {
-            File.Delete(path);
-        }
-    }
-
-    private static void SaveFilePath()
-    {
-        PlayerPrefs.SetString($"Save{CurrentSaveFile()}", SaveFileName());
-    }
-
     private static void HandleSaveData()
     {
-        saveData = GameManager.Instance.Save($"Save â„–{CurrentSaveFile()}");
+        string name = saveData != null ? saveData.Name : $"Save ¹{CurrentSaveFile()}";
+        saveData = GameManager.Instance.Save(name);
     }
 
     public static async Task LoadAsync(string name)
@@ -85,16 +98,6 @@ public static class SaveSystem
             saveData = null;
         
         HandleLoadData();
-    }
-
-    public static SaveData ReceiveSaveData(string path)
-    {
-        Debug.Log(path);
-        if (File.Exists(path))
-        {
-            return JsonUtility.FromJson<SaveData>(SaveFileContent(path));
-        }
-        return null;
     }
 
     private static string SaveFileContent(string path)
@@ -131,5 +134,33 @@ public static class SaveSystem
         if (!PlayerPrefs.HasKey("CurrentSaveFile"))
             PlayerPrefs.SetInt("CurrentSaveFile", 1);
         return PlayerPrefs.GetInt("CurrentSaveFile");
+    }
+
+    public static string[] ReceiveSaveFiles()
+    {
+        return Directory.GetFiles(Application.persistentDataPath, "*.save").OrderBy(u => File.GetCreationTime(u)).ToArray();
+    }
+
+    public static int ReceiveSaveFilesCount()
+    {
+        return Directory.GetFiles(Application.persistentDataPath, "*.save").Length;
+    }
+
+    public static async Task AddSaveFile()
+    {
+        int index = ReceiveSaveFilesCount() + 1;
+        string path = SaveFileName(index);
+
+        while (File.Exists(path))
+            path = SaveFileName(index + 1);
+
+        FileStream fs = new FileStream(path, FileMode.CreateNew, FileAccess.ReadWrite, FileShare.ReadWrite);
+        await fs.DisposeAsync();
+    }
+
+    public static void DeleteSaveFile(int index)
+    {
+        string path = SaveFileName(index);
+        File.Delete(path);
     }
 }

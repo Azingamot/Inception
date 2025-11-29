@@ -1,0 +1,34 @@
+{
+    "DialogueLines": [
+        {
+            "Title": "Inception",
+            "Content": "So we meet again.",
+            "Emotion": 0
+        },
+        {
+            "Title": "Inception",
+            "Content": "I hope you've harvested the wheat.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "...",
+            "Emotion": 0
+        },
+        {
+            "Title": "Inception",
+            "Content": "It seems you failed.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "Well, I can forgive you a few times.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "But everything comes with a price.",
+            "Emotion": 2
+        }
+    ]
+}

@@ -34,7 +34,7 @@ public class CheckIfAround : MonoBehaviour
         transform.position = MouseInWorld();
     }
 
-    private void SetPositionToHealthSystem(HealthSystem system)
+    private void SetPositionToHealthSystem(ObjectHealthSystem system)
     {
         if (system != null && seek)
         {
@@ -59,13 +59,13 @@ public class CheckIfAround : MonoBehaviour
             pointer.SetActive(false);
     }
 
-    private HealthSystem FindHealthSystem()
+    private ObjectHealthSystem FindHealthSystem()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(MouseInWorld(), 1);
-        Collider2D foundCollider = colliders.Where(u => u.TryGetComponent<HealthSystem>(out HealthSystem health)).FirstOrDefault();
+        Collider2D foundCollider = colliders.Where(u => u.TryGetComponent<ObjectHealthSystem>(out ObjectHealthSystem health)).FirstOrDefault();
         if (foundCollider != null)
         {
-            return foundCollider.GetComponent<HealthSystem>();
+            return foundCollider.GetComponent<ObjectHealthSystem>();
         }
         return null;
     }

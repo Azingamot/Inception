@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Bush
   m_EditorClassIdentifier: 
   UID: 92dedf85-6051-41b9-ba57-7d5c8ef2291d
-  Description: 
   MaxStack: 1
   ItemSprite: {fileID: 0}
   Animator: {fileID: 0}
+  Rarity: 0
   ObjectToPlace: {fileID: 5646712881719728355, guid: 00944fde3d399f0449a98749273d4ec8, type: 3}
   PreviewSprite: {fileID: 0}
-  Size: {x: 1, y: 2}
+  Size: {x: 2, y: 2}

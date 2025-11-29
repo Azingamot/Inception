@@ -10,8 +10,8 @@ public class DialogueStarter : MonoBehaviour
         DialogueSystem.Instance.StartDialogue(dialogueName);
     }
 
-    public void StartDialogue(string dialogueName, UnityEvent dialogueEndEvent)
+    public void StartDialogue(string dialogueName, UnityEvent<EventData> dialogueEndEvent, EventData eventData)
     {
-        DialogueSystem.Instance.StartDialogue(dialogueName, dialogueEndEvent);
+        DialogueSystem.Instance.StartDialogue(dialogueName, dialogueEndEvent, eventData);
     }
 }

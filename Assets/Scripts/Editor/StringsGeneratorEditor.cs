@@ -14,5 +14,10 @@ public class StringsGeneratorEditor : Editor
             generator.Generate();
             Debug.Log("string loaded!");
         }
+        if (GUILayout.Button("Add data"))
+        {
+            generator.AddData();
+            Debug.Log("data added!");
+        }
     }
 }

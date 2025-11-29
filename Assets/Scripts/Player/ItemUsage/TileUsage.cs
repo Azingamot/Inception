@@ -6,18 +6,16 @@ public class TileUsage : UsableItem
     public TileUsage(Item item) : base(item) { }
     private Vector2 mouseInWorld;
     private bool stopped = false;
+    private TileItem tileItem;
 
     public override void Use()
     {
-        if (item is TileItem)
+        if (GroundCheck() && RadiusCheck())
         {
-            if (GroundCheck() && RadiusCheck())
-            {
-                TileItem tileItem = item as TileItem;
-                TilePlacement.instance.PlaceGroundTile(tileItem.TileToPlace, mouseInWorld);
+            if (tileItem.TileType == TileType.Ground) TilePlacement.instance.PlaceGroundTile(tileItem.TileToPlace, mouseInWorld);
+            else TilePlacement.instance.PlaceObjectTile(tileItem.TileToPlace, mouseInWorld);
                 playerItemInHand.TriggerAnimation("Use");
-                InventoryController.Instance.RemoveItem(1);
-            }
+            InventoryController.Instance.RemoveItem(1);
         }
     }
 
@@ -46,7 +44,8 @@ public class TileUsage : UsableItem
 
     private bool GroundCheck()
     {
-        return !TilePlacement.instance.CheckGround(mouseInWorld);
+        return (tileItem.TileType == TileType.Ground && !TilePlacement.instance.CheckGround(mouseInWorld)) ||
+            (tileItem.TileType == TileType.Object && TilePlacement.instance.CheckGround(mouseInWorld));
     }
 
     private bool RadiusCheck()
@@ -57,6 +56,7 @@ public class TileUsage : UsableItem
     public override void Initialize(PlayerItemInHand playerItemInHand)
     {
         base.Initialize(playerItemInHand);
+        tileItem = item as TileItem;
         stopped = false;
     }
 

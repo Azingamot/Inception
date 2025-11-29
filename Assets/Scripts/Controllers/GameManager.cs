@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private InventoryController inventoryController;
     [SerializeField] private CropsGrowController growController;
     [SerializeField] private ObjectsPlacement objectsPlacement;
+    [SerializeField] private HungerSystem hungerSystem;
 
     [Header("Tilemaps")]
     [SerializeField] private TilemapLoader tilemapLoader;
@@ -24,6 +25,9 @@ public class GameManager : MonoBehaviour
 
     [Header("First Initialization")]
     [SerializeField] private UnityEvent onFirstLoad;
+
+    [Header("Loading Animation")]
+    [SerializeField] private Animator loadingAnim;
 
     private bool isLoaded = false;
 
@@ -43,7 +47,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             Initialize();
-        }       
+        }
     }
 
     private void Initialize()
@@ -53,15 +57,22 @@ public class GameManager : MonoBehaviour
 
     public SaveData Save(string name = "save")
     {
+        PlayerHealth health = player.ReceiveHealth();
         SaveData data = new SaveData()
         {
             Name = name,
             InventorySlotsInfo = inventoryController.Save(),
             ClockContext = clockController.Save(),
-            PlayerData = new PlayerData() { Health = 100, MaxHealth = 100, MaxSaturation = 20, Saturation = 20, PlayerPosition = PlayerPosition.GetPosition()},
+            PlayerData = new PlayerData() { 
+                Health = Mathf.RoundToInt(health.Health), 
+                MaxHealth = Mathf.RoundToInt(health.MaxHealth), 
+                MaxSaturation = Mathf.RoundToInt(HungerSystem.Instance.MaxSaturation), 
+                Saturation = Mathf.RoundToInt(HungerSystem.Instance.HungerAmount), 
+                PlayerPosition = PlayerPosition.GetPosition()},
             ObjectPositions = ObjectsPositions.Objects.ToList(),
             WorldSaveData = TilemapSaver.SaveAllTilemaps(tileMaps),
-            EventHappens = EventsStorage.Save()
+            EventHappens = EventsStorage.Save(),
+            ActiveQuests = CurrentQuests.Get(),
         };
         Debug.Log(data.WorldSaveData.saveTime);
         return data;
@@ -73,7 +84,7 @@ public class GameManager : MonoBehaviour
 
         DefaultLoad();
 
-        if (saveData == null)
+        if (saveData == null || saveData.WorldSaveData == null)
             FirstLoad();
         else
             Reload(saveData);    
@@ -98,9 +109,11 @@ public class GameManager : MonoBehaviour
 
     private void DefaultLoad()
     {
+        hungerSystem.Initialize();
         growController.Initialize();
         objectsPlacement.Initialize();
         NamesHelper.ReloadStorage();
+        loadingAnim.speed = 0;
     }
 
     private void FirstLoad()
@@ -108,8 +121,11 @@ public class GameManager : MonoBehaviour
         inventoryController.Initialize();
         clockController.Initialize(new ClockContext());
         onFirstLoad.Invoke();
+        
+        PlayerData playerData = new() { Health = 100, MaxHealth = 100, MaxSaturation = 100, Saturation = 100 };
+        hungerSystem.Load(playerData);
 
-        isLoaded = true;
+        FinishLoading();
     }
 
     private void Reload(SaveData saveData)
@@ -124,11 +140,21 @@ public class GameManager : MonoBehaviour
 
         clockController.Initialize(saveData.ClockContext);
 
-        player.transform.position = saveData.PlayerData.PlayerPosition;
+        player.Load(saveData.PlayerData);
+
+        hungerSystem.Load(saveData.PlayerData);
 
         EventsStorage.Load(saveData);
 
+        CurrentQuests.Load(saveData);
+
+        FinishLoading();
+    }
+
+    private void FinishLoading()
+    {
         isLoaded = true;
+        loadingAnim.speed = 1;
     }
 
     private void LoadObjects(List<ObjectPosition> objects)

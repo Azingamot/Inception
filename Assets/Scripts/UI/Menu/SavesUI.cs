@@ -1,4 +1,7 @@
+using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,35 +19,33 @@ public class SavesUI : MonoBehaviour
         LoadSaves();
     }
 
-    public void AddSaveFile()
+    public async void AddSaveFile()
     {
-        saveLoader.AddSaveFile();
+        await SaveSystem.AddSaveFile();
         LoadSaves();
     }
 
     public void RemoveSaveFile(int index)
     {
-        saveLoader.RemoveSaveFile(index);
+        SaveSystem.DeleteSaveFile(index);
         descriptionUI.gameObject.SetActive(false);
         LoadSaves();
     }
 
-    private void LoadSaves()
+    public void LoadSaves()
     {
         Clear();
-        int savesCount = saveLoader.ReceiveSavesCount();
 
-        for (int i = 1; i <= savesCount; i++)
+        foreach (string path in SaveSystem.ReceiveSaveFiles())
         {
-            if (saveLoader.SaveFileHasData(i))
-            {
-                LoadSave(i, saveLoader.ReceiveSaveData(i));
-            }
-            else
-            {
-                saveLoader.RemoveSaveFile(i);
-            }
+            LoadSave(PathToIndex(path), SaveSystem.ReceiveSaveData(path));
         }
+    }
+
+    private int PathToIndex(string path)
+    {
+        string number = Regex.Match(path, @"\d+").Value;
+        return Convert.ToInt32(number);
     }
 
     private void Clear()

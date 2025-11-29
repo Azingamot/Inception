@@ -22,4 +22,10 @@ public static class ResourcesHelper
         EventData eventData = Resources.LoadAll<EventData>("Events").FirstOrDefault(u => u.UID == UID);
         return eventData;
     }
+
+    public static QuestData FindQuestResource(string UID)
+    {
+        QuestData questData = Resources.LoadAll<QuestData>("Quests").FirstOrDefault(u => u.UID == UID);
+        return questData;
+    }
 }

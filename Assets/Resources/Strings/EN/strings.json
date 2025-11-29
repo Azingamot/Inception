@@ -191,6 +191,34 @@
         {
             "Name": "Wooden Sword_description",
             "Value": "The simplest weapon"
+        },
+        {
+            "Name": "Wheat Collection",
+            "Value": "Wheat Collection"
+        },
+        {
+            "Name": "Wheat Collection_description",
+            "Value": "Collect some wheat please"
+        },
+        {
+            "Name": "Required",
+            "Value": "Required"
+        },
+        {
+            "Name": "EmptyQuest",
+            "Value": "No quest selected"
+        },
+        {
+            "Name": "Fence",
+            "Value": "Fence"
+        },
+        {
+            "Name": "Fence_description",
+            "Value": ""
+        },
+        {
+            "Name": "LanguageUpdate",
+            "Value": "The language will be updated after the reboot"
         }
     ]
 }

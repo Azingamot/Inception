@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 3850051276494864726}
   - component: {fileID: 6574344489987962351}
   - component: {fileID: 8134861618279670897}
+  - component: {fileID: 8189010872755311847}
   m_Layer: 5
   m_Name: SaveFile
   m_TagString: Untagged
@@ -164,7 +165,7 @@ RectTransform:
   m_GameObject: {fileID: 7595477639044708336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8856155770161051265}
@@ -226,5 +227,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveName: {fileID: 3897358728136349408}
-  scaleValue: {x: 1, y: 1, z: 1}
-  scaleSpeed: 2
+--- !u!114 &8189010872755311847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7595477639044708336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55abfee4af8d25b49ad27db5b9ad7471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleValue: {x: 0.9, y: 0.9, z: 0.9}
+  scaleSpeed: 1

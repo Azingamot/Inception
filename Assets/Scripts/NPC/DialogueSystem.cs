@@ -7,8 +7,12 @@ using UnityEngine.Events;
 public class DialogueSystem : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueObject;
+    [SerializeField] private ClockController clockController;
     [SerializeField] private TMP_Text dialogueTitle;
     [SerializeField] private TMP_Text dialogueContent;
+
+    public UnityEvent OnDialogueStart;
+    public UnityEvent OnDialogueEnd;
 
     private Queue<DialogueLine> currentDialogue = new Queue<DialogueLine>();
     private Coroutine textLoadCoroutine;
@@ -17,7 +21,9 @@ public class DialogueSystem : MonoBehaviour
     private string currentText;
 
     private bool inDialogue = false;
-    private UnityEvent dialogueEndEvent;
+    private EventData dialogueEventData;
+
+    private UnityEvent<EventData> dialogueEventEnd;
 
     public static DialogueSystem Instance { get; private set; }
 
@@ -32,10 +38,15 @@ public class DialogueSystem : MonoBehaviour
         if (inDialogue)
             return;
 
+        OnDialogueStart.Invoke();
+
+        clockController.enabled = false;
+
         inDialogue = true;
 
         dialogueObject.SetActive(true);
         DialogueData data = DialogueFileHandler.ReceiveDialogueData(dialogueName);
+        currentDialogue.Clear();
 
         foreach (DialogueLine line in data)
         {
@@ -45,9 +56,12 @@ public class DialogueSystem : MonoBehaviour
         LoadDialogueLine(currentDialogue.Dequeue());    
     }
 
-    public void StartDialogue(string dialogueName, UnityEvent dialogueEndEvent)
+    public void StartDialogue(string dialogueName, UnityEvent<EventData> dialogueEndEvent, EventData eventData)
     {
-        this.dialogueEndEvent = dialogueEndEvent;
+        dialogueEventEnd = dialogueEndEvent;
+
+        this.dialogueEventData = eventData;
+        Debug.Log(dialogueName);
         StartDialogue(dialogueName);
     }
 
@@ -60,7 +74,6 @@ public class DialogueSystem : MonoBehaviour
 
     public void SkipDialogueLoading()
     {
-        Debug.Log(currentText != currentLine.Content ? "Interrupt" : "Skip");
         if (currentText != currentLine.Content)
             InterruptDialogueLineLoad();
         else
@@ -69,10 +82,13 @@ public class DialogueSystem : MonoBehaviour
 
     public void StopDialogue()
     {
+        clockController.enabled = true;
+
         dialogueObject.SetActive(false);
         StopAllCoroutines();
         inDialogue = false;
-        if (dialogueEndEvent != null) dialogueEndEvent.Invoke();
+        OnDialogueEnd.Invoke();
+        dialogueEventEnd.Invoke(dialogueEventData);
     }
 
     private void InterruptDialogueLineLoad()

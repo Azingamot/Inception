@@ -6,7 +6,7 @@
         },
         {
             "Name": "Cooldown",
-            "Value": "Восстановление"
+            "Value": "Отката"
         },
         {
             "Name": "Saturation",
@@ -34,7 +34,7 @@
         },
         {
             "Name": "Music",
-            "Value": "Mузыка"
+            "Value": "Музыка"
         },
         {
             "Name": "Full screen",
@@ -57,12 +57,12 @@
             "Value": "Выйти"
         },
         {
-            "Name": "Resolution",
-            "Value": "Разрешение"
-        },
-        {
             "Name": "Resume",
             "Value": "Вернуться"
+        },
+        {
+            "Name": "Resolution",
+            "Value": "Разрешение"
         },
         {
             "Name": "Cotton Item",
@@ -102,7 +102,7 @@
         },
         {
             "Name": "Crafting Table_description",
-            "Value": "Основной объект для создания большинства предметов"
+            "Value": "Основной объект для создания предметов"
         },
         {
             "Name": "Ground",
@@ -110,7 +110,7 @@
         },
         {
             "Name": "Ground_description",
-            "Value": "Стандартный тайл для расширения острова"
+            "Value": "Стандартный элемент для расширения острова"
         },
         {
             "Name": "Bush",
@@ -166,7 +166,7 @@
         },
         {
             "Name": "Stone Axe_description",
-            "Value": "Основной инструментя для рубки деревьев"
+            "Value": "Основной инструмент для рубки деревьев"
         },
         {
             "Name": "Wooden Hoe",
@@ -174,7 +174,7 @@
         },
         {
             "Name": "Wooden Hoe_description",
-            "Value": "Простейшая мотыга, которая вызывает сильную усталость при использовании"
+            "Value": "Простейшая мотыга, вызывающая сильную усталость при использовании."
         },
         {
             "Name": "Hero Sword",
@@ -182,7 +182,7 @@
         },
         {
             "Name": "Hero Sword_description",
-            "Value": "Принадлежал настоящему герою"
+            "Value": "Принадлежит настоящему герою"
         },
         {
             "Name": "Wooden Sword",
@@ -191,6 +191,42 @@
         {
             "Name": "Wooden Sword_description",
             "Value": "Простейшее оружие"
+        },
+        {
+            "Name": "Wheat Collection",
+            "Value": "Сбор пшеницы"
+        },
+        {
+            "Name": "Wheat Collection_description",
+            "Value": "Соберите пшеницу"
+        },
+        {
+            "Name": "Required",
+            "Value": "Требования"
+        },
+        {
+            "Name": "EmptyQuest",
+            "Value": "Задания не выбрано"
+        },
+        {
+            "Name": "Fence",
+            "Value": "Забор"
+        },
+        {
+            "Name": "Fence_description",
+            "Value": "Защищает ваши посевы"
+        },
+        {
+            "Name": "LanguageUpdate",
+            "Value": "Язык будет обновлен после перезагрузки"
+        },
+        {
+            "Name": "Start",
+            "Value": "Начать"
+        },
+        {
+            "Name": "Quit",
+            "Value": "Выйти"
         }
     ]
 }

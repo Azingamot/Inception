@@ -19,13 +19,11 @@ public class CraftItem : MonoBehaviour
 
     private bool CanCraftItem(CraftRecipe recipe)
     {
-        List<InventorySlotData> slotData = new();
         foreach (RecipeElement element in recipe.Elements)
         {
             InventorySlotData inventorySlotData = InventoryController.Instance.data.GetSlotWithItem(element.Item, element.Count);
             if (inventorySlotData == null)
                 return false;
-            slotData.Add(inventorySlotData);
         }
         return true;
     }

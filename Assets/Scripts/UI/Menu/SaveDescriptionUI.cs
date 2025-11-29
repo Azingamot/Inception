@@ -8,19 +8,22 @@ public class SaveDescriptionUI : MonoBehaviour
     [SerializeField] private TMP_Text saveName, saveDate, saveTime;
     [SerializeField] private Image clockImage;
     [SerializeField] private Sprite sunSprite, moonSprite;
+    [SerializeField] private TMP_InputField saveNameInput;
+    [SerializeField] private GameObject editButton;
     private int currentSaveSelected = -1;
     private SaveLoader loader;
     private SavesUI savesUI;
+    private SaveData currentData;
 
     public void SetDescriptionForSave(int index, SaveLoader loader, SavesUI savesUI)
     {
         this.loader = loader;
         this.savesUI = savesUI;
         currentSaveSelected = index;
-        SaveData data = loader.ReceiveSaveData(index);
+        currentData = SaveSystem.ReceiveSaveData(index);
 
-        if (data != null)
-            LoadDescription(data);
+        if (currentData != null)
+            LoadDescription(currentData);
         else
             LoadEmptyDescription(index);
     }
@@ -40,6 +43,7 @@ public class SaveDescriptionUI : MonoBehaviour
 
     private void LoadEmptyDescription(int index)
     {
+        editButton.SetActive(false);
         saveName.text = "Save №" + index;
         saveDate.text = "No data";
         saveTime.text = "";
@@ -48,6 +52,7 @@ public class SaveDescriptionUI : MonoBehaviour
 
     private void LoadDescription(SaveData data)
     {
+        editButton.SetActive(true);
         saveName.text = data.Name;
         saveDate.text = data.WorldSaveData.saveTime.DateTime.ToString("dd.MM.yyyy HH:mm:ss");
         saveTime.text = ClockText(data.ClockContext);
@@ -62,5 +67,23 @@ public class SaveDescriptionUI : MonoBehaviour
     private string ClockFormatText(int value)
     {
         return value < 10 ? "0" + value.ToString() : value.ToString();
+    }
+
+    public async void ChangeSaveFileName(string fileName)
+    {
+        await SaveSystem.SetSaveFileName(currentData, currentSaveSelected, fileName);
+        saveNameInput.text = "";
+        savesUI.LoadSaves();
+        LoadDescription(currentData);
+    }
+
+    public void EditText()
+    {
+        if (currentSaveSelected == -1 || SaveSystem.ReceiveSaveData(currentSaveSelected) == null)
+            return;
+
+        bool active = saveNameInput.gameObject.activeInHierarchy;
+        saveName.gameObject.SetActive(active);
+        saveNameInput.gameObject.SetActive(!active);
     }
 }

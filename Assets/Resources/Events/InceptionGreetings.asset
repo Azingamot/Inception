@@ -9,14 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8d1734c88cb02a4e83824356fd5b149, type: 3}
+  m_Script: {fileID: 11500000, guid: 4925b4e7de6256f4b9a461cf9a29ff6a, type: 3}
   m_Name: InceptionGreetings
   m_EditorClassIdentifier: 
-  UID: eab2e450d0b71184a8a6a4e093538b85
+  UID: fa033d799a1f02c44a3ebe9d58def142
   StartDay: 1
-  EndDay: 10
+  EndDay: 2
   LowerThreshold: 3
-  UpperThreshold: 4
+  UpperThreshold: 5
   Chance: 100
   HappenOnce: 1
   DialogueName: inception_greetings
+  QuestData: {fileID: 11400000, guid: dc78e9a0c486f2b42a6c22ba06c89f55, type: 2}

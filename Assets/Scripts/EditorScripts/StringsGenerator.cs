@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StringsGenerator : MonoBehaviour
 {
+    [SerializeField] private List<NameString> nameData;
+
     public void Generate()
     {
         List<Item> items = LoadItems();
@@ -19,6 +21,11 @@ public class StringsGenerator : MonoBehaviour
         }
 
         NamesHelper.CreateFile(storage);
+    }
+
+    public void AddData()
+    {
+        NamesHelper.WriteToFile(nameData);
     }
 
     private List<Item> LoadItems()

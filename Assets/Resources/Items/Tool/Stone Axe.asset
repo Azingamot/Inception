@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: Stone Axe
   m_EditorClassIdentifier: 
   UID: c4f33929-1486-4d37-95e8-7611138fae27
-  Description: Basic instrument to chop trees. Can be used as a weapon.
   MaxStack: 1
   ItemSprite: {fileID: 5127326418951840272, guid: 24513f7109aca6a478c3e1662f513768, type: 3}
   Animator: {fileID: 9100000, guid: ba1363307658ff24085d38c60f7a6486, type: 2}
   Rarity: 0
-  Damage: 20
+  Damage: 8
   ReloadTime: 2
   DamageTypes: 0100000000000000

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca0be79d820a9545a1509198c28f063, type: 3}
+  m_Name: Fence
+  m_EditorClassIdentifier: 
+  UID: 248d47df-3246-44e6-ab81-2d927b7f6796
+  MaxStack: 64
+  ItemSprite: {fileID: -5382546370286807595, guid: e70419a7689bd4048a55c75ff84c76c5, type: 3}
+  Animator: {fileID: 9100000, guid: 05c7d34d96d0f044d8c44bf382232884, type: 2}
+  Rarity: 0
+  TileToPlace: {fileID: 11400000, guid: a3ebc03ba9b683940b8b4a2920cf4ac4, type: 2}
+  TileType: 1

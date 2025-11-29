@@ -7,11 +7,13 @@ public class Notification : MonoBehaviour
 {
     [SerializeField] private TMP_Text itemText;
     [SerializeField] private Image itemImage;
+    [SerializeField] private float destroyTimeScale = 1;
     private Animator animator;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        animator.speed = destroyTimeScale;
     }
 
     public void Initialize(ItemPickupContext itemPickupContext)

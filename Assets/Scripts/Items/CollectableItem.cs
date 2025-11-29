@@ -132,12 +132,12 @@ public class CollectableItem : MonoBehaviour, ICollectable
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 5, collectableMask);
         foreach (Collider2D collider in colliders)
         {
-            if (collider.TryGetComponent<CollectableItem>(out CollectableItem collectable) && !ReferenceEquals(this,collectable) && collectable.CanMerge(this))
+            if (collider.TryGetComponent<CollectableItem>(out CollectableItem collectable) && CanMerge(collectable) && collectable.CanMerge(this))
             {
-                UnsetFromMerging();
-
                 if (itemsCount + collectable.itemsCount > collectable.Item.MaxStack)
                     return;
+
+                UnsetFromMerging();
 
                 collectable.SetForMerging();
 
@@ -192,6 +192,6 @@ public class CollectableItem : MonoBehaviour, ICollectable
 
     public bool CanMerge(CollectableItem collectable)
     {
-        return Item.Compare(collectable.Item) && !candidateForMerge && !isMerging;
+        return !ReferenceEquals(this, collectable) && Item.Compare(collectable.Item) && !candidateForMerge && !isMerging;
     }
 }

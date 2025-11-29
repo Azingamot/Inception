@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -23,16 +24,50 @@ public class Settings : MonoBehaviour
     [Header("Language")]
     [SerializeField] private TMP_Dropdown languageDropdown;
 
+    [Header("Fullscreen")]
+    [SerializeField] private Toggle fullscreenTogle;
+
     private List<string> languages = new();
+    private List<Resolution> resolutions = new();
 
     private void Awake()
     {
+        fullscreenTogle.isOn = Screen.fullScreen;
+
         LoadLanguages();
         LoadLanguagesDropdown();
+        LoadResolutions();
 
         SetSFX(ReceiveFloatFromPlayerPrefs("SFX", defaultSfx));
         SetMusic(ReceiveFloatFromPlayerPrefs("Music", defaultMusic));
         SetLanguage(ReceiveStringFromPlayerPrefs("Language", "English"));
+        SetResolution(ReceiveIntFromPlayerPrefs("Resolution", CurrentResolutionIndex()));
+    }
+
+    private void LoadResolutions()
+    {
+        resolutionDropdown.ClearOptions();
+        resolutions = Screen.resolutions.ToList();
+        foreach (var resolution in resolutions)
+        {
+            resolutionDropdown.options.Add(new TMP_Dropdown.OptionData(resolution.width + "x" + resolution.height));
+        }
+    }
+
+    private int CurrentResolutionIndex()
+    {
+        return resolutions.FindIndex(u => u.height == Screen.currentResolution.height && u.width == Screen.currentResolution.width);
+    }
+
+    public void SetResolution(int index)
+    {
+        if (index == -1 || index > resolutions.Count - 1)
+            return;
+        Resolution selected = resolutions[index];
+        Screen.SetResolution(selected.width, selected.height, Screen.fullScreen);
+        Debug.Log(selected);
+        resolutionDropdown.value = index;
+        PlayerPrefs.SetInt("Resolution",index);
     }
 
     private void LoadLanguages()
@@ -76,7 +111,7 @@ public class Settings : MonoBehaviour
 
     public void SetFullscreen(bool fullScreen)
     {
-        Screen.fullScreen = fullScreen;
+        Screen.fullScreenMode = fullScreen ? FullScreenMode.FullScreenWindow : FullScreenMode.MaximizedWindow;
     }
 
     private float ReceiveFloatFromPlayerPrefs(string floatName, float defaultValue = 0)
@@ -84,6 +119,14 @@ public class Settings : MonoBehaviour
         if (PlayerPrefs.HasKey(floatName))
             return PlayerPrefs.GetFloat(floatName);
         else 
+            return defaultValue;
+    }
+
+    private int ReceiveIntFromPlayerPrefs(string intName, int defaultValue = -1)
+    {
+        if (PlayerPrefs.HasKey(intName))
+            return PlayerPrefs.GetInt(intName);
+        else
             return defaultValue;
     }
 
