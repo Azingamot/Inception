@@ -28,4 +28,10 @@ public static class ResourcesHelper
         QuestData questData = Resources.LoadAll<QuestData>("Quests").FirstOrDefault(u => u.UID == UID);
         return questData;
     }
+
+    public static EnemyData FindEnemyResource(string UID)
+    {
+        EnemyData enemyData = Resources.LoadAll<EnemyData>("Enemies").FirstOrDefault(u => u.UID == UID);
+        return enemyData;
+    }
 }

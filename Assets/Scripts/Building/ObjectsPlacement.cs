@@ -1,9 +1,12 @@
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Tilemaps;
 
 public class ObjectsPlacement : MonoBehaviour
 {
     [SerializeField] private Tilemap groundMap, aboveMap;
+    [SerializeField] private UnityEvent objectPlacedEvent;
     public static ObjectsPlacement Instance;
 
     public void Initialize()
@@ -35,6 +38,17 @@ public class ObjectsPlacement : MonoBehaviour
             crop.Initialize(cropItem.CropData);
 
         ObjectsPositions.AddObject(objectPosition);
+        objectPlacedEvent.Invoke();
+    }
+
+    public void DestroyObject(Vector2 worldPosition)
+    {
+        ObjectPosition objectPos = ObjectsPositions.Objects.FirstOrDefault(u => Vector2.Distance(u.Position, worldPosition) < 0.25f);
+        if (objectPos != null && objectPos.SavedObject != null)
+        {
+            Destroy(objectPos.SavedObject);
+            ObjectsPositions.RemoveObject(objectPos);
+        }
     }
 
     public bool CanPlaceObject(BuildingItem item, Vector2 center)

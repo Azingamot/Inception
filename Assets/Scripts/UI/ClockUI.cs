@@ -41,7 +41,6 @@ public class ClockUI : MonoBehaviour
 
     private void ControlFillAmount(int hours)
     {
-        Debug.Log(currentDayTime);
         switch (currentDayTime)
         {
             case DayTime.Day:

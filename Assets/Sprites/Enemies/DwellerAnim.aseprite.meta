@@ -2,7 +2,22 @@ fileFormatVersion: 2
 guid: 9ed53c5bfe9e0fe4c889d96bb70eb176
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Attack
+    second: {fileID: 7400000, guid: 0c8879567477b1c478eb5a8a6cfe35ef, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Idle
+    second: {fileID: 7400000, guid: a0da6f13185791b4894fc4a304436446, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Walk
+    second: {fileID: 7400000, guid: 23bcca22478251549b77048e1b85f2f9, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -102,7 +117,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638999809167617579
+  platformSettingsDirtyTick: 639003611637499317
   textureAssetName: 
   singleSpriteImportData:
   - name: 

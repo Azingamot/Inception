@@ -13,11 +13,11 @@ TagManager:
   - UI
   - Collectable
   - Player
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Camera
+  - Enemy
+  - Object
+  - EnemyWeapon
+  - PlayerWeapon
   - 
   - 
   - 

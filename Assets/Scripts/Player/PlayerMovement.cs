@@ -19,4 +19,10 @@ public class PlayerMovement : MonoBehaviour
         speed = Mathf.Clamp01(direction.magnitude);
         rb.linearVelocity = speed * defaultSpeed * direction.normalized;
     }
+
+    public void Knockback(Transform source, float knockbackValue, Rigidbody2D rb)
+    {
+        Vector2 direction = (transform.position - source.position).normalized;
+        rb.AddForce(direction * knockbackValue, ForceMode2D.Impulse);
+    }
 }

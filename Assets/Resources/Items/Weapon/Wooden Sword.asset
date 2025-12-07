@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddbf3915b51394c4fbba52a1cee0488e, type: 3}
   m_Name: Wooden Sword
   m_EditorClassIdentifier: 
+  UID: bbc0bf73-8da2-47e6-9035-0a0333d806fc
   MaxStack: 1
   ItemSprite: {fileID: -3493546860208996330, guid: ff96bba4694039b4f8b0176531b61c91, type: 3}
   Animator: {fileID: 9100000, guid: ba1363307658ff24085d38c60f7a6486, type: 2}
+  Rarity: 0
   Damage: 3
+  ReloadTime: 2
+  KnockbackValue: 1.5
   DamageTypes: 00000000
-  AttackSpeed: 1

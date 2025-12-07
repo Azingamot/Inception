@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Hero Sword
   m_EditorClassIdentifier: 
   UID: 850f8450-8d68-4a61-bbc5-70714ec2cc0b
-  Description: Sword of a true hero
   MaxStack: 1
   ItemSprite: {fileID: -3455089740371052150, guid: cb04eb8784f6f5b439983b29ef1b471f, type: 3}
   Animator: {fileID: 9100000, guid: ba1363307658ff24085d38c60f7a6486, type: 2}
   Rarity: 3
   Damage: 99
   ReloadTime: 1
+  KnockbackValue: 3
   DamageTypes: 000000000100000002000000

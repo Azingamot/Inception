@@ -9,6 +9,7 @@ public class InventoryController : MonoBehaviour
     [SerializeField] private InputActionReference inputNumber, inputScroll;
     [SerializeField] private ItemDescription itemDescription;
     public InventoryData data { get; private set; }
+
     private int selectedSlotIndex = -1;
 
     public int SelectedSlotIndex => selectedSlotIndex;

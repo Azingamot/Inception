@@ -29,7 +29,6 @@ public class DaytimeEvents : MonoBehaviour, IEventController
 
     private void CheckEventActivation(TimeEvent e, ClockContext clockContext)
     {
-        Debug.Log($"{e.EventData.name} Valid? {ValidateEventTime(clockContext, e.EventData)} Happen? {EventsStorage.EventHappen(e.EventData)}");
         if (!EventsStorage.EventHappen(e.EventData) && ValidateEventTime(clockContext, e.EventData))
         {
             int randomInt = Random.Range(0, 100);

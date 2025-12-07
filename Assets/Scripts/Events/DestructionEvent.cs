@@ -6,7 +6,8 @@ public class DestructionEvent : MonoBehaviour
 {
     [SerializeField] private int tilesCount = 10;
     [SerializeField] private Tilemap groundTilemap;
-    [SerializeField] private Sprite destructionIndicator;
+    [SerializeField] private LayerMask avoidMask;
+    [SerializeField] private GameObject destructionParticles;
     private int counter = 0;
 
     public void DestroyTiles()
@@ -19,22 +20,22 @@ public class DestructionEvent : MonoBehaviour
         for (int i = 0; i < tilesCount; i++)
         {
             counter = 0;
-            Vector2 randomPos = RandomTilePosition();
+            Vector2 randomPos = TilePlacement.Instance.RandomTilePosition();
 
             while (!ValidateTileDestruction(randomPos))
             {
-                randomPos = RandomTilePosition();
+                randomPos = TilePlacement.Instance.RandomTilePosition();
                 counter++;
                 if (counter > 50)
                     yield break;
             }
 
-            ShowBuildingPlacement.instance.ActivateHighlight(randomPos, Color.red, destructionIndicator);
+            ObjectPoolController.SpawnObject(destructionParticles, (Vector2)TileValidation.GetTileCenterOnPlace(groundTilemap,randomPos), Quaternion.identity, ObjectPoolController.PoolType.ParticleSystem);
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.3f);
 
-            TilePlacement.instance.RemoveTile(randomPos);
-            ShowBuildingPlacement.instance.DeactivateHighlight();
+            TilePlacement.Instance.RemoveTile(randomPos);
+            ObjectsPlacement.Instance.DestroyObject(randomPos);
 
             yield return new WaitForSeconds(0.3f);
         }
@@ -42,33 +43,8 @@ public class DestructionEvent : MonoBehaviour
 
     private bool ValidateTileDestruction(Vector2 pos)
     {
-        return Vector2.Distance(PlayerPosition.GetData(), pos) > 1 && TileValidation.CanPlaceObject(groundTilemap, pos, new Vector2Int(1, 1), ObjectsPositions.ReceivePositions());
-    }
-
-    private Vector2 RandomTilePosition()
-    {
-        var bounds = groundTilemap.cellBounds;
-        var tiles = groundTilemap.GetTilesBlock(bounds);
-
-        var filledCells = new System.Collections.Generic.List<Vector3Int>();
-
-        int index = 0;
-        for (int x = bounds.xMin; x < bounds.xMax; x++)
-        {
-            for (int y = bounds.yMin; y < bounds.yMax; y++)
-            {
-                if (tiles[index] != null)
-                    filledCells.Add(new Vector3Int(x, y, 0));
-
-                index++;
-            }
-        }
-
-        if (filledCells.Count == 0)
-            return Vector3.zero;
-
-        Vector3Int randomCell = filledCells[Random.Range(0, filledCells.Count)];
-
-        return groundTilemap.GetCellCenterWorld(randomCell);
+        return !Physics2D.OverlapCircle(pos, 1.5f, avoidMask) 
+            && TileValidation.CanPlaceObject(groundTilemap, pos, new Vector2Int(1, 1), ObjectsPositions.ReceivePositions())
+            && Vector2.Distance(pos, PlayerPosition.GetData()) < 40;
     }
 }

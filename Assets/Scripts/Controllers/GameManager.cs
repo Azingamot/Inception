@@ -1,11 +1,12 @@
-using UnityEngine;
-using System.Collections.Generic;
-using UnityEngine.Tilemaps;
-using System.Linq;
-using UnityEngine.Events;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 public class GameManager : MonoBehaviour
 {
@@ -73,6 +74,7 @@ public class GameManager : MonoBehaviour
             WorldSaveData = TilemapSaver.SaveAllTilemaps(tileMaps),
             EventHappens = EventsStorage.Save(),
             ActiveQuests = CurrentQuests.Get(),
+            EnemyPositions = SpawnedEnemies.Get()
         };
         Debug.Log(data.WorldSaveData.saveTime);
         return data;
@@ -131,22 +133,17 @@ public class GameManager : MonoBehaviour
     private void Reload(SaveData saveData)
     {
         ObjectsPositions.Objects = saveData.ObjectPositions.ToHashSet();
-
         LoadObjects(saveData.ObjectPositions);
-
         inventoryController.Initialize(saveData);
-
         tilemapLoader.LoadWorld(saveData.WorldSaveData);
-
         clockController.Initialize(saveData.ClockContext);
-
         player.Load(saveData.PlayerData);
-
         hungerSystem.Load(saveData.PlayerData);
-
         EventsStorage.Load(saveData);
 
         CurrentQuests.Load(saveData);
+
+        LoadEnemies(saveData.EnemyPositions);
 
         FinishLoading();
     }
@@ -173,5 +170,22 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogException(ex);
         }   
+    }
+
+    private void LoadEnemies(List<EnemyPosition> enemies)
+    {
+        try
+        {
+            foreach (EnemyPosition enemy in enemies)
+            {
+                EnemyData data = ResourcesHelper.FindEnemyResource(enemy.EnemyUID);
+                GameObject enemyInstance = Instantiate(data.EnemyPrefab, enemy.Position, Quaternion.identity);
+                SpawnedEnemies.AddEnemy(data, enemyInstance, enemy.Position);
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.LogException(ex);
+        }
     }
 }

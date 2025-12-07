@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ca4d9388672380438ea481f2bd25d59, type: 3}
+  m_Name: Dweller
+  m_EditorClassIdentifier: 
+  UID: 0a2589d8e43c9254395330e653952899
+  EnemyPrefab: {fileID: 753948398542669055, guid: 48e413a0d71834c469a3c63dc51d43b0, type: 3}

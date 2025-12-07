@@ -1,26 +1,28 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Tilemaps;
+using System.Collections.Generic;
 
 public class TilePlacement : MonoBehaviour
 {
+    [Header("Tile Maps")]
     [SerializeField] private Tilemap groundMap;
     [SerializeField] private Tilemap waterMap;
     [SerializeField] private Tilemap aboveMap;
     [SerializeField] private Tilemap objectMap;
+
+    [Header("Tiles")]
     [SerializeField] private TileBase waterTile;
     [SerializeField] private TileBase waterAnim;
-    public static TilePlacement instance;
+
+    [Header("Events")]
+    [SerializeField] private UnityEvent tileUpdatedEvent;
+    public static TilePlacement Instance;
 
     private void Start()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(instance);
-        }
+        if (Instance == null)
+            Instance = this;
     }
 
     public void PlaceGroundTile(TileBase tile, Vector3 position)
@@ -30,6 +32,7 @@ public class TilePlacement : MonoBehaviour
         waterMap.SetTile(intPos, null);
 
         AddAnimatedWater(intPos);
+        tileUpdatedEvent.Invoke();
     }
 
     public void PlaceAbovegroundTile(TileBase tile, Vector3 position)
@@ -42,6 +45,7 @@ public class TilePlacement : MonoBehaviour
     {
         Vector3Int intPos = Vector3Int.FloorToInt(position);
         objectMap.SetTile(intPos, tile);
+        tileUpdatedEvent.Invoke();
     }
 
     public void RemoveTile(Vector3 position)
@@ -49,12 +53,14 @@ public class TilePlacement : MonoBehaviour
         Vector3Int intPos = Vector3Int.FloorToInt(position);
         RemoveAnimatedWater(intPos);
         groundMap.SetTile(intPos, null);
-        objectMap.SetTile(intPos, null);    
+        objectMap.SetTile(intPos, null);
+        aboveMap.SetTile(intPos, null);
 
         if (CheckGround(intPos + new Vector3Int(0, 1)))
             waterMap.SetTile(intPos, waterAnim);
         else
             waterMap.SetTile(intPos, waterTile);
+        tileUpdatedEvent.Invoke();
     }
 
     private void RemoveAnimatedWater(Vector3Int intPos)
@@ -81,5 +87,25 @@ public class TilePlacement : MonoBehaviour
     public bool ValidateTile(Vector3 position)
     {
         return TileValidation.CanPlaceObject(groundMap, position, new Vector2Int(1, 1), ObjectsPositions.ReceivePositions()) && !TileValidation.CheckTileOnPlace(objectMap, position);
+    }
+
+    public Vector2 RandomTilePosition()
+    {
+        groundMap.CompressBounds();
+        BoundsInt tilemapBounds = groundMap.cellBounds;
+        List<Vector3> tilePoses = new();
+        for (int x = tilemapBounds.xMin; x < tilemapBounds.xMax; x++)
+        {
+            for (int y = tilemapBounds.yMin; y < tilemapBounds.yMax; y++)
+            {
+                Vector3Int localPos = new Vector3Int(x, y, (int)groundMap.transform.position.z);
+                Vector3 worldPos = groundMap.CellToWorld(localPos);
+                if (groundMap.HasTile(localPos))
+                {
+                    tilePoses.Add(localPos);
+                }
+            }
+        }
+        return tilePoses[Random.Range(0, tilePoses.Count)];
     }
 }

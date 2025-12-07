@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8498657c453a5c44fbd337deec46d96a, type: 3}
+  m_Name: Dweller Axe
+  m_EditorClassIdentifier: 
+  Result: {fileID: 11400000, guid: 60867abcc29680542a99c0ae4863a2c1, type: 2}
+  Count: 1
+  Elements:
+  - Item: {fileID: 11400000, guid: d1b788acbdf5ae34db93f8c897961352, type: 2}
+    Count: 6
+  - Item: {fileID: 11400000, guid: 01fa6cd2457b70046b01313dd6208ddf, type: 2}
+    Count: 1
+  - Item: {fileID: 11400000, guid: b2594c9a59b2ec747a8efd9f06cc8730, type: 2}
+    Count: 8

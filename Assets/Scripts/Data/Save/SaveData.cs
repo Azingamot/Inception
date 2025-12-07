@@ -15,4 +15,5 @@ public class SaveData
     public WorldSaveData WorldSaveData;
     public List<EventHappenData> EventHappens = new();
     public List<ActiveQuest> ActiveQuests = new();
+    public List<EnemyPosition> EnemyPositions = new();
 }

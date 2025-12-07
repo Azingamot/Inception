@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcbecc2b23bce3e499d4c75692d6952d, type: 3}
+  m_Name: Wanderer Battle Axe
+  m_EditorClassIdentifier: 
+  UID: 8089605b-aa35-4739-9b14-e32add51f389
+  MaxStack: 1
+  ItemSprite: {fileID: -1417492392844079303, guid: bc813ca491b6e4241876e2c34477ab42, type: 3}
+  Animator: {fileID: 9100000, guid: ba1363307658ff24085d38c60f7a6486, type: 2}
+  Rarity: 2
+  Damage: 8
+  ReloadTime: 2
+  KnockbackValue: 1
+  DamageTypes: 0100000000000000

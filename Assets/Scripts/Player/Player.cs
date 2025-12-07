@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerHealth.Load(this);
     }
 
     private void OnEnable()
@@ -53,6 +55,8 @@ public class Player : MonoBehaviour
     private void Disable()
     {
         isActive = false;
+        rb.linearVelocity = Vector2.zero;
+        StopAllCoroutines();
     }
 
     private void Enable()
@@ -72,6 +76,19 @@ public class Player : MonoBehaviour
     public void MovementInput()
     {
         direction = move.action.ReadValue<Vector2>();
+    }
+
+    public void Knockback(Transform source, float power)
+    {
+        isActive = false;
+        playerMovement.Knockback(source, power, rb);
+        StartCoroutine(WaitForKnockback());
+    }
+
+    private IEnumerator WaitForKnockback()
+    {
+        yield return new WaitForSeconds(0.2f);
+        isActive = true;
     }
 
     /// <summary>

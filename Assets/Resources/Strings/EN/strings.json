@@ -2,7 +2,7 @@
     "NameStrings": [
         {
             "Name": "Damage",
-            "Value": "Damage"
+            "Value": "Урона"
         },
         {
             "Name": "Cooldown",
@@ -74,7 +74,7 @@
         },
         {
             "Name": "Cotton Rope",
-            "Value": "Cotton Rope"
+            "Value": "Cotton rope"
         },
         {
             "Name": "Cotton Rope_description",
@@ -102,7 +102,7 @@
         },
         {
             "Name": "Crafting Table_description",
-            "Value": "The main object for creating most items"
+            "Value": "The main object to create items"
         },
         {
             "Name": "Ground",
@@ -110,7 +110,7 @@
         },
         {
             "Name": "Ground_description",
-            "Value": "Default tile for island extensions"
+            "Value": "Standart element to expand your island"
         },
         {
             "Name": "Bush",
@@ -134,7 +134,7 @@
         },
         {
             "Name": "Acorn_description",
-            "Value": "Used to grow trees"
+            "Value": "Used to plant trees"
         },
         {
             "Name": "Cotton Seeds",
@@ -142,7 +142,7 @@
         },
         {
             "Name": "Cotton Seeds_description",
-            "Value": "Used to grow cotton plant"
+            "Value": "Used to plant cotton plant"
         },
         {
             "Name": "Wheat Seeds",
@@ -150,7 +150,7 @@
         },
         {
             "Name": "Wheat Seeds_description",
-            "Value": "Used to grow wheat"
+            "Value": "Used to plant wheat"
         },
         {
             "Name": "Bread",
@@ -166,7 +166,7 @@
         },
         {
             "Name": "Stone Axe_description",
-            "Value": "The main tool to chop down trees"
+            "Value": "The main tool to chop trees."
         },
         {
             "Name": "Wooden Hoe",
@@ -174,7 +174,7 @@
         },
         {
             "Name": "Wooden Hoe_description",
-            "Value": "The simplest hoe that causes severe fatigue after use."
+            "Value": "The simplest hoe, causes severe fatigue when used."
         },
         {
             "Name": "Hero Sword",
@@ -198,15 +198,15 @@
         },
         {
             "Name": "Wheat Collection_description",
-            "Value": "Collect some wheat please"
+            "Value": "Collect wheat"
         },
         {
             "Name": "Required",
-            "Value": "Required"
+            "Value": "Requirements"
         },
         {
             "Name": "EmptyQuest",
-            "Value": "No quest selected"
+            "Value": "Quest not selected"
         },
         {
             "Name": "Fence",
@@ -214,11 +214,87 @@
         },
         {
             "Name": "Fence_description",
-            "Value": ""
+            "Value": "Protects your crops"
         },
         {
             "Name": "LanguageUpdate",
-            "Value": "The language will be updated after the reboot"
+            "Value": "Language will be updated after reload"
+        },
+        {
+            "Name": "Start",
+            "Value": "Start"
+        },
+        {
+            "Name": "Quit",
+            "Value": "Quit"
+        },
+        {
+            "Name": "End",
+            "Value": "The End"
+        },
+        {
+            "Name": "Add",
+            "Value": "Add"
+        },
+        {
+            "Name": "Remove",
+            "Value": "Remove"
+        },
+        {
+            "Name": "Saves",
+            "Value": "Saves"
+        },
+        {
+            "Name": "Dweller Claw",
+            "Value": "Dweller Claw"
+        },
+        {
+            "Name": "Dweller Claw_description",
+            "Value": "The main weapon of the creature called Dweller"
+        },
+        {
+            "Name": "Dweller Sword",
+            "Value": "Dweller Sword"
+        },
+        {
+            "Name": "Dweller Sword_description",
+            "Value": "A durable sword crafted from the claws of fallen enemies"
+        },
+        {
+            "Name": "Dweller Hoe",
+            "Value": "Dweller Hoe"
+        },
+        {
+            "Name": "Dweller Hoe_description",
+            "Value": "An advanced hoe made from the claws of the Dwellers. Causes less fatigue when working."
+        },
+        {
+            "Name": "Fishing Rod",
+            "Value": "Fishing Rod"
+        },
+        {
+            "Name": "Fishing Rod_description",
+            "Value": "Allows you to fish from the water surrounding you. In addition to fish, it also allows you to get other useful things."
+        },
+        {
+            "Name": "Knockback",
+            "Value": "Knockback"
+        },
+        {
+            "Name": "Dweller Axe",
+            "Value": "Dweller Axe"
+        },
+        {
+            "Name": "Dweller Axe_description",
+            "Value": "An advanced axe made from the claws of the Inhabitants. He is good at chopping down trees, but is not capable of dealing damage in battle."
+        },
+        {
+            "Name": "Wanderer Battle Axe",
+            "Value": "Wanderer Battle Axe"
+        },
+        {
+            "Name": "Wanderer Battle Axe_description",
+            "Value": "The battle axe that appeared in your hands as soon as you appeared in this world. A unique universal item that can be replaced with more specialized items."
         }
     ]
 }

@@ -60,8 +60,7 @@ public class PlayerAnimation : MonoBehaviour
     /// Поворачивает игрока в зависимости от того в какой стороне от него находится курсор
     /// </summary>
     private void CheckRotation(Vector2 mousePos)
-    {
-        //sr.flipX = mousePos.x < transform.position.x;
+    {;
         Vector2 flip = new Vector2(mousePos.x < transform.position.x ? -baseScale.x : baseScale.x, baseScale.y);
         transform.localScale = flip; 
     }

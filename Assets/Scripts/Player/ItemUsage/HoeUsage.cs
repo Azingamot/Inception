@@ -13,7 +13,7 @@ public class HoeUsage : UsableItem
         {
             if (PlacementCheck() && RadiusCheck() && !ItemsCooldown.Instance.IsOnCooldown())
             {
-                TilePlacement.instance.PlaceAbovegroundTile(hoe.WeededEarth, mouseInWorld);
+                TilePlacement.Instance.PlaceAbovegroundTile(hoe.WeededEarth, mouseInWorld);
                 playerItemInHand.TriggerAnimation("Use");
                 ItemsCooldown.Instance.SetOnCooldown(hoe.Cooldown);
             }
@@ -46,7 +46,7 @@ public class HoeUsage : UsableItem
 
     private bool PlacementCheck()
     {
-        return TilePlacement.instance.ValidateTile(mouseInWorld);
+        return TilePlacement.Instance.ValidateTile(mouseInWorld);
     }
 
     private bool RadiusCheck()

@@ -9,18 +9,22 @@ public class StringsGenerator : MonoBehaviour
     public void Generate()
     {
         List<Item> items = LoadItems();
-        StringsStorage storage = NamesHelper.LoadStorage();
 
-        foreach (Item item in items)
+        foreach (string language in TranslationHandler.LanguagesPathMap.Keys)
         {
-            if (!storage.Contains(item.name))
-            {
-                storage.Add(item.name, item.name);
-                storage.Add(item.name + "_description", "");
-            }
-        }
+            StringsStorage storage = NamesHelper.LoadStorage(language);
 
-        NamesHelper.CreateFile(storage);
+            foreach (Item item in items)
+            {
+                if (!storage.Contains(item.name))
+                {
+                    storage.Add(item.name, item.name);
+                    storage.Add(item.name + "_description", "");
+                }
+            }
+
+            NamesHelper.CreateFile(language, storage);
+        }
     }
 
     public void AddData()

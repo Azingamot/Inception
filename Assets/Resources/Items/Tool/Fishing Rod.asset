@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcbecc2b23bce3e499d4c75692d6952d, type: 3}
+  m_Name: Fishing Rod
+  m_EditorClassIdentifier: 
+  UID: d9b0f763-c8da-47d7-9074-2755f0bdb284
+  MaxStack: 1
+  ItemSprite: {fileID: 5268473884595868589, guid: e765a8a1d14fe7c41a40b84a63410777, type: 3}
+  Animator: {fileID: 9100000, guid: ba1363307658ff24085d38c60f7a6486, type: 2}
+  Rarity: 0
+  Damage: 8
+  ReloadTime: 2
+  DamageTypes: 0100000000000000

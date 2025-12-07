@@ -1,4 +1,3 @@
 repository "Inception/Inception@10171490300088@cloud"
   path "/"
-    br "/main"
-    co "/main"
+    smartbranch "/main" changeset "33"      

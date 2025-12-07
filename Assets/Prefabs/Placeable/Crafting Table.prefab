@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2987794093783041688}
   - component: {fileID: 1694850006196799500}
   - component: {fileID: 2648762297482905523}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Crafting Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4827051916991392246}
   - component: {fileID: 2226432867018690155}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: TableSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3385517857237242828}
   - component: {fileID: 1023610253108199041}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

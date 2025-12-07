@@ -12,7 +12,7 @@ public class DamageDealer : MonoBehaviour
             if (selected is DamageItem)
             {
                 item = (DamageItem)selected;
-                component.ReceiveDamage(item.Damage, item);
+                component.ReceiveDamage(item.Damage, item, transform);
             }
         }
     }

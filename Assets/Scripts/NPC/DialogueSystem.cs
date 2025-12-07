@@ -38,6 +38,8 @@ public class DialogueSystem : MonoBehaviour
         if (inDialogue)
             return;
 
+        StartCoroutine(WaitForTimeToStop());
+
         OnDialogueStart.Invoke();
 
         clockController.enabled = false;
@@ -54,6 +56,13 @@ public class DialogueSystem : MonoBehaviour
         }
 
         LoadDialogueLine(currentDialogue.Dequeue());    
+    }
+
+    private IEnumerator WaitForTimeToStop()
+    {
+        yield return new WaitForSecondsRealtime(1);
+
+        Time.timeScale = 0;
     }
 
     public void StartDialogue(string dialogueName, UnityEvent<EventData> dialogueEndEvent, EventData eventData)
@@ -82,6 +91,8 @@ public class DialogueSystem : MonoBehaviour
 
     public void StopDialogue()
     {
+        Time.timeScale = 1;
+
         clockController.enabled = true;
 
         dialogueObject.SetActive(false);
@@ -119,7 +130,7 @@ public class DialogueSystem : MonoBehaviour
             currentText += text[index];
             index++;
             dialogueContent.text = currentText;
-            yield return new WaitForFixedUpdate();
+            yield return new WaitForSecondsRealtime(0.01f);
         }
     }
 }

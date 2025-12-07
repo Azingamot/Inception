@@ -23,7 +23,7 @@ public static class TilemapSaver
         return worldData;
     }
 
-    private static TilemapSaveData CreateSaveDataFromTilemap(Tilemap tilemap)
+    public static TilemapSaveData CreateSaveDataFromTilemap(Tilemap tilemap)
     {
         var saveData = new TilemapSaveData()
         {

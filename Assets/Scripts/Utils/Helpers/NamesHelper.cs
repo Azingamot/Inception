@@ -20,12 +20,12 @@ public static class NamesHelper
 
         string value = storage.Get(key);
 
-        return string.IsNullOrEmpty(value) ? key : value;
+        return value == null ? key : value;
     }
 
-    public static StringsStorage LoadStorage()
+    public static StringsStorage LoadStorage(string language = "")
     {
-        string path = TranslationHandler.ConvertToPath(persistentPath, "strings");
+        string path = TranslationHandler.ConvertToPath(persistentPath, "strings", language);
         TextAsset translationData = TranslationHandler.LoadTextFile(path);
         return JsonUtility.FromJson<StringsStorage>(translationData.text);
     }
@@ -34,16 +34,21 @@ public static class NamesHelper
     {
         foreach (string language in TranslationHandler.LanguagesPathMap.Keys)
         {
-            string path = Path.Combine("Assets", "Resources", TranslationHandler.ConvertToPath(persistentPath, "strings", language));
-            using (FileStream fs = new FileStream(path + ".json", 
-                FileMode.OpenOrCreate, 
-                FileAccess.ReadWrite))
-            {
-                string storageJson = JsonUtility.ToJson(storage, true);
-                byte[] storageBytes = Encoding.UTF8.GetBytes(storageJson);
-                fs.Write(storageBytes);
-            }
+            CreateFile(language, storage);
         }  
+    }
+
+    public static void CreateFile(string language, StringsStorage storage)
+    {
+        string path = Path.Combine("Assets", "Resources", TranslationHandler.ConvertToPath(persistentPath, "strings", language));
+        using (FileStream fs = new FileStream(path + ".json",
+            FileMode.OpenOrCreate,
+            FileAccess.ReadWrite))
+        {
+            string storageJson = JsonUtility.ToJson(storage, true);
+            byte[] storageBytes = Encoding.UTF8.GetBytes(storageJson);
+            fs.Write(storageBytes);
+        }
     }
 
     public static void WriteToFile(List<NameString> nameStrings)
