@@ -286,7 +286,7 @@
         },
         {
             "Name": "Dweller Axe_description",
-            "Value": "An advanced axe made from the claws of the Inhabitants. He is good at chopping down trees, but is not capable of dealing damage in battle."
+            "Value": "An advanced axe made from the claws of the Dwellers. He is good at chopping down trees, but is not capable of dealing damage in battle."
         },
         {
             "Name": "Wanderer Battle Axe",
@@ -295,6 +295,126 @@
         {
             "Name": "Wanderer Battle Axe_description",
             "Value": "The battle axe that appeared in your hands as soon as you appeared in this world. A unique universal item that can be replaced with more specialized items."
+        },
+        {
+            "Name": "FishOfSunset",
+            "Value": "Sunset Fish"
+        },
+        {
+            "Name": "FishOfSunset_description",
+            "Value": "When the day ends, the curse does not disappear, but only repeats itself again."
+        },
+        {
+            "Name": "GemOfSunset",
+            "Value": "Gem Of Sunset"
+        },
+        {
+            "Name": "GemOfSunset_description",
+            "Value": "A gem obtained from an unknown species of fish found in the deepest blue sea. With sunset comes a new beginning."
+        },
+        {
+            "Name": "PrimRose",
+            "Value": "Primrose"
+        },
+        {
+            "Name": "PrimRose_description",
+            "Value": "A beautiful flower with amazing healing properties."
+        },
+        {
+            "Name": "Primrose Seeds",
+            "Value": "Primrose Seeds"
+        },
+        {
+            "Name": "Primrose Seeds_description",
+            "Value": "Used to grow primrose"
+        },
+        {
+            "Name": "Fish",
+            "Value": "Fish"
+        },
+        {
+            "Name": "Fish_description",
+            "Value": "One of the few fish found in the blue sea. Does not cause poisoning if eaten raw."
+        },
+        {
+            "Name": "PrimroseTincture",
+            "Value": "Primrose Tincture"
+        },
+        {
+            "Name": "PrimroseTincture_description",
+            "Value": "Heals any wounds."
+        },
+        {
+            "Name": "Enforced Axe",
+            "Value": "Enforced Axe"
+        },
+        {
+            "Name": "Enforced Axe_description",
+            "Value": "A legendary ax enhanced with Gem Of Sunset and Primrose energy. Trees will no longer be a problem for you."
+        },
+        {
+            "Name": "Enforced Hoe",
+            "Value": "Enforced Hoe"
+        },
+        {
+            "Name": "Enforced undefined Hoe_description",
+            "Value": "A hoe enhanced with Gem Of Sunset and Primrose energy. Practically does not cause fatigue."
+        },
+        {
+            "Name": "Crown Of Sunset",
+            "Value": "Crown of Sunset"
+        },
+        {
+            "Name": "Crown Of Sunset_description",
+            "Value": "A legendary sword that can defeat any opponent."
+        },
+        {
+            "Name": "Regeneration",
+            "Value": "Regeneration"
+        },
+        {
+            "Name": "Heart Of Creation",
+            "Value": "Heart Of Creation"
+        },
+        {
+            "Name": "Heart Of Creation_description",
+            "Value": "A powerful artifact that serves as an offering to the one who called himself the Inception."
+        },
+        {      
+            "Name": "Cotton Collection",
+            "Value": "Cotton Collection"
+        },
+        {
+            "Name": "Cotton Collection_description",
+            "Value": "Collect cotton"
+        },
+        {
+            "Name": "Claws Collection",
+            "Value": "Claws Collection"
+        },
+        {
+            "Name": "Claws Collection_description",
+            "Value": "Collect claws of Dwellers"
+        },
+        {
+            "Name": "Heart Collection",
+            "Value": "The Offering"
+        },
+        {
+            "Name": "Heart Collection_description",
+            "Value": "Create the Heart Of Creation"
+        },
+        {
+            "Name": "failed",
+            "Value": "failed"
+        },
+        {
+            "Name": "success",
+            "Value": "is completed"
+        },
+        {
+            "Name": "New quest",
+            "Value": "New quest"
         }
     ]
 }

@@ -26,4 +26,15 @@ public class PlayerHealth : HealthSystem
         if (source != null)
             player.Knockback(source, 3);
     }
+
+    public void DamagePlayer(float amount)
+    {
+        ReceiveDamage(amount);
+    }
+
+    public void AddHealth(float amount)
+    {
+        Health += amount;
+        healthBar.ChangeBarFill(hp, maxHp);
+    }
 }

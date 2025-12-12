@@ -1,0 +1,49 @@
+{
+    "DialogueLines": [
+        {
+            "Title": "Inception",
+            "Content": "Here I am... for the last time.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "It was interesting watching you.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "I’d even say I don’t want you to leave this world.",
+            "Emotion": 1
+        },
+        {
+            "Title": "Inception",
+            "Content": "But we had an agreement, and under it, I cannot let you live if you don’t create the Heart of Creation.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "So show it to me!",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "...",
+            "Emotion": 3
+        },
+        {
+            "Title": "Inception",
+            "Content": "It’s beautiful.",
+            "Emotion": 0
+        },
+        {
+            "Title": "Inception",
+            "Content": "I’m glad you succeeded.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "I won’t trouble you any longer. Farewell.",
+            "Emotion": 4
+        }
+    ]
+}

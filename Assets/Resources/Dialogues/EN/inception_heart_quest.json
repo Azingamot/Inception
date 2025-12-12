@@ -1,0 +1,54 @@
+{
+    "DialogueLines": [
+        {
+            "Title": "Inception",
+            "Content": "Greetings, inhabitant of my land.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "I’ve come to give you your final task.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "I could come up with more, but I don’t have much time.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "Maybe next time...",
+            "Emotion": 3
+        },
+        {
+            "Title": "Inception",
+            "Content": "So, the final task.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "You must create a legendary artifact — the Heart of Creation.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "It has no purpose, but that doesn’t matter.",
+            "Emotion": 0
+        },
+        {
+            "Title": "Inception",
+            "Content": "What matters is that if you don’t create it within two days, you will leave this world.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "Otherwise, I’ll let you live here as long as your heart desires.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "See you!",
+            "Emotion": 3
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ab2901fc10ea246a464f136d2a274c, type: 3}
+  m_Name: Heart Of Creation
+  m_EditorClassIdentifier: Assembly-CSharp::BasicItem
+  UID: e075809b-34d2-4a58-81e6-075cf54e7574
+  MaxStack: 1
+  ItemSprite: {fileID: 6817458323392184082, guid: 1cfe80c9a330f734d9b3549e5588a41b, type: 3}
+  Animator: {fileID: 0}
+  Rarity: 3

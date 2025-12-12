@@ -43,9 +43,10 @@ public class ObjectsPlacement : MonoBehaviour
 
     public void DestroyObject(Vector2 worldPosition)
     {
-        ObjectPosition objectPos = ObjectsPositions.Objects.FirstOrDefault(u => Vector2.Distance(u.Position, worldPosition) < 0.25f);
+        ObjectPosition objectPos = ObjectsPositions.Objects.FirstOrDefault(u => Vector2.Distance(u.Position, worldPosition) < 1);
         if (objectPos != null && objectPos.SavedObject != null)
         {
+            Debug.Log("Destroying... " + objectPos.Position);
             Destroy(objectPos.SavedObject);
             ObjectsPositions.RemoveObject(objectPos);
         }
@@ -62,7 +63,7 @@ public class ObjectsPlacement : MonoBehaviour
 
     public bool EnsurePlacementOnGround(Vector2Int size, Vector2 center)
     {
-        return TileValidation.CanPlaceObject(groundMap, center, size, ObjectsPositions.ReceivePositions());
+        return TileValidation.CanPlaceObject(groundMap, center, size, ObjectsPositions.ReceivePositions()) && !ObjectsPositions.ReceivePositions().Any(u => Vector2.Distance(u, center) < 0.5f);
     }
 
     public bool EnsurePlacementAboveGround(Vector2Int size, Vector2 center)

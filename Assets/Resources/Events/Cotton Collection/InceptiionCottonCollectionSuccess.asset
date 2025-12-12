@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4925b4e7de6256f4b9a461cf9a29ff6a, type: 3}
+  m_Name: InceptiionCottonCollectionSuccess
+  m_EditorClassIdentifier: 
+  UID: 5772bd57161fb494fbe7db9b3fd27342
+  StartDay: 0
+  EndDay: 0
+  LowerThreshold: 0
+  UpperThreshold: 0
+  Chance: 0
+  HappenOnce: 1
+  DialogueName: inception_cotton_collection
+  QuestData: {fileID: 11400000, guid: adaf99d200127404e8e6f9b0817cefba, type: 2}

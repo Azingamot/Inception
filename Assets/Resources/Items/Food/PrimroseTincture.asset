@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af2f97e691adc224fa2534ecde268d7a, type: 3}
+  m_Name: PrimroseTincture
+  m_EditorClassIdentifier: Assembly-CSharp::HealItem
+  UID: 6cfb1005-5d97-4d01-a47b-7c93bd598841
+  MaxStack: 5
+  ItemSprite: {fileID: 5327022153609395772, guid: 5585bff0c20e1b04c8385a06d9807dcf, type: 3}
+  Animator: {fileID: 9100000, guid: 05c7d34d96d0f044d8c44bf382232884, type: 2}
+  Rarity: 2
+  Saturation: 50
+  HealthRegeneration: 30

@@ -12,9 +12,13 @@ public class TileUsage : UsableItem
     {
         if (GroundCheck() && RadiusCheck())
         {
-            if (tileItem.TileType == TileType.Ground) TilePlacement.Instance.PlaceGroundTile(tileItem.TileToPlace, mouseInWorld);
-            else TilePlacement.Instance.PlaceObjectTile(tileItem.TileToPlace, mouseInWorld);
-                playerItemInHand.TriggerAnimation("Use");
+            if (tileItem.TileType == TileType.Ground) 
+                TilePlacement.Instance.PlaceGroundTile(tileItem.TileToPlace, mouseInWorld);
+            else 
+                TilePlacement.Instance.PlaceObjectTile(tileItem.TileToPlace, mouseInWorld);
+
+            playerItemInHand.TriggerAnimation("Use");
+            AudioSystem.PlaySound(item.SoundType);
             InventoryController.Instance.RemoveItem(1);
         }
     }

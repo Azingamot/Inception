@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ab2901fc10ea246a464f136d2a274c, type: 3}
+  m_Name: PrimRose
+  m_EditorClassIdentifier: Assembly-CSharp::BasicItem
+  UID: 40ba903b-be97-4558-845c-802b6957295f
+  MaxStack: 100
+  ItemSprite: {fileID: -3289250568018079269, guid: 25d23ac8195bbe645bad7c1e20e64b2e, type: 3}
+  Animator: {fileID: 0}
+  Rarity: 2

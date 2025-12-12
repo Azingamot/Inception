@@ -1,0 +1,39 @@
+{
+    "DialogueLines": [
+        {
+            "Title": "Inception",
+            "Content": "How are things going?",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "I see that you've already settled well in my world.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "I should start demanding more from you...",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "I hope you managed to gather the cotton.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "...",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "Excellent, I never doubted you.",
+            "Emotion": 0
+        },
+        {
+            "Title": "Inception",
+            "Content": "You can keep working, I’ll visit you tomorrow.",
+            "Emotion": 4
+        }
+    ]
+}

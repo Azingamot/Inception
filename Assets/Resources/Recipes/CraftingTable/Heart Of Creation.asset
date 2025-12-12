@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8498657c453a5c44fbd337deec46d96a, type: 3}
+  m_Name: Heart Of Creation
+  m_EditorClassIdentifier: Assembly-CSharp::CraftRecipe
+  Result: {fileID: 11400000, guid: 114f587fffd55ca4480a24c872764cc0, type: 2}
+  Count: 1
+  Elements:
+  - Item: {fileID: 11400000, guid: 6c0fb5191f52b844fad4aed7a3f0692d, type: 2}
+    Count: 1
+  - Item: {fileID: 11400000, guid: 71809a7ad8dc4ce4f86edac8043fe2f8, type: 2}
+    Count: 10
+  - Item: {fileID: 11400000, guid: 8e5d312782e404c498468b9bc8359873, type: 2}
+    Count: 10
+  - Item: {fileID: 11400000, guid: 80dd323c57a40d042a6bd829df73433e, type: 2}
+    Count: 10

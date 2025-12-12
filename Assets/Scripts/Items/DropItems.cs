@@ -22,6 +22,17 @@ public class DropItems : MonoBehaviour
         Drop();
     }
 
+    public void Drop(EventData eventData)
+    {
+        if (eventData is QuestDialogueEventData questDialogue)
+        {
+            foreach (var dropItem in questDialogue.QuestData.Reward)
+            {
+                SpawnDropOnPosition(PlayerPosition.GetData() ,dropItem.Item, dropItem.Count);
+            }
+        }
+    }
+
     public void SpawnDrop(Item item, int count = 1)
     {
        SpawnDropOnPosition(transform.position, item, count);

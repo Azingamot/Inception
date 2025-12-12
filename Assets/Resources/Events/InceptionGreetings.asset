@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: InceptionGreetings
   m_EditorClassIdentifier: 
   UID: fa033d799a1f02c44a3ebe9d58def142
-  StartDay: 1
+  StartDay: 2
   EndDay: 2
   LowerThreshold: 3
   UpperThreshold: 5

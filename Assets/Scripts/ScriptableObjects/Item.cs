@@ -15,6 +15,7 @@ public abstract class Item : ScriptableObject
     public UsableItem ItemUsage;
     public RuntimeAnimatorController Animator;
     public Rarities.Rarity Rarity = Rarities.Rarity.Basic;
+    public ClipType SoundType;
 
 #if UNITY_EDITOR
     public void OnValidate()

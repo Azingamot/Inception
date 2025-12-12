@@ -17,7 +17,8 @@ MonoBehaviour:
   ItemSprite: {fileID: -3493546860208996330, guid: ff96bba4694039b4f8b0176531b61c91, type: 3}
   Animator: {fileID: 9100000, guid: ba1363307658ff24085d38c60f7a6486, type: 2}
   Rarity: 0
-  Damage: 3
+  SoundType: 2
+  Damage: 8
   ReloadTime: 2
   KnockbackValue: 1.5
   DamageTypes: 00000000

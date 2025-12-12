@@ -14,6 +14,7 @@ public class BuildUsage : UsableItem
         {
             InventoryController.Instance.RemoveItem(1);
             playerItemInHand.TriggerAnimation("Use");
+            AudioSystem.PlaySound(item.SoundType);
         } 
     }
 

@@ -1,10 +1,13 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static Unity.VisualScripting.Icons;
 
 public class Settings : MonoBehaviour
 {
@@ -31,17 +34,43 @@ public class Settings : MonoBehaviour
     private List<Resolution> resolutions = new();
 
     private void Awake()
-    {
-        fullscreenTogle.isOn = Screen.fullScreen;
-
+    {;
         LoadLanguages();
         LoadLanguagesDropdown();
         LoadResolutions();
+    }
 
-        SetSFX(ReceiveFloatFromPlayerPrefs("SFX", defaultSfx));
-        SetMusic(ReceiveFloatFromPlayerPrefs("Music", defaultMusic));
-        SetLanguage(ReceiveStringFromPlayerPrefs("Language", "English"));
-        SetResolution(ReceiveIntFromPlayerPrefs("Resolution", CurrentResolutionIndex()));
+    private void Start()
+    {
+        InitialLoad();
+    }
+
+    private void InitialLoad()
+    {
+        float sfx = ReceiveFloatFromPlayerPrefs("SFX", defaultSfx);
+        float music = ReceiveFloatFromPlayerPrefs("Music", defaultMusic);
+        int languageIndex = languages.FindIndex(u => u == ReceiveStringFromPlayerPrefs("Language", "English"));
+        int resolutionIndex = ReceiveIntFromPlayerPrefs("Resolution", CurrentResolutionIndex());
+
+        LoadData(sfx, music, languageIndex, resolutionIndex);
+        LoadUI(sfx, music, languageIndex, resolutionIndex);
+    }
+
+    private void LoadData(float sfx, float music, int languageIndex, int resolutionIndex)
+    {
+        SetResolution(resolutionIndex);
+        SetLanguage(languageIndex);
+        SetSFX(sfx);
+        SetMusic(music);
+    }
+
+    private void LoadUI(float sfx, float music, int languageIndex, int resolutionIndex)
+    {
+        fullscreenTogle.isOn = Screen.fullScreen;
+        sfxSlider.value = sfx;
+        musicSlider.value = music;
+        languageDropdown.value = languageIndex;
+        resolutionDropdown.value = resolutionIndex;
     }
 
     private void LoadResolutions()
@@ -65,8 +94,6 @@ public class Settings : MonoBehaviour
             return;
         Resolution selected = resolutions[index];
         Screen.SetResolution(selected.width, selected.height, Screen.fullScreen);
-        Debug.Log(selected);
-        resolutionDropdown.value = index;
         PlayerPrefs.SetInt("Resolution",index);
     }
 
@@ -88,20 +115,17 @@ public class Settings : MonoBehaviour
     {
         PlayerPrefs.SetFloat("SFX", volume);
         sfxMixer.SetFloat("Volume", volume);
-        sfxSlider.value = volume;
     }
 
     public void SetMusic(float volume)
     {
         PlayerPrefs.SetFloat("Music", volume);
         musicMixer.SetFloat("Volume", volume);
-        musicSlider.value = volume;
     }
 
     private void SetLanguage(string language)
     {
         PlayerPrefs.SetString("Language", language);
-        languageDropdown.value = languages.FindIndex(u => u == language);
     }
 
     public void SetLanguage(int index)

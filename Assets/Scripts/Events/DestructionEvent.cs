@@ -45,6 +45,6 @@ public class DestructionEvent : MonoBehaviour
     {
         return !Physics2D.OverlapCircle(pos, 1.5f, avoidMask) 
             && TileValidation.CanPlaceObject(groundTilemap, pos, new Vector2Int(1, 1), ObjectsPositions.ReceivePositions())
-            && Vector2.Distance(pos, PlayerPosition.GetData()) < 40;
+            && Vector2.Distance(pos, PlayerPosition.GetData()) < 30;
     }
 }

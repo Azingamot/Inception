@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab68568666470d4cbf1c3ff61c86fc8, type: 3}
+  m_Name: Enforced Hoe
+  m_EditorClassIdentifier: Assembly-CSharp::HoeItem
+  UID: 60b556c9-63c3-4b7e-bda3-a085027bcf91
+  MaxStack: 1
+  ItemSprite: {fileID: -682482812340321960, guid: 20b96222229e5e34b81d8b97317411ee, type: 3}
+  Animator: {fileID: 9100000, guid: 05c7d34d96d0f044d8c44bf382232884, type: 2}
+  Rarity: 3
+  WeededEarth: {fileID: 11400000, guid: 84f7b5aa81b6d4644846c238686e73fd, type: 2}
+  Cooldown: 0.5

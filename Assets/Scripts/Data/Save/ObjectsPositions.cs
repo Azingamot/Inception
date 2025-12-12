@@ -26,6 +26,7 @@ public static class ObjectsPositions
 
     public static HashSet<Vector2> ReceivePositions()
     {
+        _positions.RemoveWhere(u => u.SavedObject == null);
         return Objects.Select(u => u.Position).ToHashSet();
     }
 }

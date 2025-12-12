@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8498657c453a5c44fbd337deec46d96a, type: 3}
+  m_Name: Enforced Axe
+  m_EditorClassIdentifier: 
+  Result: {fileID: 11400000, guid: aa61e959517304d4f819f7903b231af1, type: 2}
+  Count: 1
+  Elements:
+  - Item: {fileID: 11400000, guid: 60867abcc29680542a99c0ae4863a2c1, type: 2}
+    Count: 1
+  - Item: {fileID: 11400000, guid: 6c0fb5191f52b844fad4aed7a3f0692d, type: 2}
+    Count: 1
+  - Item: {fileID: 11400000, guid: 80dd323c57a40d042a6bd829df73433e, type: 2}
+    Count: 3

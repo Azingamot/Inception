@@ -4,5 +4,6 @@
     Blink,
     Shrink,
     Particles,
-    Dissipate
+    Dissipate,
+    PlaySound
 }

@@ -236,6 +236,7 @@ public class EnemyController : MonoBehaviour
         {
             if (node.CameFrom != null)
                 Gizmos.DrawLine(node.CameFrom.Position, node.Position);
-        }
+			Gizmos.DrawSphere(node.Position, 0.2F);
+		}
     }
 }

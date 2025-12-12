@@ -1,10 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using TreeEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Tilemaps;
-using UnityEngine.WSA;
 
 public class AStarManager : MonoBehaviour
 {
@@ -45,7 +43,6 @@ public class AStarManager : MonoBehaviour
 
         foreach (Vector3 tile in walkableTiles)
         {
-            //GenerateNodesForTile(walkableTiles, unwalkableTiles, tile, ref prevNode);
             if (IsWalkableTile(unwalkableTiles, tile))
                 GenerateNode(ref prevNode, tile);
         }
@@ -56,31 +53,6 @@ public class AStarManager : MonoBehaviour
         }
 
         onPathChanged.Invoke();
-    }
-
-    private bool HaveTileInDirection(List<Vector3> tilePositions, Vector3 tilePos, Vector3 direction)
-    {
-        return tilePositions.Any(u => u == (tilePos + direction));
-    }
-
-    private void GenerateNodesForTile(List<Vector3> walkableTiles, List<Vector3> unwalkableTiles, Vector3 tilePos, ref Node prevNode)
-    {
-        Vector3 bottomPos = tilePos - new Vector3(0, 0.5f);
-        Vector3 upperPos = tilePos + new Vector3(0, 0.5f);
-
-        Node bottomNode = null;
-        Node upperNode = null;
-
-        if (IsWalkableTile(unwalkableTiles, bottomPos) && HaveTileInDirection(walkableTiles, tilePos, Vector2.down))
-            bottomNode = GenerateNode(ref prevNode, bottomPos);
-
-        if (IsWalkableTile(unwalkableTiles, upperPos) && HaveTileInDirection(walkableTiles, tilePos, Vector2.up))
-            upperNode = GenerateNode(ref prevNode, upperPos);
-
-        if (bottomNode == null && upperNode == null && IsWalkableTile(unwalkableTiles, tilePos))
-        {
-            GenerateNode(ref prevNode, tilePos);
-        }
     }
 
     private Node GenerateNode(ref Node prev, Vector2 position)
@@ -94,8 +66,7 @@ public class AStarManager : MonoBehaviour
 
     private bool IsWalkableTile(List<Vector3> unwalkableTiles, Vector3 position)
     {
-        HashSet<Vector2> positions = ObjectsPositions.ReceivePositions();
-        return !unwalkableTiles.Any(u => u == position) && !positions.Any(u => Vector2.Distance(u, position) < 0.5f) && !Physics2D.OverlapCircle(position, 1.5f, avoidMask);
+        return !unwalkableTiles.Any(u => u == position) && !Physics2D.OverlapCircle(position, 0.5f, avoidMask);
     }
 
     private void GenerateNodeConnections(List<Node> nodes, Node node)
@@ -229,6 +200,10 @@ public class AStarManager : MonoBehaviour
             foreach (Node node in Nodes)
             {
                 Gizmos.DrawSphere(node.Position, 0.2F);
+                foreach (Node neighbour in node.Connections)
+                {
+                    Gizmos.DrawLine(node.Position, neighbour.Position);
+                }
             }
         }
     }

@@ -11,6 +11,7 @@ public class HitEffects: MonoBehaviour
     [SerializeField] private Material hitMaterial;
     [SerializeField] private ParticleSystem hitParticles;
     [SerializeField] private float shrinkAmount;
+    [SerializeField] private ClipType soundType;
 
     private Transform mainTransform;
     private SpriteRenderer mainRenderer;
@@ -82,6 +83,9 @@ public class HitEffects: MonoBehaviour
             case EffectType.Dissipate:
                 StartCoroutine(DissipateTimer(timeToFinish));
                 break;
+            case EffectType.PlaySound:
+                PlaySound();
+                break;
             default:
                 break;
         }
@@ -92,6 +96,11 @@ public class HitEffects: MonoBehaviour
         if (afterHitCoroutine != null)
             StopCoroutine(afterHitCoroutine);
         afterHitCoroutine = StartCoroutine(AfterHitBlink(timeToFinish));
+    }
+
+    private void PlaySound()
+    {
+        AudioSystem.PlaySound(soundType);
     }
 
     private void ShrinkEffect(float timeToFinish)

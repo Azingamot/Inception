@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b3d00c995c0454fbd51191a8e01f0b, type: 3}
+  m_Name: Primrose Seeds
+  m_EditorClassIdentifier: Assembly-CSharp::CropItem
+  UID: 7ebe59ec-8fe8-48fc-ba7d-a1ec4a1ca9dc
+  MaxStack: 100
+  ItemSprite: {fileID: 4365641457280904277, guid: 060020e220dc56c4da3b73cd39ea1cce, type: 3}
+  Animator: {fileID: 9100000, guid: 05c7d34d96d0f044d8c44bf382232884, type: 2}
+  Rarity: 2
+  ObjectToPlace: {fileID: 3914135477802078255, guid: 000d0fe605330f346883fa214ad4faa5, type: 3}
+  PreviewSprite: {fileID: 6426895098680473388, guid: f4ad4a35c82e14647b159c0c2511f67d, type: 3}
+  Size: {x: 1, y: 1}
+  CropData: {fileID: 11400000, guid: a7938f4a8b3487b49931a27ea99eae36, type: 2}

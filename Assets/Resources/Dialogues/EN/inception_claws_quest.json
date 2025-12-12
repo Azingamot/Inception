@@ -1,0 +1,34 @@
+{
+    "DialogueLines": [
+        {
+            "Title": "Inception",
+            "Content": "You’ve got nothing to do, huh?",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "But don’t worry, I’ve come to fix that.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "I think you’ve already had a chance to meet the native inhabitants of this place.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "I’m not sure I created them to be so aggressive... but I suppose that makes things more interesting.",
+            "Emotion": 3
+        },
+        {
+            "Title": "Inception",
+            "Content": "Prove to me that you’re stronger than my previous creations and bring me 5 claws by the next night.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "Good luck!",
+            "Emotion": 0
+        }
+    ]
+}

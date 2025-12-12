@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -23,7 +25,7 @@ public class CollectableItem : MonoBehaviour, ICollectable
     private bool isMerging = false;
 
     private Coroutine checkCoroutine;
-    private Coroutine mergeCoroutine;
+    private Dictionary<GameObject, Coroutine> mergingCoroutines = new();
 
     private Vector3 defaultScale;
 
@@ -53,7 +55,11 @@ public class CollectableItem : MonoBehaviour, ICollectable
 
     public ItemPickupContext Collect()
     {
-        StopAllCoroutines();
+        foreach (var pair in mergingCoroutines)
+        {
+            StopCoroutine(pair.Value);
+            pair.Key.transform.position = defaultScale;
+        }
         return new ItemPickupContext(gameObject, collectableItem, itemsCount);
     }
     
@@ -141,7 +147,7 @@ public class CollectableItem : MonoBehaviour, ICollectable
 
                 collectable.SetForMerging();
 
-                StartCoroutine(MergeCoroutine(collectable));
+                mergingCoroutines.Add(collectable.gameObject, StartCoroutine(MergeCoroutine(collectable)));
             }
         }
     }
@@ -155,11 +161,6 @@ public class CollectableItem : MonoBehaviour, ICollectable
     {
         candidateForMerge = false;
         isMerging = true;
-        if (mergeCoroutine != null)
-        {
-            StopCoroutine(mergeCoroutine);
-            transform.localScale = defaultScale;
-        }
     }
 
     private IEnumerator MergeCoroutine(CollectableItem itemToMerge)
@@ -185,6 +186,7 @@ public class CollectableItem : MonoBehaviour, ICollectable
             return;
         itemsCount += itemToMerge.itemsCount;
         countText.text = itemsCount.ToString();
+        mergingCoroutines.Remove(itemToMerge.gameObject);
         Destroy(itemToMerge.gameObject);
         isMerging = false;
         itemToMerge = null;

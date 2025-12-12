@@ -295,6 +295,126 @@
         {
             "Name": "Wanderer Battle Axe_description",
             "Value": "Боевой топор, который возник в ваших руках как только вы оказались в это мире. Универсальный уникальный инструмент, который можно заменить более специализированными инструментами."
+        },
+        {
+            "Name": "FishOfSunset",
+            "Value": "Рыба Заката"
+        },
+        {
+            "Name": "FishOfSunset_description",
+            "Value": "Когда день заканчивается, проклятье не исчезает, а лишь повторяется снова."
+        },
+        {
+            "Name": "GemOfSunset",
+            "Value": "Кристалл Заката"
+        },
+        {
+            "Name": "GemOfSunset_description",
+            "Value": "Кристалл, добытый из неизвестного вида рыбы, водящейся на самой глубине синего моря. За закатом следует новое Начало."
+        },
+        {
+            "Name": "PrimRose",
+            "Value": "Первоцвет"
+        },
+        {
+            "Name": "PrimRose_description",
+            "Value": "Прекрасный цветок, обладающий удивительными целебными свойствами. "
+        },
+        {
+            "Name": "Primrose Seeds",
+            "Value": "Семена Первоцвета"
+        },
+        {
+            "Name": "Primrose Seeds_description",
+            "Value": "Используется для выращивания первоцвета"
+        },
+        {
+            "Name": "Fish",
+            "Value": "Рыба"
+        },
+        {
+            "Name": "Fish_description",
+            "Value": "Один из немногих видов рыбы, которая водится в синем море. Не вызывает отравление, если съесть её сырой."
+        },
+        {
+            "Name": "PrimroseTincture",
+            "Value": "Настойка из Первоцвета"
+        },
+        {
+            "Name": "PrimroseTincture_description",
+            "Value": "Лечит любые раны."
+        },
+        {
+            "Name": "Enforced Axe",
+            "Value": "Усиленный Топор"
+        },
+        {
+            "Name": "Enforced Axe_description",
+            "Value": "Легендарный топор, усиленный с помощью кристалла заката и энергии первоцвета. Деревья больше не будут для вас проблемой."
+        },
+        {
+            "Name": "Enforced Hoe",
+            "Value": "Усиленная Мотыга"
+        },
+        {
+            "Name": "Enforced Hoe_description",
+            "Value": "Мотыга, усиленная с помощью кристалла заката и энергии первоцвета. Практически не вызывает усталость."
+        },
+        {
+            "Name": "Crown Of Sunset",
+            "Value": "Венец Заката"
+        },
+        {
+            "Name": "Crown Of Sunset_description",
+            "Value": "Легендарный меч, который способен одолеть любого противника."
+        },
+        {
+            "Name": "Regeneration",
+            "Value": "Регенерации"
+        },
+        {
+            "Name": "Heart Of Creation",
+            "Value": "Сердце Сотворения"
+        },
+        {
+            "Name": "Heart Of Creation_description",
+            "Value": "Могущественный артефакт, что служит подношением для того, кто прозвал себя Началом."
+        },
+        {
+            "Name": "Cotton Collection",
+            "Value": "Сбор хлопка"
+        },
+        {
+            "Name": "Cotton Collection_description",
+            "Value": "Соберите хлопок"
+        },
+        {
+            "Name": "Claws Collection",
+            "Value": "Сбор когтей"
+        },
+        {
+            "Name": "Claws Collection_description",
+            "Value": "Соберите когти Обитателей"
+        },
+        {
+            "Name": "Heart Collection",
+            "Value": "Подношение"
+        },
+        {
+            "Name": "Heart Collection_description",
+            "Value": "Создайте Сердце Сотворения"
+        },
+        {
+            "Name": "failed",
+            "Value": "провалено"
+        },
+        {
+            "Name": "success",
+            "Value": "выполнено"
+        },
+        {
+            "Name": "New quest",
+            "Value": "Новое задание"
         }
     ]
 }

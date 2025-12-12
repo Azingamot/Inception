@@ -19,7 +19,6 @@ public class WeaponUsage : UsableItem, IDamageDealer
 
         playerItemInHand.SetRotation(MousePosition.GetData());
         playerItemInHand.TriggerAnimation("Slash");
-
         ItemsCooldown.Instance.SetOnCooldown(damageItem.ReloadTime);
     }
 }

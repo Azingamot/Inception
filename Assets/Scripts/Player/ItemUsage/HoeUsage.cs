@@ -16,6 +16,7 @@ public class HoeUsage : UsableItem
                 TilePlacement.Instance.PlaceAbovegroundTile(hoe.WeededEarth, mouseInWorld);
                 playerItemInHand.TriggerAnimation("Use");
                 ItemsCooldown.Instance.SetOnCooldown(hoe.Cooldown);
+                AudioSystem.PlaySound(item.SoundType);
             }
         }
     }

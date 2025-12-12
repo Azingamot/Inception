@@ -1,0 +1,24 @@
+{
+    "DialogueLines": [
+        {
+            "Title": "Inception",
+            "Content": "Hello again.",
+            "Emotion": 0
+        },
+        {
+            "Title": "Inception",
+            "Content": "I hope you had a chance to use my gift.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "Because now I’ll ask you to gather 15 cotton by tomorrow.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "I'm sure you won't disappoint me.",
+            "Emotion": 0
+        }
+    ]
+}

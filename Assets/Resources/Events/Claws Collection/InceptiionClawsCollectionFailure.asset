@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4925b4e7de6256f4b9a461cf9a29ff6a, type: 3}
+  m_Name: InceptiionClawsCollectionFailure
+  m_EditorClassIdentifier: 
+  UID: ea5a38331a2f06547a1a900efacc4fe7
+  StartDay: 0
+  EndDay: 0
+  LowerThreshold: 0
+  UpperThreshold: 0
+  Chance: 0
+  HappenOnce: 1
+  DialogueName: inception_claws_collection_failure
+  QuestData: {fileID: 11400000, guid: e2719214bf5523d4d9366c1806728c53, type: 2}

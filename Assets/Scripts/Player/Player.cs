@@ -52,14 +52,14 @@ public class Player : MonoBehaviour
         playerAnimation.Animate(rb, mousePos);
     }
 
-    private void Disable()
+    public void Disable()
     {
         isActive = false;
         rb.linearVelocity = Vector2.zero;
         StopAllCoroutines();
     }
 
-    private void Enable()
+    public void Enable()
     {
         isActive = true;
     }

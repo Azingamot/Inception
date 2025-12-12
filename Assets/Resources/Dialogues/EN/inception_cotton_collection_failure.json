@@ -1,0 +1,49 @@
+{
+    "DialogueLines": [
+        {
+            "Title": "Inception",
+            "Content": "How are things going?",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "I see that you've already settled well in my world.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "I should start demanding more from you...",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "I hope you managed to gather the cotton.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "...",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "Seriously, am I asking for much? You had a whole day for this.",
+            "Emotion": 2
+        },
+        {
+            "Title": "Inception",
+            "Content": "You are not worthy of existing on my land.",
+            "Emotion": 2
+        },
+        {
+            "Title": "Inception",
+            "Content": "I’m giving you one last chance...",
+            "Emotion": 2
+        },
+        {
+            "Title": "Inception",
+            "Content": "See you tomorrow.",
+            "Emotion": 0
+        }
+    ]
+}

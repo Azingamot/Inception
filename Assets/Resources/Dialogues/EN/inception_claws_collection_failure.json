@@ -1,0 +1,49 @@
+{
+    "DialogueLines": [
+        {
+            "Title": "Inception",
+            "Content": "Didn't expect to see me?",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "You should be used to it by now.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "I’ve come to collect the claws, do you have them?",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "...",
+            "Emotion": 3
+        },
+        {
+            "Title": "Inception",
+            "Content": "You failed...",
+            "Emotion": 1
+        },
+        {
+            "Title": "Inception",
+            "Content": "You turned out to be weaker than my creations.",
+            "Emotion": 1
+        },
+        {
+            "Title": "Inception",
+            "Content": "But I have another way to test your resilience.",
+            "Emotion": 0
+        },
+        {
+            "Title": "Inception",
+            "Content": "If you survive my strike, I’ll gift you the seeds of a beautiful plant.",
+            "Emotion": 4
+        },
+        {
+            "Title": "Inception",
+            "Content": "Good luck!",
+            "Emotion": 0
+        }
+    ]
+}

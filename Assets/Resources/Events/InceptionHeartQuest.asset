@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4925b4e7de6256f4b9a461cf9a29ff6a, type: 3}
-  m_Name: InceptiionCollection
+  m_Name: InceptionHeartQuest
   m_EditorClassIdentifier: 
-  UID: df32f0082b74be9459bc6a444fa4ca3c
-  StartDay: 3
-  EndDay: 4
+  UID: d4f1404089c68044d9c095859892c6ca
+  StartDay: 8
+  EndDay: 8
   LowerThreshold: 3
   UpperThreshold: 5
   Chance: 100
   HappenOnce: 1
-  DialogueName: inception_collection
-  QuestData: {fileID: 11400000, guid: dc78e9a0c486f2b42a6c22ba06c89f55, type: 2}
+  DialogueName: inception_heart_quest
+  QuestData: {fileID: 11400000, guid: d60b2b5d28809914299b5a8318141621, type: 2}

@@ -13,6 +13,7 @@ public class FoodUsage : UsableItem
             playerItemInHand.TriggerAnimation("Use");
             HungerSystem.Instance.RaiseSaturation(food.Saturation);
             InventoryController.Instance.RemoveItem(1);
+            AudioSystem.PlaySound(item.SoundType);
         }
     }
 }
