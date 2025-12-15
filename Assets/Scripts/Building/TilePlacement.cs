@@ -84,9 +84,19 @@ public class TilePlacement : MonoBehaviour
         return TileValidation.CheckTileOnPlace(groundMap, position) && !TileValidation.CheckTileOnPlace(objectMap, position);
     }
 
+    public bool CheckWater(Vector3 position)
+    {
+        return !TileValidation.CheckTileOnPlace(groundMap, position);
+    }
+
     public bool ValidateTile(Vector3 position)
     {
         return TileValidation.CanPlaceObject(groundMap, position, new Vector2Int(1, 1), ObjectsPositions.ReceivePositions()) && !TileValidation.CheckTileOnPlace(objectMap, position);
+    }
+
+    public Vector3 GetWaterTileCenter(Vector3 position)
+    {
+        return TileValidation.GetTileCenterOnPlace(waterMap, position).Value;
     }
 
     public Vector2 RandomTilePosition()

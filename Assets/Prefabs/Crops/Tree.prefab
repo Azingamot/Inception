@@ -497,7 +497,7 @@ MonoBehaviour:
         m_CallState: 2
   timeToDie: 0.3
   timeToFinish: 0.3
-  requiredType: 0
+  requiredType: 1
   healthIndicator: {fileID: 7242898664789763634}
   mainTransform: {fileID: 2461212410756808034}
   spriteRenderer: {fileID: 6212671615575885088}

@@ -66,7 +66,7 @@ public static class SaveSystem
 
     private static void HandleSaveData()
     {
-        string name = saveData != null ? saveData.Name : $"Save ¹{CurrentSaveFile()}";
+        string name = saveData != null ? saveData.Name : $"Save ï¿½{CurrentSaveFile()}";
         saveData = GameManager.Instance.Save(name);
     }
 

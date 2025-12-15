@@ -8,7 +8,8 @@ public static class Rarities
 		Basic,
 		Uncommon,
 		Rare,
-		Legendary
+		Legendary,
+		Mythical
 	}
 
 	private static Dictionary<Rarity, Color> rarityMap = new Dictionary<Rarity, Color>()
@@ -17,6 +18,7 @@ public static class Rarities
 		{ Rarity.Uncommon, Color.dodgerBlue },
 		{ Rarity.Rare, Color.lightGreen },
 		{ Rarity.Legendary, Color.lightGoldenRod },
+		{ Rarity.Mythical, Color.rebeccaPurple }
 	};
 
 	public static Color ItemColor(Item item)

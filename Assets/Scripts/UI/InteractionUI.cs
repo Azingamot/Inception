@@ -33,15 +33,15 @@ public class InteractionUI : MonoBehaviour
         Show(prompt);
         if (waitCoroutine != null) 
             StopCoroutine(waitCoroutine);
-        waitCoroutine = StartCoroutine(Wait());
+        waitCoroutine = StartCoroutine(Wait(time));
     }
 
-    private IEnumerator Wait()
+    private IEnumerator Wait(float time)
     {
         while (canvasGroup.alpha > 0)
         {
-            canvasGroup.alpha -= 0.005f;
-            yield return null;
+            canvasGroup.alpha -= 0.005f * time;
+            yield return new WaitForFixedUpdate();
         }
         Hide();
     }

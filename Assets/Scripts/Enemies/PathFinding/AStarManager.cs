@@ -187,9 +187,13 @@ public class AStarManager : MonoBehaviour
         return foundNode;
     }
 
-    public Node RandomNode()
+    public Node RandomNode(Vector2 start, float distance)
     {
-        return Nodes[Random.Range(0, Nodes.Count - 1)];
+        Node[] distantNodes = Nodes.Where(u => Vector2.Distance(u.Position, start) > distance).ToArray();
+        if (distantNodes.Length > 0)
+            return distantNodes[Random.Range(0, distantNodes.Length)];
+        else
+            return Nodes[Random.Range(0, Nodes.Count)];
     }
 
     private void OnDrawGizmos()

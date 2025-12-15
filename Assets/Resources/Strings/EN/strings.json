@@ -2,7 +2,7 @@
     "NameStrings": [
         {
             "Name": "Damage",
-            "Value": "Урона"
+            "Value": "Damage"
         },
         {
             "Name": "Cooldown",
@@ -274,7 +274,7 @@
         },
         {
             "Name": "Fishing Rod_description",
-            "Value": "Allows you to fish from the water surrounding you. In addition to fish, it also allows you to get other useful things."
+            "Value": "Allows you to fish from the water surrounding you."
         },
         {
             "Name": "Knockback",
@@ -310,7 +310,7 @@
         },
         {
             "Name": "GemOfSunset_description",
-            "Value": "A gem obtained from an unknown species of fish found in the deepest blue sea. With sunset comes a new beginning."
+            "Value": "Obtained from an unknown species of fish. With sunset comes a new beginning."
         },
         {
             "Name": "PrimRose",
@@ -357,8 +357,8 @@
             "Value": "Enforced Hoe"
         },
         {
-            "Name": "Enforced undefined Hoe_description",
-            "Value": "A hoe enhanced with Gem Of Sunset and Primrose energy. Practically does not cause fatigue."
+            "Name": "Enforced Hoe_description",
+            "Value": "A hoe enhanced with Gem Of Sunset and Primrose energy. Causes almost no fatigue."
         },
         {
             "Name": "Crown Of Sunset",
@@ -380,7 +380,7 @@
             "Name": "Heart Of Creation_description",
             "Value": "A powerful artifact that serves as an offering to the one who called himself the Inception."
         },
-        {      
+        {
             "Name": "Cotton Collection",
             "Value": "Cotton Collection"
         },
@@ -415,6 +415,46 @@
         {
             "Name": "New quest",
             "Value": "New quest"
+        },
+        {
+            "Name": "Fishing Power",
+            "Value": "Fishing Power"
+        },
+        {
+            "Name": "ConstellationArchitectEmblem_description",
+            "Value": "Purpose unknown. Engraved on the back: 'Isn't it beautiful? I named my 282931st star after you.'"
+        },
+        {
+            "Name": "Dweller Rod",
+            "Value": "Dweller Fishing Rod"
+        },
+        {
+            "Name": "Dweller Rod_description",
+            "Value": "An advanced fishing rod, reinforced with Dweller claws. Allows you to catch fish faster and with a higher chance."
+        },
+        {
+            "Name": "Enforced Rod",
+            "Value": "Enforced Fishing Rod"
+        },
+        {
+            "Name": "Enforced Rod_description",
+            "Value": "A fishing rod enhanced with Gem Of Sunset and primrose energy. Now you'll have plenty of fish."
+        },
+        {
+            "Name": "ConstellationArchitectEmblem",
+            "Value": "ConstellationArchitectEmblem"
+        },
+        {
+            "Name": "ConstellationArchitectEmblem_description",
+            "Value": ""
+        },
+        {
+            "Name": "Seaweed",
+            "Value": "Seaweed"
+        },
+        {
+            "Name": "Seaweed_description",
+            "Value": "Grow at the bottom of the blue sea. Offer no benefit, but are mildly nutritious."
         }
     ]
 }

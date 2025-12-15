@@ -32,7 +32,8 @@ public class EnemyAnimator : MonoBehaviour
 
     public void PlayPrepareAttackAnimation()
     {
-        mainAnimator.SetFloat("State", 2);
+        mainAnimator.SetTrigger("Attack");
+        mainAnimator.SetFloat("State", 0);
     }
 
     public void PlayAttackAnimation()

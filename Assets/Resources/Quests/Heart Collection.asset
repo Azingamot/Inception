@@ -16,5 +16,7 @@ MonoBehaviour:
   Requirements:
   - Item: {fileID: 11400000, guid: 114f587fffd55ca4480a24c872764cc0, type: 2}
     Count: 1
-  Reward: []
+  Reward:
+  - Item: {fileID: 11400000, guid: 575446527123c2b43a157172d3b6deb7, type: 2}
+    Count: 1
   HoursToFinish: 48

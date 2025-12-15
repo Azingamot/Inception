@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1923469e9bccb084dbc2a78e82a0e8d8, type: 3}
+  m_Name: Dweller Rod
+  m_EditorClassIdentifier: Assembly-CSharp::FishingRodItem
+  UID: 91820a8b-070b-4a4b-b651-43bd5455f5ab
+  MaxStack: 1
+  ItemSprite: {fileID: 7355632172640008853, guid: 5e73265aff7f17f4aa82e2a2c5e44bd7, type: 3}
+  Animator: {fileID: 9100000, guid: 05c7d34d96d0f044d8c44bf382232884, type: 2}
+  Rarity: 1
+  SoundType: 0
+  FishingPower: 10
+  Cooldown: 1
+  BaitFlightTime: 0.8
+  BaitSprite: {fileID: 7520506892757138711, guid: 5e73265aff7f17f4aa82e2a2c5e44bd7, type: 3}

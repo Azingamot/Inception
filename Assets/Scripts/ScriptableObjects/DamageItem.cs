@@ -10,7 +10,7 @@ public abstract class DamageItem : Item
 	public override string FormatDescription()
 	{
 		return $"{Damage} {NamesHelper.ReceiveName("Damage")}" +
-			$"\n{ReloadTime} {NamesHelper.ReceiveName("Cooldown")}" +
+			$"\n{ReloadTime}s {NamesHelper.ReceiveName("Cooldown")}" +
 			$"\n{KnockbackValue} {NamesHelper.ReceiveName("Knockback")}\n" + base.FormatDescription();
 	}
 }

@@ -17,6 +17,8 @@ public class InventoryController : MonoBehaviour
     public static InventoryController Instance { get; private set; }
     private Item previousItem;
 
+    public bool CanChangeSelection { get; set; } = true;
+
     public void Initialize(SaveData saveData = null)
     {
         if (Instance == null)
@@ -119,6 +121,9 @@ public class InventoryController : MonoBehaviour
 
     public void ChangeSelectedSlot(int newIndex)
     {
+        if (!CanChangeSelection)
+            return;
+
         if (newIndex < 0 || newIndex >= ui.HotbarSlotsCount || Time.timeScale == 0) return;
 
         int prevIndex = SelectedSlotIndex;

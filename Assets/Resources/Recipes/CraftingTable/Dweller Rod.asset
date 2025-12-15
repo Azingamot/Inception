@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8498657c453a5c44fbd337deec46d96a, type: 3}
-  m_Name: Fence
+  m_Name: Dweller Rod
   m_EditorClassIdentifier: 
-  Result: {fileID: 11400000, guid: c8915c3c0ad6e804792b7ba46ab6c1b4, type: 2}
+  Result: {fileID: 11400000, guid: d4eb3ab6c0e9e584caf3e6a94b1f7139, type: 2}
   Count: 1
   Elements:
-  - Item: {fileID: 11400000, guid: b2594c9a59b2ec747a8efd9f06cc8730, type: 2}
-    Count: 5
+  - Item: {fileID: 11400000, guid: 346380386bfb2d8449099a5842b1e045, type: 2}
+    Count: 1
+  - Item: {fileID: 11400000, guid: d1b788acbdf5ae34db93f8c897961352, type: 2}
+    Count: 3

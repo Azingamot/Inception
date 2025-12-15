@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class PlayerItemInHand : MonoBehaviour
 {
+    public FishingLine FishingLine;
+    [SerializeField] private Transform anchor;
     [SerializeField] private SpriteRenderer itemSprite;
     [SerializeField] private Animator itemAnimator;
     [SerializeField] private float returnSpeed;
-    private Coroutine baseRotation;
+    private Coroutine rotationToBase;
+    private Vector2 basePosition;
     private readonly Dictionary<string, float> directionValues = new Dictionary<string, float>()
     {
         {"Up", 180f },
@@ -24,6 +27,7 @@ public class PlayerItemInHand : MonoBehaviour
     private void Awake()
     {
         itemSprite.sprite = null;
+        basePosition = anchor.localPosition;
     }
 
     public void ChangeItemSprite(Sprite newSprite)
@@ -43,10 +47,10 @@ public class PlayerItemInHand : MonoBehaviour
 
     public void SetRotation(Vector3 mousePos)
     {
-        if (baseRotation != null)
-            StopCoroutine(baseRotation);
+        if (rotationToBase != null)
+            StopCoroutine(rotationToBase);
 
-        transform.rotation = Quaternion.identity;
+        anchor.rotation = Quaternion.identity;
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(mousePos);
         string directionName = GetDirectionName(mouseWorldPos);
         ApplyDirection(directionName);
@@ -84,28 +88,26 @@ public class PlayerItemInHand : MonoBehaviour
 
     public void ResetRotation()
     {
-        if (baseRotation != null)
-            StopCoroutine(baseRotation);
-        baseRotation = StartCoroutine(RotateToBase());
+        if (rotationToBase != null)
+            StopCoroutine(rotationToBase);
+        rotationToBase = StartCoroutine(RotateToBase());
     }
 
     public void StopAnimation()
     {
         StopAllCoroutines();
-        itemAnimator.StopPlayback();
-        itemAnimator.runtimeAnimatorController = null;
+        anchor.localPosition = basePosition;
         ResetRotation();
     }
 
     private IEnumerator RotateToBase()
     {
         float elapsedTime = 0;
-        while (Quaternion.Angle(transform.rotation, Quaternion.identity) > 0)
+        while (Quaternion.Angle(transform.rotation, Quaternion.identity) != 0)
         {
             elapsedTime += Time.deltaTime;
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, returnSpeed * elapsedTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.identity,elapsedTime * returnSpeed);
             yield return new WaitForFixedUpdate();
-        }
-        transform.rotation = Quaternion.identity;
-    }
+		}
+	}
 }

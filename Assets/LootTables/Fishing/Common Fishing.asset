@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f24fad5d1ee6bb1489a6c64053188fa3, type: 3}
+  m_Name: Common Fishing
+  m_EditorClassIdentifier: Assembly-CSharp::LootTable
+  lootElements:
+  - DropItem: {fileID: 11400000, guid: 8ff07449c6a35cb4e9a0a1c10527c19f, type: 2}
+    DropChance: 60
+    DropCount: 1
+  - DropItem: {fileID: 11400000, guid: 4a73ec788ebae1d46bd4b3559e050fb6, type: 2}
+    DropChance: 30
+    DropCount: 1
+  - DropItem: {fileID: 11400000, guid: 2deefec31691e1249b894b0c7d32be83, type: 2}
+    DropChance: 40
+    DropCount: 1
+  - DropItem: {fileID: 11400000, guid: 71809a7ad8dc4ce4f86edac8043fe2f8, type: 2}
+    DropChance: 50
+    DropCount: 1
+  - DropItem: {fileID: 11400000, guid: 66706a9dc529b3e4a9d6ccc7d5cc8720, type: 2}
+    DropChance: 100
+    DropCount: 1

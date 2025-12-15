@@ -19,5 +19,5 @@ MonoBehaviour:
   UpperThreshold: 0
   Chance: 0
   HappenOnce: 1
-  DialogueName: inception_cotton_collection
+  DialogueName: inception_cotton_collection_success
   QuestData: {fileID: 11400000, guid: adaf99d200127404e8e6f9b0817cefba, type: 2}

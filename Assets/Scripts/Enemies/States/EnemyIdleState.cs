@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Idle State", menuName = "States/Idle State")]
 public class EnemyIdleState : EnemyState
 {
+    [SerializeField] private float patrolDistance = 3;
     public override void EnterState()
     {
         controller.CurrentNode = AStarManager.Instance.FindNearestNode(controller.transform.position);
@@ -14,14 +15,14 @@ public class EnemyIdleState : EnemyState
     public override void FixedUpdate()
     {
         Patrol();
-        controller.FollowPath(controller.Stats.BaseSpeed);
+        controller.FollowPath(controller.Speed);
     }
 
     private void Patrol()
     {
         if (controller.Path.Count == 0)
         {
-            controller.Path = AStarManager.Instance.GeneratePath(controller.CurrentNode, AStarManager.Instance.RandomNode());
+            controller.Path = AStarManager.Instance.GeneratePath(controller.CurrentNode, AStarManager.Instance.RandomNode(controller.CurrentNode.Position, patrolDistance));
         }
     }
 }

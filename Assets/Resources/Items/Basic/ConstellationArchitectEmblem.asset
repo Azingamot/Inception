@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ab2901fc10ea246a464f136d2a274c, type: 3}
+  m_Name: ConstellationArchitectEmblem
+  m_EditorClassIdentifier: Assembly-CSharp::BasicItem
+  UID: 07a72d0c-db26-4e26-96dc-aba56253baf1
+  MaxStack: 1
+  ItemSprite: {fileID: 97184717115333639, guid: e71ab7c95ff449243b9a981ca86098e6, type: 3}
+  Animator: {fileID: 0}
+  Rarity: 4
+  SoundType: 0

@@ -9,14 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcbecc2b23bce3e499d4c75692d6952d, type: 3}
+  m_Script: {fileID: 11500000, guid: 1923469e9bccb084dbc2a78e82a0e8d8, type: 3}
   m_Name: Fishing Rod
-  m_EditorClassIdentifier: 
-  UID: d9b0f763-c8da-47d7-9074-2755f0bdb284
+  m_EditorClassIdentifier: Assembly-CSharp::FishingRodItem
+  UID: 3fbb930c-3bc8-44d9-9516-180b3c2484f8
   MaxStack: 1
   ItemSprite: {fileID: 5268473884595868589, guid: e765a8a1d14fe7c41a40b84a63410777, type: 3}
-  Animator: {fileID: 9100000, guid: ba1363307658ff24085d38c60f7a6486, type: 2}
+  Animator: {fileID: 9100000, guid: 05c7d34d96d0f044d8c44bf382232884, type: 2}
   Rarity: 0
-  Damage: 8
-  ReloadTime: 2
-  DamageTypes: 0100000000000000
+  SoundType: 0
+  FishingPower: 5
+  Cooldown: 2
+  BaitFlightTime: 1
+  BaitSprite: {fileID: 54727165842766922, guid: 0736995c88af9f1419e81ecd30a64f2e, type: 3}

@@ -11,13 +11,25 @@ public class ClockController : MonoBehaviour
     [SerializeField] private UnityEvent<ClockContext> onClockTick;
     [SerializeField] private UnityEvent<ClockContext> onClockHour;
     [SerializeField] private UnityEvent<ClockContext> onTimeChanged;
-    [SerializeField] private float clockSpeed = 0.5f;
+    [SerializeField] private float defaultClockSpeed = 0.5f;
     public static int Minutes = 0;
     public static int Hours = 6;
     public static int Days = 1;
     public static DayTime DayTime = DayTime.Day;
     private Coroutine clocksCoroutine;
     private bool isInitialized = false;
+
+    private float clockSpeed;
+
+    private void Start()
+    {
+        clockSpeed = defaultClockSpeed;
+    }
+
+    public void ChangeClockSpeed(float divider)
+    {
+        clockSpeed = defaultClockSpeed / divider;
+    }
 
     private void FixedUpdate()
     { 

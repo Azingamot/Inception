@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1923469e9bccb084dbc2a78e82a0e8d8, type: 3}
+  m_Name: Enforced Rod
+  m_EditorClassIdentifier: Assembly-CSharp::FishingRodItem
+  UID: 7116332f-1a76-4c63-acfb-4123ae32c9dc
+  MaxStack: 1
+  ItemSprite: {fileID: -8034000047969238175, guid: 2ec03cdca1404f04f95d5eb186c28787, type: 3}
+  Animator: {fileID: 9100000, guid: 05c7d34d96d0f044d8c44bf382232884, type: 2}
+  Rarity: 3
+  SoundType: 0
+  FishingPower: 20
+  Cooldown: 0.5
+  BaitFlightTime: 0.5
+  BaitSprite: {fileID: -1502904396774161160, guid: 2ec03cdca1404f04f95d5eb186c28787, type: 3}

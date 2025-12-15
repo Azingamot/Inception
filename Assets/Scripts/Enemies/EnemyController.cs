@@ -41,6 +41,11 @@ public class EnemyController : MonoBehaviour
     private EnemyState followStateInstance;
     private EnemyState attackStateInstance;
 
+    private float lastTimeChangedState = 0;
+    private float speedModifier = 1;
+
+    public float Speed => Stats.BaseSpeed * speedModifier;
+
     private void Awake()
     {
         stateMachine = new();
@@ -53,6 +58,7 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        speedModifier = Random.Range(0.8f, 1f);
 
         followTrigger.Initialize(this, followStateInstance, idleStateInstance);
         attackTrigger.Initialize(this, attackStateInstance, followStateInstance);
@@ -105,32 +111,37 @@ public class EnemyController : MonoBehaviour
     public void StateTriggered(EnemyState state)
     {
         if (!CanChangeStates) return;
-
+ 
         if (IsPlayerInAttackRange)
         {
             if (stateMachine.CurrentState != attackStateInstance)
                 StateChange(attackStateInstance);
             return;
         }
-
         if (IsPlayerInFollowRange)
         {
             if (stateMachine.CurrentState != followStateInstance)
-                StateChange(followStateInstance);
+				StateChange(followStateInstance);
             return;
         }
-
-        if (stateMachine.CurrentState != idleStateInstance)
+        if (stateMachine.CurrentState != idleStateInstance && ValidateStateChangeByTime())
         {
-            StateChange(idleStateInstance);
+			StateChange(idleStateInstance);
             return;
         }
     }
 
+    private bool ValidateStateChangeByTime()
+    {
+        return (Time.time - lastTimeChangedState) > 2;
+
+	}
+
     private void StateChange(EnemyState state)
     {
-        stateMachine.ChangeState(state);
+		stateMachine.ChangeState(state);
         rb.linearVelocity = Vector2.zero;
+        lastTimeChangedState = Time.time;
         Debug.Log($"State Changed to {state.GetType()}");
     }
 
@@ -176,7 +187,7 @@ public class EnemyController : MonoBehaviour
     private void StopMovement()
     {
         if (stateMachine.CurrentState != attackStateInstance) AnimationTriggerEvent(AnimationTriggerType.Idle);
-        rb.linearVelocity = Vector2.zero;
+        if (canMove) rb.linearVelocity = Vector2.zero;
     }
 
     public void AnimationTriggerEvent(AnimationTriggerType type)
@@ -211,12 +222,12 @@ public class EnemyController : MonoBehaviour
     private IEnumerator WaitForKnockback(Vector2 direction)
     {
         int count = 0;
-        while (count <= 25)
+        while (count <= 100)
         {
             count++;
             if (InvalidateKnockback(direction))
                 break;
-            yield return new WaitForSeconds(0.01f);
+            yield return null;
         }
         rb.linearVelocity = Vector2.zero;
         CanChangeStates = true;

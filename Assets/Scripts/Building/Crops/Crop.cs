@@ -10,6 +10,7 @@ public class Crop : MonoBehaviour, IObserver, IInteractable
     [SerializeField] private InteractionUI interactionUI;
     [SerializeField] private UnityEvent onStateChanged;
     [SerializeField] private UnityEvent<LootTable> onGather;
+    [SerializeField] private float interactionShowTime = 1;
     private float currentTime;
     private int currentStateIndex;
     private bool canGrow = true;
@@ -113,6 +114,6 @@ public class Crop : MonoBehaviour, IObserver, IInteractable
 
     private void ShowTimeToGrow()
     {
-        interactionUI.TemporaryShow($"{currentTime}/{data.cropStates[data.cropStates.Count - 1].TimeToChange + randomValue}");
+        interactionUI.TemporaryShow($"{currentTime}/{data.cropStates[data.cropStates.Count - 1].TimeToChange + randomValue}", interactionShowTime);
     }
 }

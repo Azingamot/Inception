@@ -1,14 +1,12 @@
 using System.Collections;
 using System.IO;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "Follow State", menuName = "States/Follow State")]
 public class EnemyFollowState : EnemyState
 {
     private Coroutine pathFindingCoroutine;
-    float minPathUpdateTime = 0.2f;
-    float maxPathUpdateTime = 0.05f;
 
     public override void AnimationTriggerEvent(AnimationTriggerType type)
     {
@@ -30,7 +28,7 @@ public class EnemyFollowState : EnemyState
 
     public override void FixedUpdate()
     {
-        controller.FollowPath(controller.Stats.BaseSpeed);
+        controller.FollowPath(controller.Speed);
     }
 
     private IEnumerator PathFindingLoop()
@@ -40,11 +38,13 @@ public class EnemyFollowState : EnemyState
             Node enemyNode = AStarManager.Instance.FindNearestNode(controller.transform.position);
             Node targetNode = AStarManager.Instance.FindNearestNode(PlayerPosition.GetData());
 
-            float distance = Vector2.Distance(enemyNode.Position, targetNode.Position);
+            List<Node> path = AStarManager.Instance.GeneratePath(enemyNode, targetNode);
 
-            float updateDelay = Mathf.Lerp(minPathUpdateTime, maxPathUpdateTime, distance / 10f);
+            float distance = Vector2.Distance(enemyNode.Position, path[0].Position);
 
-            controller.ChangePath(AStarManager.Instance.GeneratePath(enemyNode, targetNode));
+            float updateDelay = distance / controller.Speed;
+
+            controller.ChangePath(path);
 
             yield return new WaitForSeconds(updateDelay);
         }

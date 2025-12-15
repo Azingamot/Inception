@@ -43,7 +43,7 @@ public class DropItems : MonoBehaviour
         SpawnDropOnPosition(pos, item, count);
     }
 
-    private void SpawnDropOnPosition(Vector2 pos, Item item, int count)
+    public void SpawnDropOnPosition(Vector2 pos, Item item, int count)
     {
         CollectableItem itemToCollect = Instantiate<CollectableItem>(dropPrefab, pos, Quaternion.identity);
         itemToCollect.Initialize(item, count);

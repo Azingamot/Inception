@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Cotton Item
   m_EditorClassIdentifier: 
   UID: fefdc8a7-00b6-419f-915a-f3cb25eb992a
-  Description: 
   MaxStack: 100
   ItemSprite: {fileID: 3370835481429039019, guid: a5fc250ceec98064187a3211e2ecf520, type: 3}
   Animator: {fileID: 0}
+  Rarity: 0
+  SoundType: 0

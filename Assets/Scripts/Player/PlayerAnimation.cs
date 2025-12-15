@@ -10,6 +10,7 @@ public class PlayerAnimation : MonoBehaviour
     private Vector2 baseScale;
     private bool isWalking = false;
     private float timer = 0;
+    private bool canRotate = true;
 
     private void Awake()
     {
@@ -18,7 +19,7 @@ public class PlayerAnimation : MonoBehaviour
     }
     public void Animate(Rigidbody2D rb, Vector2 mousePos)
     {
-        CheckRotation(mousePos);
+        if (canRotate) CheckRotation(mousePos);
         if (rb.linearVelocity.magnitude > 0)
         {
             SpawnParticles();
@@ -28,6 +29,16 @@ public class PlayerAnimation : MonoBehaviour
         {
             SwitchAnimation(false);
         }
+    }
+
+    public void DisableRotation()
+    {
+        canRotate = false;
+    }
+
+    public void EnableRotation()
+    {
+        canRotate = true;
     }
 
     /// <summary>

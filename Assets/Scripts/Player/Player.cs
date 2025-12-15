@@ -21,7 +21,8 @@ public class Player : MonoBehaviour
     private Vector2 direction;
     private Rigidbody2D rb;
     private Vector3 mousePos;
-    private bool isActive = true;
+    private bool canUseItems = true;
+    private bool canMove = true;
 
     void Start()
     {
@@ -31,15 +32,19 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        DialogueSystem.Instance.OnDialogueStart.AddListener(Disable);
-        DialogueSystem.Instance.OnDialogueEnd.AddListener(Enable);
+        DialogueSystem.Instance.OnDialogueStart.AddListener(DisableItemUsage);
+        DialogueSystem.Instance.OnDialogueStart.AddListener(DisableMovement);
+        DialogueSystem.Instance.OnDialogueEnd.AddListener(EnableItemUsage);
+        DialogueSystem.Instance.OnDialogueEnd.AddListener(EnableMovement);
         useInput.action.started += UseItem;
     }
 
     private void OnDisable()
     {
-        DialogueSystem.Instance.OnDialogueStart.RemoveListener(Disable);
-        DialogueSystem.Instance.OnDialogueEnd.RemoveListener(Enable);
+        DialogueSystem.Instance.OnDialogueStart.RemoveListener(DisableItemUsage);
+        DialogueSystem.Instance.OnDialogueStart.RemoveListener(DisableMovement);
+        DialogueSystem.Instance.OnDialogueEnd.RemoveListener(EnableItemUsage);
+        DialogueSystem.Instance.OnDialogueEnd.RemoveListener(EnableMovement);
         useInput.action.started -= UseItem;
     }
 
@@ -48,31 +53,40 @@ public class Player : MonoBehaviour
     {
         MovementInput();
         SetMousePosition();
-        if (isActive) playerMovement.Move(direction, rb);
+        if (canMove) playerMovement.Move(direction, rb);
         playerAnimation.Animate(rb, mousePos);
     }
 
-    public void Disable()
+    public void DisableItemUsage()
     {
-        isActive = false;
+        canUseItems = false;
+    }
+
+    public void EnableItemUsage()
+    {
+        canUseItems = true;
+    }
+
+    public void DisableMovement()
+    {
+        canMove = false;
+        playerAnimation.DisableRotation();
         rb.linearVelocity = Vector2.zero;
         StopAllCoroutines();
     }
 
-    public void Enable()
+    public void EnableMovement()
     {
-        isActive = true;
+        canMove = true;
+        playerAnimation.EnableRotation();
     }
 
     private void UseItem(InputAction.CallbackContext context)
     {
-        if (isActive)
+        if (canUseItems)
             playerItemUse.UseItem();
     }
 
-    /// <summary>
-    /// Получает данные о направлении движения игрока
-    /// </summary>
     public void MovementInput()
     {
         direction = move.action.ReadValue<Vector2>();
@@ -80,7 +94,7 @@ public class Player : MonoBehaviour
 
     public void Knockback(Transform source, float power)
     {
-        isActive = false;
+        canUseItems = false;
         playerMovement.Knockback(source, power, rb);
         StartCoroutine(WaitForKnockback());
     }
@@ -88,12 +102,9 @@ public class Player : MonoBehaviour
     private IEnumerator WaitForKnockback()
     {
         yield return new WaitForSeconds(0.2f);
-        isActive = true;
+        canUseItems = true;
     }
 
-    /// <summary>
-    /// Получает данные о расположении курсора в пространстве
-    /// </summary>
     private void SetMousePosition()
     {
         mousePos = Camera.main.ScreenToWorldPoint(look.action.ReadValue<Vector2>());

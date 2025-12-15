@@ -17,4 +17,5 @@ MonoBehaviour:
   ItemSprite: {fileID: -1915776564401465818, guid: e283b788bfad299468ba2e3152a0a32a, type: 3}
   Animator: {fileID: 9100000, guid: 05c7d34d96d0f044d8c44bf382232884, type: 2}
   Rarity: 0
-  Saturation: 35
+  SoundType: 0
+  Saturation: 20

@@ -58,7 +58,8 @@ public class CollectableItem : MonoBehaviour, ICollectable
         foreach (var pair in mergingCoroutines)
         {
             StopCoroutine(pair.Value);
-            pair.Key.transform.position = defaultScale;
+            if (pair.Key != null)
+                pair.Key.transform.localScale = defaultScale;
         }
         return new ItemPickupContext(gameObject, collectableItem, itemsCount);
     }
