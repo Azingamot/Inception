@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class DamageDealer : MonoBehaviour
 {
+    [SerializeField] private Transform source;
     private DamageItem item;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -12,7 +13,7 @@ public class DamageDealer : MonoBehaviour
             if (selected is DamageItem)
             {
                 item = (DamageItem)selected;
-                component.ReceiveDamage(item.Damage, item, transform);
+                component.ReceiveDamage(item.Damage, item, source);
             }
         }
     }

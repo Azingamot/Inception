@@ -1,5 +1,4 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -75,7 +74,7 @@ public class InventorySlotUI : MonoBehaviour, IDragHandler, IDropHandler, IBegin
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (slotIndex < controller.data.HotbarSize)
+        if (slotIndex < controller.Data.HotbarSize)
         {
             controller.ChangeSelectedSlot(slotIndex);
         }

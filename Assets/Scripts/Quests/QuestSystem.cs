@@ -30,7 +30,7 @@ public class QuestSystem : MonoBehaviour
         InventoryController inventory = InventoryController.Instance;
         foreach (RecipeElement element in quest.QuestData.Requirements)
         {
-            InventorySlotData slotData = inventory.data.GetSlotWithItem(element.Item, element.Count);
+            InventorySlotData slotData = inventory.Data.GetSlotWithItem(element.Item, element.Count);
             if (slotData == null)
             {
                 TextNotificationUI.Instance.Notify(quest.QuestData.Title + " " + NamesHelper.ReceiveName("failed") + "!");

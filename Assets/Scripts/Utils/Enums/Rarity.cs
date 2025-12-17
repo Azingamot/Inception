@@ -18,7 +18,7 @@ public static class Rarities
 		{ Rarity.Uncommon, Color.dodgerBlue },
 		{ Rarity.Rare, Color.lightGreen },
 		{ Rarity.Legendary, Color.lightGoldenRod },
-		{ Rarity.Mythical, Color.rebeccaPurple }
+		{ Rarity.Mythical, Color.pink }
 	};
 
 	public static Color ItemColor(Item item)

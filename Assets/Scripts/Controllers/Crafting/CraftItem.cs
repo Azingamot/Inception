@@ -21,7 +21,7 @@ public class CraftItem : MonoBehaviour
     {
         foreach (RecipeElement element in recipe.Elements)
         {
-            InventorySlotData inventorySlotData = InventoryController.Instance.data.GetSlotWithItem(element.Item, element.Count);
+            InventorySlotData inventorySlotData = InventoryController.Instance.Data.GetSlotWithItem(element.Item, element.Count);
             if (inventorySlotData == null)
                 return false;
         }

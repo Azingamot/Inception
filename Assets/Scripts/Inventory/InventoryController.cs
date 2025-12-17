@@ -8,7 +8,7 @@ public class InventoryController : MonoBehaviour
     [SerializeField] private float scrollThreshold = 0.3f;
     [SerializeField] private InputActionReference inputNumber, inputScroll;
     [SerializeField] private ItemDescription itemDescription;
-    public InventoryData data { get; private set; }
+    public InventoryData Data { get; private set; }
 
     private int selectedSlotIndex = -1;
 
@@ -26,7 +26,7 @@ public class InventoryController : MonoBehaviour
             Instance = this;
         }
 
-        data = new InventoryData();
+        Data = new InventoryData();
         List<InventorySlotUI> uis = ui.InitializeSlots();
 
         if (saveData != null)
@@ -40,7 +40,7 @@ public class InventoryController : MonoBehaviour
         for (int i = 0; i < uis.Count; i++)
         {
             InventorySlotData slotData = new InventorySlotData(i);
-            data.AddData(slotData);
+            Data.AddData(slotData);
             uis[i].Setup(slotData, i, this, itemDescription);
         }
     }
@@ -56,7 +56,7 @@ public class InventoryController : MonoBehaviour
                 ItemInSlot = ResourcesHelper.FindItemResource<Item>(slotInfo.itemUID),
                 Count = slotInfo.count
             };
-            data.AddData(inventorySlotData);
+            Data.AddData(inventorySlotData);
             uis[i].Setup(inventorySlotData, slots[i].slotIndex, this, itemDescription);
         }
     }
@@ -64,7 +64,7 @@ public class InventoryController : MonoBehaviour
     public List<InventorySlotInfo> Save()
     {
         List<InventorySlotInfo> slotInfos = new List<InventorySlotInfo>();
-        foreach (InventorySlotData slotData in data.Slots)
+        foreach (InventorySlotData slotData in Data.Slots)
         {
             slotInfos.Add(new InventorySlotInfo(slotData.Index, slotData.ItemInSlot, slotData.Count));
         }
@@ -141,7 +141,7 @@ public class InventoryController : MonoBehaviour
         }
 
         ui.SetSlotSelected(selectedSlotIndex, true);
-        SelectionChangeHandler.instance.ChangeSelection(data.Slots[selectedSlotIndex]);
+        SelectionChangeHandler.instance.ChangeSelection(Data.Slots[selectedSlotIndex]);
     }
 
     private int ClampSlotIndex(int index)
@@ -154,12 +154,12 @@ public class InventoryController : MonoBehaviour
     public Item GetSelectedItem()
     {
         if (selectedSlotIndex < 0) return null;
-        return data.Slots[selectedSlotIndex].ItemInSlot;
+        return Data.Slots[selectedSlotIndex].ItemInSlot;
     }
 
     public void AddItem(Item item, int count = 1)
     {
-        if (data.AddItem(item, count))
+        if (Data.AddItem(item, count))
         {
             Refresh();
         }
@@ -167,30 +167,30 @@ public class InventoryController : MonoBehaviour
 
     public void RemoveItem(int slotIndex, int count)
     {
-        data.RemoveItem(slotIndex, count);
+        Data.RemoveItem(slotIndex, count);
         Refresh();
     }
 
     public void RemoveItem(Item item, int count)
     {
-        InventorySlotData slotData = data.GetSlotWithItem(item, count);
+        InventorySlotData slotData = Data.GetSlotWithItem(item, count);
         if (slotData != null)
         {
-           data.RemoveItem(slotData, count);
+           Data.RemoveItem(slotData, count);
         }
         Refresh();
     }
 
     public void RemoveItem(int count)
     {
-        data.RemoveItem(selectedSlotIndex, count);
-        ui.RefreshSlots(data.Slots);
+        Data.RemoveItem(selectedSlotIndex, count);
+        ui.RefreshSlots(Data.Slots);
         ChangeSelectedSlot(selectedSlotIndex);
     }
 
     public void OnItemPicked(ItemPickupContext ctx)
     {
-        if (data.HaveSpaceForItem(ctx.InventoryItem, ctx.ItemsCount))
+        if (Data.HaveSpaceForItem(ctx.InventoryItem, ctx.ItemsCount))
         {
             ChangeSelectedSlot(SelectedSlotIndex);
             AddItem(ctx.InventoryItem, ctx.ItemsCount);
@@ -200,8 +200,8 @@ public class InventoryController : MonoBehaviour
 
     public void SwapItems(int fromIndex, int toIndex)
     {
-        var fromSlot = data.Slots[fromIndex];
-        var toSlot = data.Slots[toIndex];
+        var fromSlot = Data.Slots[fromIndex];
+        var toSlot = Data.Slots[toIndex];
 
         var tempItem = toSlot.ItemInSlot;
         var tempCount = toSlot.Count;
@@ -218,6 +218,6 @@ public class InventoryController : MonoBehaviour
     private void Refresh()
     {
         ChangeSelectedSlot(SelectedSlotIndex);
-        ui.RefreshSlots(data.Slots);
+        ui.RefreshSlots(Data.Slots);
     }
 }

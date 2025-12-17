@@ -19,7 +19,7 @@ public class PickupNotifications : MonoBehaviour, IObserver
     public void OnUpdate(object context)
     {
         ItemPickupContext itemContext = (ItemPickupContext)context;
-        if (inventoryController.data.HaveSpaceForItem(itemContext.InventoryItem))
+        if (inventoryController.Data.HaveSpaceForItem(itemContext.InventoryItem))
         {
             Notification notificationInstance = Instantiate<Notification>(notificationPrefab, notificationLayout.transform, false);
             notificationInstance.Initialize(itemContext);

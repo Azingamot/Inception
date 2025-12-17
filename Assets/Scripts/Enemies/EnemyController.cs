@@ -222,12 +222,12 @@ public class EnemyController : MonoBehaviour
     private IEnumerator WaitForKnockback(Vector2 direction)
     {
         int count = 0;
-        while (count <= 100)
+        while (count <= 25)
         {
             count++;
             if (InvalidateKnockback(direction))
                 break;
-            yield return null;
+            yield return new WaitForFixedUpdate();
         }
         rb.linearVelocity = Vector2.zero;
         CanChangeStates = true;
@@ -236,8 +236,9 @@ public class EnemyController : MonoBehaviour
 
     private bool InvalidateKnockback(Vector3 direction)
     {
-        bool raycastHit = Physics2D.Raycast(transform.position, direction, 0.1f, wallMask);
-        return raycastHit;
+        bool raycastHit = Physics2D.Raycast(transform.position, direction, 0.15f, wallMask);
+        bool circleHit = Physics2D.OverlapCircle(transform.position, 0.05f, wallMask);
+        return raycastHit || circleHit;
     }
 
     private void OnDrawGizmos()

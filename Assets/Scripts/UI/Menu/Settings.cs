@@ -131,7 +131,7 @@ public class Settings : MonoBehaviour
 
     public void SetFullscreen(bool fullScreen)
     {
-        Screen.fullScreenMode = fullScreen ? FullScreenMode.FullScreenWindow : FullScreenMode.MaximizedWindow;
+        Screen.fullScreenMode = fullScreen ? FullScreenMode.ExclusiveFullScreen : FullScreenMode.MaximizedWindow;
     }
 
     private float ReceiveFloatFromPlayerPrefs(string floatName, float defaultValue = 0)

@@ -19,6 +19,9 @@ public class TilePlacement : MonoBehaviour
     [SerializeField] private UnityEvent tileUpdatedEvent;
     public static TilePlacement Instance;
 
+    [Header("Helpers")]
+    [SerializeField] private TileMapFrameSync frameSync;
+
     private void Start()
     {
         if (Instance == null)
@@ -76,17 +79,17 @@ public class TilePlacement : MonoBehaviour
         Vector3Int below = new Vector3Int(intPos.x, intPos.y - 1);
 
         if (!CheckGround(below))
-            waterMap.SetTile(below, waterAnim);
+            frameSync.SetAnimatedTile(below, waterAnim);
     }
 
     public bool CheckGround(Vector3 position)
     {
-        return TileValidation.CheckTileOnPlace(groundMap, position) && !TileValidation.CheckTileOnPlace(objectMap, position);
+        return TileValidation.CheckTileOnPlace(groundMap, GetGroundTileCenter(position)) && !TileValidation.CheckTileOnPlace(objectMap, position);
     }
 
     public bool CheckWater(Vector3 position)
     {
-        return !TileValidation.CheckTileOnPlace(groundMap, position);
+        return !TileValidation.CheckTileOnPlace(groundMap, GetGroundTileCenter(position));
     }
 
     public bool ValidateTile(Vector3 position)
@@ -96,7 +99,20 @@ public class TilePlacement : MonoBehaviour
 
     public Vector3 GetWaterTileCenter(Vector3 position)
     {
-        return TileValidation.GetTileCenterOnPlace(waterMap, position).Value;
+        Vector3? center = TileValidation.GetTileCenterOnPlace(waterMap, position);
+        if (center != null)
+            return center.Value;
+        else
+            return position;
+    }
+
+    public Vector3 GetGroundTileCenter(Vector3 position)
+    {
+        Vector3? center = TileValidation.GetTileCenterOnPlace(groundMap, position);
+        if (center != null)
+            return center.Value;
+        else
+            return position;
     }
 
     public Vector2 RandomTilePosition()

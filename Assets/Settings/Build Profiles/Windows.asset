@@ -172,7 +172,7 @@ MonoBehaviour:
     - line: '|   loadStoreDebugModeEnabled: 0'
     - line: '|   visionOSBundleVersion: 1.0'
     - line: '|   tvOSBundleVersion: 1.0'
-    - line: '|   bundleVersion: 0.7'
+    - line: '|   bundleVersion: 1.0'
     - line: '|   preloadedAssets:'
     - line: '|   - {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100,
         type: 3}'
@@ -741,7 +741,7 @@ MonoBehaviour:
     - line: '|   gcIncremental: 1'
     - line: '|   gcWBarrierValidation: 0'
     - line: '|   apiCompatibilityLevelPerPlatform: {}'
-    - line: '|   editorAssembliesCompatibilityLevel: 1'
+    - line: '|   editorAssembliesCompatibilityLevel: 2'
     - line: '|   m_RenderingPath: 1'
     - line: '|   m_MobileRenderingPath: 1'
     - line: '|   metroPackageName: Inception'
